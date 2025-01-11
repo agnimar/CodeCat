@@ -1,0 +1,915 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Default
+  m_EditorClassIdentifier: Assembly-CSharp-Editor:VegetationPainter:VegetationPainterData
+  placements:
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 11.355872, y: 3.940557, z: 67.62909}
+    rotation: {x: -0.039676674, y: 0.6904976, z: -0.044912804, w: -0.7208479}
+    scale: {x: 0.9334696, y: 0.9334696, z: 0.9334696}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 9.910493, y: 3.940557, z: 62.798534}
+    rotation: {x: -0.09156001, y: 0.96591234, z: -0.04245162, w: 0.23838644}
+    scale: {x: 0.930391, y: 0.930391, z: 0.930391}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 8.44432, y: 3.940557, z: 57.908627}
+    rotation: {x: -0.046213668, y: 0.3721155, z: 0.060788613, w: -0.92504007}
+    scale: {x: 0.90840024, y: 0.90840024, z: 0.90840024}
+    category: tree_2
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 7.1866837, y: 3.940557, z: 52.21155}
+    rotation: {x: -0.0098927105, y: 0.48584953, z: -0.025615163, w: 0.87361103}
+    scale: {x: 0.8798758, y: 0.8798758, z: 0.8798758}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 6.6176753, y: 3.940557, z: 47.189857}
+    rotation: {x: -0.05875691, y: 0.35772443, z: -0.0075333836, w: -0.93194646}
+    scale: {x: 1.0537415, y: 1.0537415, z: 1.0537415}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 6.501934, y: 3.940557, z: 41.763603}
+    rotation: {x: 0.07169681, y: -0.07743196, z: -0.004040587, w: 0.9944082}
+    scale: {x: 0.98575294, y: 0.98575294, z: 0.98575294}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 6.201952, y: 3.940557, z: 36.908665}
+    rotation: {x: 0.06428061, y: 0.90661997, z: 0.0012662314, w: -0.41702121}
+    scale: {x: 0.9352404, y: 0.9352404, z: 0.9352404}
+    category: tree_2
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 5.99239, y: 3.940557, z: 31.745638}
+    rotation: {x: 0.03906225, y: 0.9257154, z: -0.0021607084, w: -0.37619218}
+    scale: {x: 1.0483042, y: 1.0483042, z: 1.0483042}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 6.269125, y: 3.940557, z: 26.376535}
+    rotation: {x: -0.011201084, y: 0.31554428, z: -0.09390157, w: 0.9441869}
+    scale: {x: 1.1567128, y: 1.1567128, z: 1.1567128}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 6.9235487, y: 3.940557, z: 21.279335}
+    rotation: {x: -0.0652316, y: 0.9403315, z: -0.05298593, w: 0.32971796}
+    scale: {x: 1.1034772, y: 1.1034772, z: 1.1034772}
+    category: tree_2
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 7.934653, y: 3.940557, z: 16.080265}
+    rotation: {x: 0.07199334, y: 0.7194734, z: -0.0038181334, w: -0.69076794}
+    scale: {x: 0.9637196, y: 0.9637196, z: 0.9637196}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 9.460897, y: 3.940557, z: 11.156997}
+    rotation: {x: 0.07690394, y: 0.99664694, z: 0.0064540566, w: 0.027184427}
+    scale: {x: 1.0979131, y: 1.0979131, z: 1.0979131}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 13.61545, y: 3.940557, z: 7.4484663}
+    rotation: {x: 0.08956096, y: 0.5528958, z: 0.027587067, w: -0.8279638}
+    scale: {x: 1.1836014, y: 1.1836014, z: 1.1836014}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 19.1681, y: 3.940557, z: 6.4558415}
+    rotation: {x: -0.04799282, y: 0.10546179, z: 0.03634916, w: -0.99259925}
+    scale: {x: 1.0047, y: 1.0047, z: 1.0047}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 24.10153, y: 3.940557, z: 5.8466644}
+    rotation: {x: -0.009224808, y: 0.8847885, z: -0.026776709, w: -0.4651314}
+    scale: {x: 1.1766036, y: 1.1766036, z: 1.1766036}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 29.122002, y: 3.940557, z: 5.409316}
+    rotation: {x: 0.033107076, y: 0.3072952, z: -0.0102576325, w: 0.95098287}
+    scale: {x: 1.1307849, y: 1.1307849, z: 1.1307849}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 34.38728, y: 3.940557, z: 4.6476483}
+    rotation: {x: 0.050635286, y: 0.49083814, z: -0.038518414, w: 0.8689248}
+    scale: {x: 1.1159155, y: 1.1159155, z: 1.1159155}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 39.6676, y: 3.940557, z: 4.205633}
+    rotation: {x: -0.031829186, y: 0.35039052, z: 0.02118858, w: -0.9358229}
+    scale: {x: 0.811359, y: 0.811359, z: 0.811359}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 44.63887, y: 3.940557, z: 3.9009995}
+    rotation: {x: -0.03283278, y: 0.31954628, z: 0.097375564, w: -0.9419821}
+    scale: {x: 1.0419421, y: 1.0419421, z: 1.0419421}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 49.659916, y: 3.940557, z: 3.803726}
+    rotation: {x: -0.12062505, y: 0.7875728, z: -0.0064197364, w: -0.60426617}
+    scale: {x: 0.8378909, y: 0.8378909, z: 0.8378909}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 54.712074, y: 3.940557, z: 3.782523}
+    rotation: {x: 0.040177986, y: 0.111668594, z: 0.107568495, w: 0.98708916}
+    scale: {x: 0.91314447, y: 0.91314447, z: 0.91314447}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 59.838913, y: 3.940557, z: 4.7265215}
+    rotation: {x: 0.023358133, y: 0.74984264, z: -0.11993836, w: -0.65023476}
+    scale: {x: 1.0293009, y: 1.0293009, z: 1.0293009}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 64.289764, y: 3.940557, z: 6.6858764}
+    rotation: {x: -0.097063065, y: 0.5307146, z: -0.07361332, w: -0.83875024}
+    scale: {x: 1.1323401, y: 1.1323401, z: 1.1323401}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 68.957, y: 3.940557, z: 8.88099}
+    rotation: {x: 0.087858185, y: 0.7836548, z: -0.059143923, w: -0.6121013}
+    scale: {x: 1.1800208, y: 1.1800208, z: 1.1800208}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 72.17723, y: 3.940557, z: 13.084211}
+    rotation: {x: 0.060369812, y: 0.70131534, z: -0.031876527, w: -0.7095747}
+    scale: {x: 1.0164179, y: 1.0164179, z: 1.0164179}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 73.053734, y: 3.940557, z: 18.103214}
+    rotation: {x: 0.07197721, y: 0.73977345, z: 0.10751181, w: 0.6602998}
+    scale: {x: 0.963789, y: 0.963789, z: 0.963789}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 73.1849, y: 3.940557, z: 23.12987}
+    rotation: {x: 0.022633865, y: 0.986361, z: 0.08838626, w: -0.1369946}
+    scale: {x: 1.0533602, y: 1.0533602, z: 1.0533602}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 72.840294, y: 3.940557, z: 28.267817}
+    rotation: {x: 0.057127643, y: 0.939445, z: -0.07565692, w: -0.32932585}
+    scale: {x: 0.80457693, y: 0.80457693, z: 0.80457693}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 72.27019, y: 3.940556, z: 33.70565}
+    rotation: {x: 0.06886945, y: 0.65512276, z: -0.06901807, w: 0.74920475}
+    scale: {x: 1.0226893, y: 1.0226893, z: 1.0226893}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 72.240616, y: 3.940558, z: 38.731236}
+    rotation: {x: 0.09437007, y: 0.9672103, z: 0.080881014, w: 0.22148786}
+    scale: {x: 0.94642884, y: 0.94642884, z: 0.94642884}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 72.15439, y: 3.940557, z: 44.31074}
+    rotation: {x: 0.023668796, y: 0.9214137, z: -0.0421855, w: 0.3855605}
+    scale: {x: 1.1136045, y: 1.1136045, z: 1.1136045}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 71.69061, y: 3.940557, z: 49.164024}
+    rotation: {x: -0.0081475545, y: 0.92141205, z: 0.020970983, w: -0.38793525}
+    scale: {x: 0.80026823, y: 0.80026823, z: 0.80026823}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 70.81188, y: 3.940557, z: 54.71585}
+    rotation: {x: -0.0722714, y: -0.076757796, z: -0.012551533, w: -0.9943479}
+    scale: {x: 0.86403304, y: 0.86403304, z: 0.86403304}
+    category: tree_2
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 69.75024, y: 3.940558, z: 59.76314}
+    rotation: {x: 0.07255639, y: 0.40797752, z: -0.02812098, w: 0.9096698}
+    scale: {x: 1.1119453, y: 1.1119453, z: 1.1119453}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 69.017494, y: 3.940556, z: 64.57117}
+    rotation: {x: 0.009680022, y: 0.9943059, z: 0.015012171, w: 0.10505614}
+    scale: {x: 0.81656855, y: 0.81656855, z: 0.81656855}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 66.29282, y: 3.940557, z: 68.83813}
+    rotation: {x: -0.07986896, y: 0.7600222, z: 0.012806911, w: 0.6448435}
+    scale: {x: 1.1955523, y: 1.1955523, z: 1.1955523}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 61.028065, y: 3.940557, z: 71.06985}
+    rotation: {x: 0.037443284, y: 0.29297107, z: 0.050905757, w: 0.95403075}
+    scale: {x: 0.9502208, y: 0.9502208, z: 0.9502208}
+    category: tree_2
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 55.936317, y: 3.940557, z: 72.055855}
+    rotation: {x: 0.058739565, y: 0.4124613, z: 0.020392837, w: 0.90885067}
+    scale: {x: 1.0420272, y: 1.0420272, z: 1.0420272}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 50.83466, y: 3.940557, z: 73.07113}
+    rotation: {x: 0.02789715, y: 0.34357485, z: 0.025112372, w: 0.93837494}
+    scale: {x: 1.1895115, y: 1.1895115, z: 1.1895115}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 45.115547, y: 3.940557, z: 73.71933}
+    rotation: {x: 0.12388192, y: 0.3259004, z: 0.006916829, w: -0.937227}
+    scale: {x: 0.9461098, y: 0.9461098, z: 0.9461098}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 40.012733, y: 3.940557, z: 74.236855}
+    rotation: {x: -0.0816253, y: 0.9459331, z: 0.053413738, w: -0.30934584}
+    scale: {x: 1.0958694, y: 1.0958694, z: 1.0958694}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 34.756405, y: 3.940557, z: 74.85485}
+    rotation: {x: 0.07407157, y: 0.5716645, z: -0.063881435, w: -0.81463623}
+    scale: {x: 1.0891962, y: 1.0891962, z: 1.0891962}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 35.140106, y: 9.833808, z: 72.25433}
+    rotation: {x: 0.13929695, y: 0.5630586, z: -0.090989895, w: -0.809495}
+    scale: {x: 1.1066521, y: 1.1066521, z: 1.1066521}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 31.872253, y: 3.940557, z: 75.20526}
+    rotation: {x: -0.049305424, y: 0.4752732, z: 0.06396758, w: 0.87612355}
+    scale: {x: 1.1936626, y: 1.1936626, z: 1.1936626}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 27.066984, y: 3.940557, z: 74.92107}
+    rotation: {x: -0.0462675, y: 0.6213651, z: -0.05218428, w: 0.7804112}
+    scale: {x: 1.0956724, y: 1.0956724, z: 1.0956724}
+    category: tree_2
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 22.06573, y: 3.940556, z: 74.90402}
+    rotation: {x: 0.023015432, y: 0.44652486, z: 0.021851681, w: 0.89420825}
+    scale: {x: 0.847303, y: 0.847303, z: 0.847303}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 16.973297, y: 3.940557, z: 75.401146}
+    rotation: {x: -0.02133909, y: 0.5073074, z: -0.022335036, w: 0.86121136}
+    scale: {x: 1.0819643, y: 1.0819643, z: 1.0819643}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 11.8292885, y: 3.940557, z: 75.61988}
+    rotation: {x: -0.06716282, y: 0.2749547, z: -0.037209548, w: -0.9583864}
+    scale: {x: 0.88309854, y: 0.88309854, z: 0.88309854}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 7.4230614, y: 3.940556, z: 73.37593}
+    rotation: {x: 0.01563883, y: 0.4012228, z: 0.008275135, w: 0.91580963}
+    scale: {x: 1.1125418, y: 1.1125418, z: 1.1125418}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 3.737132, y: 3.940557, z: 69.77559}
+    rotation: {x: 0.03654018, y: 0.91254336, z: 0.09724294, w: -0.39556715}
+    scale: {x: 1.1039996, y: 1.1039996, z: 1.1039996}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 1.043565, y: 3.940557, z: 65.54873}
+    rotation: {x: 0.050030045, y: 0.90946907, z: -0.03796416, w: 0.41100076}
+    scale: {x: 0.96083736, y: 0.96083736, z: 0.96083736}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: -0.6300052, y: 3.940557, z: 50.18214}
+    rotation: {x: 0.0024616392, y: 0.86996233, z: 0.09715966, w: -0.48344544}
+    scale: {x: 1.1942525, y: 1.1942525, z: 1.1942525}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 1.3307853, y: 3.940557, z: 54.9651}
+    rotation: {x: 0.07523474, y: 0.9368532, z: 0.09605867, w: -0.32774794}
+    scale: {x: 0.8630368, y: 0.8630368, z: 0.8630368}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 3.6141477, y: 8.467052, z: 55.635315}
+    rotation: {x: 0.082688145, y: 0.9502829, z: -0.019646732, w: 0.29956496}
+    scale: {x: 0.8509923, y: 0.8509923, z: 0.8509923}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 1.2544487, y: 3.940557, z: 58.638695}
+    rotation: {x: -0.0704683, y: 0.8354146, z: -0.005275621, w: -0.5450585}
+    scale: {x: 1.1655934, y: 1.1655934, z: 1.1655934}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 2.556646, y: 3.940557, z: 63.72987}
+    rotation: {x: -0.10261994, y: 0.59302264, z: -0.04894861, w: 0.7971182}
+    scale: {x: 0.81303304, y: 0.81303304, z: 0.81303304}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 2.2186575, y: 3.940558, z: 53.158688}
+    rotation: {x: -0.03799181, y: 0.19304869, z: 0.0057097673, w: 0.98043674}
+    scale: {x: 0.8519433, y: 0.8519433, z: 0.8519433}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 4.79211, y: 9.867028, z: 47.79845}
+    rotation: {x: 0.045285728, y: 0.23814887, z: 0.039280254, w: 0.9693768}
+    scale: {x: 1.1738043, y: 1.1738043, z: 1.1738043}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 1.3026713, y: 3.940557, z: 45.920918}
+    rotation: {x: 0.090670824, y: 0.8797495, z: -0.026144922, w: -0.46597865}
+    scale: {x: 0.9918599, y: 0.9918599, z: 0.9918599}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 0.5146077, y: 3.940557, z: 39.962082}
+    rotation: {x: 0.11587628, y: 0.84726024, z: 0.018245064, w: -0.51806366}
+    scale: {x: 0.8814513, y: 0.8814513, z: 0.8814513}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 2.8103797, y: 8.544602, z: 38.80415}
+    rotation: {x: 0.10844017, y: 0.63344824, z: 0.01169359, w: -0.76605964}
+    scale: {x: 0.89408, y: 0.89408, z: 0.89408}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 0.026048407, y: 3.940557, z: 37.238937}
+    rotation: {x: 0.048795328, y: 0.74847597, z: 0.004339855, w: 0.66135013}
+    scale: {x: 0.9665344, y: 0.9665344, z: 0.9665344}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: -0.72655797, y: 3.940557, z: 22.84476}
+    rotation: {x: -0.106210865, y: 0.9835037, z: 0.019284928, w: 0.14514779}
+    scale: {x: 0.97302413, y: 0.97302413, z: 0.97302413}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 0.3830352, y: 3.940557, z: 27.681286}
+    rotation: {x: -0.095520794, y: 0.7936697, z: 0.03623249, w: 0.59970945}
+    scale: {x: 1.0887758, y: 1.0887758, z: 1.0887758}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 0.49595255, y: 3.940557, z: 32.71867}
+    rotation: {x: 0.014126687, y: 0.35007092, z: -0.07239358, w: 0.93381476}
+    scale: {x: 0.80446965, y: 0.80446965, z: 0.80446965}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 1.5620105, y: 3.940557, z: 25.87181}
+    rotation: {x: -0.07980327, y: 0.4922103, z: 0.042531654, w: -0.8657665}
+    scale: {x: 0.99037886, y: 0.99037886, z: 0.99037886}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 1.9708915, y: 3.940557, z: 20.862198}
+    rotation: {x: 0.08135952, y: 0.993439, z: -0.018596694, w: 0.078190684}
+    scale: {x: 1.1812146, y: 1.1812146, z: 1.1812146}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 1.9871955, y: 3.940557, z: 15.849215}
+    rotation: {x: 0.05874647, y: 0.28511903, z: 0.06623377, w: -0.95439464}
+    scale: {x: 1.1812301, y: 1.1812301, z: 1.1812301}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 2.3119793, y: 3.940557, z: 10.942592}
+    rotation: {x: 0.095329836, y: 0.9744716, z: 0.03644647, w: 0.19997258}
+    scale: {x: 1.1563115, y: 1.1563115, z: 1.1563115}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 2.2354913, y: 3.940558, z: 6.017638}
+    rotation: {x: -0.014799099, y: 0.7278063, z: -0.056352917, w: -0.6833032}
+    scale: {x: 0.9441507, y: 0.9441507, z: 0.9441507}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 3.3558574, y: 3.940557, z: 1.0891278}
+    rotation: {x: -0.0975902, y: 0.6637035, z: -0.050332814, w: -0.7398922}
+    scale: {x: 0.8462965, y: 0.8462965, z: 0.8462965}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 6.748954, y: 3.940557, z: -2.4903028}
+    rotation: {x: -0.009474016, y: 0.8395638, z: -0.032769322, w: 0.5421891}
+    scale: {x: 1.1165186, y: 1.1165186, z: 1.1165186}
+    category: tree_2
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 5.1771064, y: 3.940557, z: 3.1680746}
+    rotation: {x: 0.104642, y: 0.9934869, z: -0.036289565, w: 0.026778655}
+    scale: {x: 1.1410496, y: 1.1410496, z: 1.1410496}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 9.51003, y: 3.940557, z: 0.45228416}
+    rotation: {x: 0.07639722, y: 0.83620363, z: 0.05257191, w: 0.5405212}
+    scale: {x: 0.9721427, y: 0.9721427, z: 0.9721427}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 13.843185, y: 3.940557, z: -2.3363814}
+    rotation: {x: -0.035600867, y: 0.16336764, z: -0.052676998, w: -0.9845145}
+    scale: {x: 1.1972136, y: 1.1972136, z: 1.1972136}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 18.9564, y: 3.940557, z: -2.6270607}
+    rotation: {x: -0.019866543, y: 0.32678092, z: -0.018133689, w: -0.9447172}
+    scale: {x: 0.93456936, y: 0.93456936, z: 0.93456936}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 24.074713, y: 3.940557, z: -2.9152393}
+    rotation: {x: -0.049218133, y: 0.9166213, z: 0.009559009, w: -0.39660016}
+    scale: {x: 1.0288575, y: 1.0288575, z: 1.0288575}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 30.3397, y: 3.940557, z: -2.8078942}
+    rotation: {x: 0.10684708, y: 0.45548066, z: -0.04659462, w: 0.8825815}
+    scale: {x: 1.1762779, y: 1.1762779, z: 1.1762779}
+    category: tree_2
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 35.333908, y: 3.940557, z: -2.3724756}
+    rotation: {x: -0.0048259236, y: 0.99675703, z: 0.007085284, w: 0.08001229}
+    scale: {x: 0.9971973, y: 0.9971973, z: 0.9971973}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 40.388443, y: 3.940557, z: -2.236814}
+    rotation: {x: -0.06765455, y: 0.026189528, z: 0.058747243, w: 0.99563336}
+    scale: {x: 0.9620632, y: 0.9620632, z: 0.9620632}
+    category: tree_2
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 33.023243, y: 3.940557, z: -1.0198905}
+    rotation: {x: -0.030182822, y: 0.47783002, z: -0.015826061, w: 0.87779105}
+    scale: {x: 0.9398476, y: 0.9398476, z: 0.9398476}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 27.007454, y: 3.940557, z: -1.5776286}
+    rotation: {x: -0.025034903, y: 0.23211461, z: -0.09426815, w: -0.9677859}
+    scale: {x: 0.8496043, y: 0.8496043, z: 0.8496043}
+    category: tree_2
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 21.00538, y: 3.940557, z: -2.4099464}
+    rotation: {x: 0.03097012, y: 0.41226465, z: -0.0016148183, w: -0.91053617}
+    scale: {x: 0.9226307, y: 0.9226307, z: 0.9226307}
+    category: tree_2
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 15.764085, y: 3.940557, z: -2.8780863}
+    rotation: {x: -0.029912315, y: 0.79442203, z: 0.050691314, w: -0.60450757}
+    scale: {x: 1.0855064, y: 1.0855064, z: 1.0855064}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 37.14601, y: 3.940557, z: -1.1134342}
+    rotation: {x: -0.12018362, y: 0.93418485, z: 0.026994213, w: -0.3348522}
+    scale: {x: 0.9021732, y: 0.9021732, z: 0.9021732}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 29.475317, y: 3.940557, z: -0.76324576}
+    rotation: {x: 0.09236993, y: 0.04036781, z: 0.007870936, w: -0.9948751}
+    scale: {x: 0.808361, y: 0.808361, z: 0.808361}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 24.541958, y: 3.940557, z: -0.5371248}
+    rotation: {x: 0.04654897, y: 0.1960487, z: 0.0008527114, w: -0.9794883}
+    scale: {x: 0.81559163, y: 0.81559163, z: 0.81559163}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 19.590322, y: 3.940557, z: -0.20655671}
+    rotation: {x: 0.05787572, y: 0.062478114, z: -0.034593232, w: 0.99576616}
+    scale: {x: 1.1938164, y: 1.1938164, z: 1.1938164}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 35.257492, y: 3.940557, z: 0.65071034}
+    rotation: {x: 0.07504781, y: 0.3465212, z: 0.08901463, w: 0.9307885}
+    scale: {x: 0.9228587, y: 0.9228587, z: 0.9228587}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 41.204983, y: 3.940556, z: 0.80264455}
+    rotation: {x: 0.010754478, y: 0.468359, z: 0.059318606, w: -0.88147914}
+    scale: {x: 1.1240889, y: 1.1240889, z: 1.1240889}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 46.215572, y: 3.940557, z: 0.9094734}
+    rotation: {x: -0.051534258, y: 0.06412993, z: 0.033329282, w: -0.99605256}
+    scale: {x: 0.98172987, y: 0.98172987, z: 0.98172987}
+    category: tree_2
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 51.523903, y: 3.940557, z: 0.7784779}
+    rotation: {x: -0.023385918, y: 0.42848587, z: 0.008986475, w: -0.90320116}
+    scale: {x: 1.0243342, y: 1.0243342, z: 1.0243342}
+    category: tree_2
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 56.45987, y: 3.940557, z: 1.0179799}
+    rotation: {x: -0.0074291397, y: 0.52940905, z: -0.03211625, w: 0.84772605}
+    scale: {x: 0.9597547, y: 0.9597547, z: 0.9597547}
+    category: tree_2
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 58.47213, y: 9.622812, z: 3.593261}
+    rotation: {x: -0.045684338, y: 0.86624783, z: -0.102054745, w: -0.486942}
+    scale: {x: 1.1213324, y: 1.1213324, z: 1.1213324}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 61.77288, y: 3.940557, z: 1.4358488}
+    rotation: {x: 0.06694485, y: 0.76177484, z: 0.05311158, w: 0.6421812}
+    scale: {x: 0.816649, y: 0.816649, z: 0.816649}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 66.6604, y: 3.940557, z: 2.0562706}
+    rotation: {x: 0.09798403, y: 0.54968864, z: -0.046213187, w: -0.8283151}
+    scale: {x: 0.8729746, y: 0.8729746, z: 0.8729746}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 71.86317, y: 3.940557, z: 2.61975}
+    rotation: {x: -0.007750837, y: 0.6613166, z: -0.01730591, w: 0.7498672}
+    scale: {x: 0.908242, y: 0.908242, z: 0.908242}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 66.513596, y: 6.766823, z: 2.0368557}
+    rotation: {x: -0.008034928, y: 0.9525643, z: -0.14824848, w: -0.26566735}
+    scale: {x: 1.1791651, y: 1.1791651, z: 1.1791651}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 61.170704, y: 8.660854, z: 1.772164}
+    rotation: {x: 0.027707698, y: 0.7200763, z: 0.013725944, w: -0.69320554}
+    scale: {x: 1.1124859, y: 1.1124859, z: 1.1124859}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 60.230873, y: 3.940557, z: -0.49988058}
+    rotation: {x: 0.100562915, y: 0.84441066, z: 0.022286853, w: -0.5257005}
+    scale: {x: 0.91688496, y: 0.91688496, z: 0.91688496}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 55.153755, y: 3.940557, z: -1.0233582}
+    rotation: {x: -0.02543791, y: 0.60960776, z: -0.0659202, w: -0.78954786}
+    scale: {x: 1.1912014, y: 1.1912014, z: 1.1912014}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 50.07714, y: 3.940557, z: -1.3575335}
+    rotation: {x: 0.11575427, y: 0.6418554, z: -0.0016564768, w: -0.75803685}
+    scale: {x: 1.1043208, y: 1.1043208, z: 1.1043208}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 57.756565, y: 3.940557, z: -1.6224787}
+    rotation: {x: 0.05976094, y: 0.9978119, z: 0.026459489, w: 0.009995273}
+    scale: {x: 0.9948284, y: 0.9948284, z: 0.9948284}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 63.69128, y: 3.940557, z: -0.3723322}
+    rotation: {x: 0.09611447, y: 0.08773553, z: -0.0030015525, w: 0.99149156}
+    scale: {x: 1.0644112, y: 1.0644112, z: 1.0644112}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 70.12989, y: 3.940557, z: 1.43151}
+    rotation: {x: -0.04419008, y: 0.93527836, z: -0.098381735, w: 0.3370796}
+    scale: {x: 1.1404169, y: 1.1404169, z: 1.1404169}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 74.55193, y: 3.940557, z: 3.56802}
+    rotation: {x: -0.08029414, y: 0.37288886, z: 0.03200809, w: -0.92384106}
+    scale: {x: 1.1630948, y: 1.1630948, z: 1.1630948}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 76.3711, y: 3.940557, z: 8.591121}
+    rotation: {x: 0.03203421, y: 0.61765945, z: -0.06956752, w: 0.78270745}
+    scale: {x: 1.1520028, y: 1.1520028, z: 1.1520028}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 76.832924, y: 3.940557, z: 13.934407}
+    rotation: {x: 0.058116898, y: 0.9849031, z: -0.029105306, w: -0.1604406}
+    scale: {x: 0.9888846, y: 0.9888846, z: 0.9888846}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 77.35324, y: 3.940557, z: 19.279211}
+    rotation: {x: 0.08497284, y: 0.3614228, z: -0.06909163, w: -0.9259479}
+    scale: {x: 0.9096832, y: 0.9096832, z: 0.9096832}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 74.95017, y: 9.898373, z: 23.591805}
+    rotation: {x: -0.020045659, y: 0.9942794, z: 0.08710975, w: -0.05846892}
+    scale: {x: 1.0415678, y: 1.0415678, z: 1.0415678}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 76.799034, y: 3.940557, z: 24.53316}
+    rotation: {x: -0.078871205, y: 0.95961535, z: 0.011814342, w: 0.2697742}
+    scale: {x: 0.9811725, y: 0.9811725, z: 0.9811725}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 77.00001, y: 3.940557, z: 16.491655}
+    rotation: {x: 0.069159284, y: 0.62289286, z: -0.05428271, w: 0.7773512}
+    scale: {x: 0.9019011, y: 0.9019011, z: 0.9019011}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 76.37495, y: 3.940557, z: 11.655274}
+    rotation: {x: 0.06416908, y: 0.9326316, z: -0.030136157, w: 0.35379726}
+    scale: {x: 1.1367085, y: 1.1367085, z: 1.1367085}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 75.879875, y: 8.945398, z: 18.190153}
+    rotation: {x: -0.043241177, y: 0.9623723, z: -0.042993415, w: -0.26480433}
+    scale: {x: 1.0704414, y: 1.0704414, z: 1.0704414}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 78.650986, y: 3.940556, z: 21.135485}
+    rotation: {x: 0.021924334, y: 0.99139225, z: -0.080052346, w: -0.1012535}
+    scale: {x: 0.8736755, y: 0.8736755, z: 0.8736755}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 74.43523, y: 15.593483, z: 25.61473}
+    rotation: {x: -0.10563953, y: 0.47865775, z: 0.072593644, w: -0.868595}
+    scale: {x: 1.1218202, y: 1.1218202, z: 1.1218202}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 78.98824, y: 3.940557, z: 26.972992}
+    rotation: {x: 0.05272327, y: 0.931965, z: -0.0977077, w: -0.34513}
+    scale: {x: 0.90843743, y: 0.90843743, z: 0.90843743}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 78.843216, y: 3.940557, z: 32.081806}
+    rotation: {x: -0.019174112, y: 0.75149494, z: 0.025490953, w: -0.6589674}
+    scale: {x: 1.0023005, y: 1.0023005, z: 1.0023005}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 78.89027, y: 3.940557, z: 37.589897}
+    rotation: {x: -0.025172785, y: 0.26612243, z: -0.052838646, w: -0.96216077}
+    scale: {x: 0.83785087, y: 0.83785087, z: 0.83785087}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 78.84303, y: 3.940557, z: 42.70636}
+    rotation: {x: -0.017934509, y: 0.6768077, z: 0.032526694, w: 0.7352223}
+    scale: {x: 0.93374574, y: 0.93374574, z: 0.93374574}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 79.246414, y: 3.940557, z: 47.594666}
+    rotation: {x: 0.103455395, y: 0.78942657, z: 0.066530906, w: -0.60139537}
+    scale: {x: 0.965106, y: 0.965106, z: 0.965106}
+    category: tree_2
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 79.19143, y: 3.940557, z: 55.635185}
+    rotation: {x: 0.010558023, y: 0.9769399, z: -0.116791256, w: -0.17842872}
+    scale: {x: 0.8997006, y: 0.8997006, z: 0.8997006}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 78.865814, y: 3.940557, z: 60.73565}
+    rotation: {x: -0.08085379, y: 0.7384853, z: 0.08068647, w: -0.6645238}
+    scale: {x: 1.0746236, y: 1.0746236, z: 1.0746236}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 77.60203, y: 3.940557, z: 65.69192}
+    rotation: {x: -0.00013595057, y: 0.93664914, z: 0.09169839, w: -0.33805305}
+    scale: {x: 1.1985016, y: 1.1985016, z: 1.1985016}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 76.0064, y: 3.940557, z: 59.20109}
+    rotation: {x: 0.076227576, y: 0.16736847, z: 0.069033794, w: -0.98051596}
+    scale: {x: 1.049407, y: 1.049407, z: 1.049407}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 77.374756, y: 3.940557, z: 53.91277}
+    rotation: {x: 0.045547254, y: 0.99408394, z: 0.065152355, w: -0.074011825}
+    scale: {x: 0.96153426, y: 0.96153426, z: 0.96153426}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 78.162636, y: 9.253704, z: 43.99168}
+    rotation: {x: 0.011367994, y: 0.7230998, z: 0.0017165885, w: 0.6906479}
+    scale: {x: 0.9338262, y: 0.9338262, z: 0.9338262}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 78.54426, y: 3.940556, z: 34.495583}
+    rotation: {x: 0.10742495, y: 0.24006054, z: 0.040171154, w: 0.9639591}
+    scale: {x: 1.1827817, y: 1.1827817, z: 1.1827817}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 77.34643, y: 3.940557, z: 44.053562}
+    rotation: {x: -0.082078226, y: 0.777107, z: 0.018977238, w: -0.6237049}
+    scale: {x: 1.1392939, y: 1.1392939, z: 1.1392939}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 76.133736, y: 3.940557, z: 49.43539}
+    rotation: {x: -0.03666084, y: 0.93857986, z: -0.03788599, w: -0.34101108}
+    scale: {x: 0.90334326, y: 0.90334326, z: 0.90334326}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 75.9097, y: 3.940557, z: 55.936363}
+    rotation: {x: 0.01996445, y: 0.3518352, z: -0.03734115, w: 0.9351038}
+    scale: {x: 0.9570178, y: 0.9570178, z: 0.9570178}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 75.83931, y: 3.940557, z: 61.98694}
+    rotation: {x: 0.061155435, y: 0.3264609, z: 0.109889634, w: 0.93680716}
+    scale: {x: 0.87976843, y: 0.87976843, z: 0.87976843}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 75.49529, y: 3.940557, z: 67.770935}
+    rotation: {x: -0.084637195, y: 0.55161494, z: -0.0878568, w: -0.82512957}
+    scale: {x: 0.99001026, y: 0.99001026, z: 0.99001026}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 75.17485, y: 3.940557, z: 73.51005}
+    rotation: {x: 0.061587423, y: 0.09918115, z: 0.08564467, w: 0.9894621}
+    scale: {x: 1.0978727, y: 1.0978727, z: 1.0978727}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 72.53308, y: 9.971762, z: 73.30443}
+    rotation: {x: -0.056497507, y: 0.9631959, z: 0.11839215, w: 0.23461686}
+    scale: {x: 0.91113406, y: 0.91113406, z: 0.91113406}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 77.1822, y: 3.940557, z: 71.85486}
+    rotation: {x: -0.024686316, y: 0.6841452, z: 0.092657454, w: 0.72301495}
+    scale: {x: 0.8430108, y: 0.8430108, z: 0.8430108}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 74.74041, y: 10.324059, z: 73.49}
+    rotation: {x: -0.02226683, y: 0.40981612, z: 0.029059606, w: 0.91143316}
+    scale: {x: 0.87692446, y: 0.87692446, z: 0.87692446}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 72.85201, y: 3.940557, z: 76.61786}
+    rotation: {x: 0.030038781, y: 0.8138506, z: -0.0013090598, w: -0.5802958}
+    scale: {x: 0.92996603, y: 0.92996603, z: 0.92996603}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 67.53566, y: 3.940557, z: 76.752846}
+    rotation: {x: -0.07678567, y: 0.40722162, z: -0.031398054, w: 0.9095541}
+    scale: {x: 0.89644027, y: 0.89644027, z: 0.89644027}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 62.40589, y: 3.940557, z: 76.740555}
+    rotation: {x: 0.010904962, y: 0.9042796, z: -0.05522457, w: 0.42321366}
+    scale: {x: 1.0602176, y: 1.0602176, z: 1.0602176}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 50.464077, y: 10.627898, z: 75.34754}
+    rotation: {x: 0.017172929, y: 0.309198, z: 0.0047027697, w: 0.95083106}
+    scale: {x: 1.0328455, y: 1.0328455, z: 1.0328455}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 52.766727, y: 3.940557, z: 76.76482}
+    rotation: {x: 0.025185743, y: 0.7542119, z: -0.025617313, w: -0.65564764}
+    scale: {x: 0.86323196, y: 0.86323196, z: 0.86323196}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 58.30865, y: 3.940557, z: 75.96505}
+    rotation: {x: 0.032276373, y: 0.8287874, z: 0.068449095, w: -0.5544226}
+    scale: {x: 1.0748503, y: 1.0748503, z: 1.0748503}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 52.540615, y: 3.940557, z: 74.2312}
+    rotation: {x: -0.089782454, y: 0.9417625, z: 0.03660664, w: 0.32199764}
+    scale: {x: 1.0139688, y: 1.0139688, z: 1.0139688}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 47.444523, y: 3.940557, z: 75.32835}
+    rotation: {x: -0.024867054, y: 0.9573121, z: 0.042062007, w: -0.28489664}
+    scale: {x: 0.8071944, y: 0.8071944, z: 0.8071944}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 45.180347, y: 9.431847, z: 73.2025}
+    rotation: {x: 0.02152826, y: 0.47619295, z: 0.003207893, w: -0.8790714}
+    scale: {x: 1.0817848, y: 1.0817848, z: 1.0817848}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 42.674778, y: 3.940557, z: 76.09994}
+    rotation: {x: -0.0064511793, y: 0.5948574, z: 0.032837294, w: -0.8031344}
+    scale: {x: 1.0919148, y: 1.0919148, z: 1.0919148}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 37.279606, y: 3.940557, z: 76.48505}
+    rotation: {x: -0.062215082, y: 0.22199823, z: 0.0876003, w: 0.969109}
+    scale: {x: 1.0468591, y: 1.0468591, z: 1.0468591}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 28.685673, y: 3.940557, z: 76.29903}
+    rotation: {x: -0.06769063, y: 0.994, z: -0.06884706, w: 0.05140128}
+    scale: {x: 1.0953245, y: 1.0953245, z: 1.0953245}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 19.558296, y: 3.940557, z: 75.31861}
+    rotation: {x: 0.047441527, y: 0.48868617, z: 0.09563946, w: 0.8659032}
+    scale: {x: 1.067807, y: 1.067807, z: 1.067807}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 14.876193, y: 3.940557, z: 73.60639}
+    rotation: {x: -0.01668892, y: 0.54966897, z: -0.038809393, w: 0.83431375}
+    scale: {x: 1.0548407, y: 1.0548407, z: 1.0548407}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 10.540591, y: 3.940556, z: 70.44085}
+    rotation: {x: -0.04331558, y: 0.8596177, z: -0.03824126, w: -0.50766003}
+    scale: {x: 0.9798074, y: 0.9798074, z: 0.9798074}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 10.580732, y: 9.256542, z: 66.84096}
+    rotation: {x: -0.16624956, y: 0.901922, z: -0.02419213, w: 0.39788523}
+    scale: {x: 0.94565237, y: 0.94565237, z: 0.94565237}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 6.6452703, y: 3.940557, z: 66.84704}
+    rotation: {x: 0.09418217, y: 0.18438746, z: 0.012689553, w: -0.9782484}
+    scale: {x: 0.9121044, y: 0.9121044, z: 0.9121044}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 12.065253, y: 3.940557, z: 65.70428}
+    rotation: {x: 0.051134024, y: 0.121594846, z: -0.115533166, w: 0.9845061}
+    scale: {x: 0.8869978, y: 0.8869978, z: 0.8869978}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 17.079662, y: 3.940557, z: 66.90731}
+    rotation: {x: -0.048081893, y: 0.37360948, z: -0.022591429, w: -0.9260636}
+    scale: {x: 0.94507754, y: 0.94507754, z: 0.94507754}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 22.06101, y: 3.940557, z: 68.17751}
+    rotation: {x: 0.036950193, y: 0.95835286, z: 0.034440864, w: -0.28108406}
+    scale: {x: 0.8384226, y: 0.8384226, z: 0.8384226}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 27.256124, y: 3.940557, z: 68.996254}
+    rotation: {x: 0.0788864, y: 0.5663717, z: -0.01366928, w: 0.82025194}
+    scale: {x: 0.85141474, y: 0.85141474, z: 0.85141474}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 20.302784, y: 3.940557, z: 67.21059}
+    rotation: {x: 0.01074265, y: 0.83522457, z: 0.07605103, w: 0.5445189}
+    scale: {x: 1.0498327, y: 1.0498327, z: 1.0498327}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 15.698021, y: 3.940557, z: 64.205124}
+    rotation: {x: 0.08999778, y: 0.8291132, z: -0.032845553, w: -0.5508112}
+    scale: {x: 0.86785454, y: 0.86785454, z: 0.86785454}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 12.777723, y: 3.940557, z: 60.342716}
+    rotation: {x: -0.022000408, y: 0.73275656, z: 0.00259486, w: -0.6801302}
+    scale: {x: 1.0564862, y: 1.0564862, z: 1.0564862}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 13.539056, y: 10.083663, z: 59.07548}
+    rotation: {x: 0.008006975, y: 0.5109875, z: -0.024678163, w: -0.8591965}
+    scale: {x: 0.996679, y: 0.996679, z: 0.996679}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 13.589066, y: 3.940557, z: 62.84086}
+    rotation: {x: -0.076676406, y: 0.59520125, z: 0.09292845, w: -0.79449385}
+    scale: {x: 1.1803946, y: 1.1803946, z: 1.1803946}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 17.35164, y: 8.586989, z: 62.67405}
+    rotation: {x: 0.016098771, y: 0.79174256, z: -0.053812303, w: 0.60826707}
+    scale: {x: 1.1185805, y: 1.1185805, z: 1.1185805}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 18.64396, y: 3.940557, z: 65.624115}
+    rotation: {x: -0.09500189, y: 0.9732234, z: 0.029003369, w: 0.20729133}
+    scale: {x: 0.9979629, y: 0.9979629, z: 0.9979629}
+    category: tree_2
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 24.48531, y: 3.940557, z: 67.71773}
+    rotation: {x: -0.017401608, y: 0.7786165, z: 0.055464868, w: -0.62480175}
+    scale: {x: 0.87246555, y: 0.87246555, z: 0.87246555}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 29.366564, y: 3.940557, z: 68.86507}
+    rotation: {x: -0.02994167, y: 0.6305644, z: -0.009875092, w: -0.7754963}
+    scale: {x: 0.9638331, y: 0.9638331, z: 0.9638331}
+    category: tree_1
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 34.920094, y: 3.940557, z: 69.61275}
+    rotation: {x: 0.031672474, y: 0.7361034, z: -0.023917507, w: -0.67570454}
+    scale: {x: 1.1515617, y: 1.1515617, z: 1.1515617}
+    category: tree_2
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 40.614315, y: 3.940556, z: 69.989075}
+    rotation: {x: -0.043573614, y: 0.48419625, z: -0.03157098, w: 0.8733033}
+    scale: {x: 1.0230961, y: 1.0230961, z: 1.0230961}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 46.23698, y: 3.940557, z: 70.110275}
+    rotation: {x: -0.03870806, y: 0.9957254, z: -0.005911891, w: -0.08365304}
+    scale: {x: 1.0246453, y: 1.0246453, z: 1.0246453}
+    category: tree_1
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 51.296505, y: 3.940557, z: 70.151726}
+    rotation: {x: -0.040401988, y: 0.81513345, z: -0.04633685, w: -0.5760019}
+    scale: {x: 0.94344294, y: 0.94344294, z: 0.94344294}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 57.315685, y: 3.940557, z: 70.08521}
+    rotation: {x: -0.053667106, y: 0.18409581, z: -0.011601119, w: -0.98137355}
+    scale: {x: 1.0331788, y: 1.0331788, z: 1.0331788}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 62.42438, y: 3.940557, z: 69.49395}
+    rotation: {x: 0.09412988, y: 0.2541461, z: 0.01834484, w: -0.96239954}
+    scale: {x: 1.0683829, y: 1.0683829, z: 1.0683829}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 67.41683, y: 3.940557, z: 66.88318}
+    rotation: {x: -0.049844142, y: 0.7771941, z: -0.018523274, w: 0.6270103}
+    scale: {x: 1.1882586, y: 1.1882586, z: 1.1882586}
+    category: tree_2
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 61.97554, y: 3.940557, z: 67.44879}
+    rotation: {x: -0.046145834, y: 0.8200508, z: -0.058773868, w: -0.56739134}
+    scale: {x: 1.1640203, y: 1.1640203, z: 1.1640203}
+    category: tree_3
+  - prefab: {fileID: 3637055873373313883, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+    position: {x: 53.032143, y: 3.940557, z: 71.65967}
+    rotation: {x: 0.058148373, y: 0.0439332, z: 0.02681815, w: -0.99698013}
+    scale: {x: 0.97635543, y: 0.97635543, z: 0.97635543}
+    category: tree_1
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 50.997185, y: 9.359326, z: 69.51616}
+    rotation: {x: -0.07048473, y: 0.8852379, z: 0.015193525, w: 0.45951596}
+    scale: {x: 1.1451654, y: 1.1451654, z: 1.1451654}
+    category: tree_3
+  - prefab: {fileID: 689836993430252235, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+    position: {x: 49.37202, y: 3.940557, z: 71.576355}
+    rotation: {x: -0.07022373, y: 0.98659164, z: 0.06185459, w: -0.1337149}
+    scale: {x: 0.977988, y: 0.977988, z: 0.977988}
+    category: tree_3
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 70.53932, y: 3.940557, z: 75.072014}
+    rotation: {x: 0.07448768, y: 0.91470855, z: -0.021614853, w: -0.3966014}
+    scale: {x: 0.9661701, y: 0.9661701, z: 0.9661701}
+    category: tree_2
+  - prefab: {fileID: 3283096382737473381, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
+    position: {x: 73.6046, y: 3.940557, z: 71.00484}
+    rotation: {x: 0.002544899, y: 0.6960648, z: 0.057009183, w: 0.7157076}
+    scale: {x: 0.9467207, y: 0.9467207, z: 0.9467207}
+    category: tree_2
