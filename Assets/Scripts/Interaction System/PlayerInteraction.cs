@@ -109,7 +109,16 @@ public class PlayerInteraction : MonoBehaviour
 
         if (Input.GetKeyDown(interactKey))
         {
-            StartInteraction();
+            var pillar = currentTarget as InteractablePillar;
+
+            if (pillar != null)
+            {
+                pillar.OnInteractionStart(CreateInteractionData());
+            }
+            else
+            {
+                StartInteraction();
+            }
         }
         else if (Input.GetKey(interactKey))
         {
@@ -120,6 +129,7 @@ public class PlayerInteraction : MonoBehaviour
             EndInteraction();
         }
     }
+
 
     private InteractionData CreateInteractionData()
     {

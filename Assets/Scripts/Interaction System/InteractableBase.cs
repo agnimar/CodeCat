@@ -18,6 +18,7 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
         get => itemName;
         set => itemName = value; // Allow assignment
     }
+    private bool interactionEnabled = true;
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
     }
     public virtual bool CanInteract(GameObject interactor)
     {
-        if (interactor == null) return false;
+        if (!interactionEnabled) return false;
 
         if (requiresLineOfSight)
         {
@@ -55,14 +56,14 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
         if (inventory.AddItem(itemGameObject))
         {
             Debug.Log($"{ItemName} collected!");
-            // Do NOT destroy it; the item is now inactive and stored in the inventory.
+            gameObject.SetActive(false); // Deactivate the item since it's now in the inventory.
         }
         else
         {
             Debug.Log($"{ItemName} is not added. Either it's already in the inventory or inventory is full.");
         }
-
     }
+
 
     public virtual void OnInteractionEnd(InteractionData data)
     {
@@ -71,7 +72,7 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
 
     public virtual void OnInteractionUpdate(InteractionData data)
     {
-        // Override in child classes if needed
+
     }
 
     protected virtual void OnDrawGizmosSelected()
@@ -79,5 +80,8 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, 0.5f);
     }
-
+    public void SetInteractionEnabled(bool isEnabled)
+    {
+        interactionEnabled = isEnabled;
+    }
 }

@@ -60,6 +60,7 @@ public class UIManager : MonoBehaviour
         if (index >= 0 && index < items.Count)
         {
             GameObject selectedItem = items[index];
+            Debug.Log("Selected item: "+selectedItem.name);
             selectionCallback?.Invoke(selectedItem);
 
             // Close inventory after selection

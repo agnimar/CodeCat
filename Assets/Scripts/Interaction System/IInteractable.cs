@@ -6,4 +6,5 @@ public interface IInteractable
     void OnInteractionStart(InteractionData data);
     void OnInteractionEnd(InteractionData data);
     void OnInteractionUpdate(InteractionData data);
+    void SetInteractionEnabled(bool isEnabled);
 }

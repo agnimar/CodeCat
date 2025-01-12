@@ -1326,7 +1326,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 59831424}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776284183}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: HandleInventorySlotClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 5
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &59831424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7920,7 +7932,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 365178742}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776284183}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: HandleInventorySlotClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 7
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &365178742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8041,7 +8065,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 367953700}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776284183}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: HandleInventorySlotClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &367953700
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10895,7 +10931,7 @@ Transform:
   m_GameObject: {fileID: 476328580}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.46, y: 0.43, z: 38.15}
+  m_LocalPosition: {x: 27.56, y: 0.43, z: 34.129997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10995,7 +11031,8 @@ MonoBehaviour:
   onInteractionEnded:
     m_PersistentCalls:
       m_Calls: []
-  itemName: 
+  itemName: Pillar
+  requiredItemName: Flower
 --- !u!4 &478902243 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3056955510407861114, guid: 790acbbd618f2b7499becf71909b8a4c, type: 3}
@@ -11083,7 +11120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 480465596}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776284183}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: HandleInventorySlotClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &480465596
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13091,7 +13140,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 556762065}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776284183}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: HandleInventorySlotClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &556762065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13434,7 +13495,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 573020867}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776284183}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: HandleInventorySlotClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 6
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &573020867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18446,6 +18519,7 @@ Transform:
   m_Children:
   - {fileID: 141531434}
   - {fileID: 1776284182}
+  - {fileID: 2085331246}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &864433593 stripped
@@ -19299,7 +19373,6 @@ Transform:
   - {fileID: 330585546}
   - {fileID: 410087041}
   - {fileID: 832575519}
-  - {fileID: 1438429512}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &919784823
@@ -31398,7 +31471,7 @@ Transform:
   m_GameObject: {fileID: 1438429511}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31977,7 +32050,7 @@ Transform:
   - {fileID: 2101204201}
   - {fileID: 569383675}
   - {fileID: 1099361036}
-  m_Father: {fileID: 912222076}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1441765915
 PrefabInstance:
@@ -41599,7 +41672,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1920082011}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776284183}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: HandleInventorySlotClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1920082011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44578,7 +44663,7 @@ Transform:
   m_GameObject: {fileID: 2041723619}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.36, y: 0.43, z: 33.49}
+  m_LocalPosition: {x: 24.46, y: 0.43, z: 29.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44678,7 +44763,8 @@ MonoBehaviour:
   onInteractionEnded:
     m_PersistentCalls:
       m_Calls: []
-  itemName: 
+  itemName: Pillar
+  requiredItemName: Firefly
 --- !u!1001 &2042016562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44909,7 +44995,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2046350887}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1776284183}
+        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
+        m_MethodName: HandleInventorySlotClick
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2046350887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45505,7 +45603,7 @@ Transform:
   m_GameObject: {fileID: 2074743890}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.28, y: 0.43, z: 38.3}
+  m_LocalPosition: {x: 24.380001, y: 0.43, z: 34.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45605,7 +45703,8 @@ MonoBehaviour:
   onInteractionEnded:
     m_PersistentCalls:
       m_Calls: []
-  itemName: 
+  itemName: Pillar
+  requiredItemName: Lilly
 --- !u!1001 &2075282725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46069,6 +46168,58 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
+--- !u!1 &2085331245
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2085331246}
+  - component: {fileID: 2085331247}
+  m_Layer: 0
+  m_Name: PuzzleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2085331246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085331245}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 864296722}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2085331247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085331245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44065a4034ac63745a34ed6c06fe7b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pillars:
+  - {fileID: 2140696066}
+  - {fileID: 2041723624}
+  - {fileID: 476328585}
+  - {fileID: 2074743895}
+  onPuzzleCompleted:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &2086280791 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4121562907451998689, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
@@ -47702,7 +47853,7 @@ Transform:
   m_GameObject: {fileID: 2140696061}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.46, y: 0.43, z: 33.4}
+  m_LocalPosition: {x: 27.56, y: 0.43, z: 29.38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47802,7 +47953,8 @@ MonoBehaviour:
   onInteractionEnded:
     m_PersistentCalls:
       m_Calls: []
-  itemName: 
+  itemName: Pillar
+  requiredItemName: Apple
 --- !u!1001 &2143337072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47881,3 +48033,4 @@ SceneRoots:
   - {fileID: 1594464972}
   - {fileID: 331920006}
   - {fileID: 1047108273}
+  - {fileID: 1438429512}

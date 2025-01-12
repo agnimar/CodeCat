@@ -17,12 +17,7 @@ public class InventoryManager : MonoBehaviour
 
         items.Add(item);
         item.SetActive(false); // Hide item in the world
-        Debug.Log($"{item.name} added to inventory.");
-        Debug.Log($"Populating inventory UI with {items.Count} items.");
-        foreach (var i in items)
-        {
-            Debug.Log($"Item in inventory: {i?.name ?? "Null Item"}");
-        }
+        
         return true;
     }
 
@@ -50,7 +45,7 @@ public class InventoryManager : MonoBehaviour
         item.transform.position = dropPoint;
         //item.transform.rotation = dropPosition.rotation;
 
-        Debug.Log($"{item.name} dropped from inventory at {dropPoint}.");
+        //Debug.Log($"{item.name} dropped from inventory at {dropPoint}.");
     }
 
 
