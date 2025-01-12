@@ -8,30 +8,14 @@ public class InteractablePillar : InteractableBase
     private GameObject interactingPlayer;
 
     public bool IsOccupied => isOccupied;
-    public bool IsCorrectlyOccupied
-    {
-        get
-        {
-            if (currentItem == null)
-            {
-                return false;
-            }
-
-            var interactableBase = currentItem.GetComponent<InteractableBase>();
-            if (interactableBase == null)
-            {
-                return false;
-            }
-
-            string placedItemName = interactableBase.ItemName;
-            bool isCorrect = placedItemName == requiredItemName;
-            Debug.Log($"{name}: Required = {requiredItemName}, Placed = {placedItemName}, Correct = {isCorrect}");
-            return isCorrect;
-        }
-    }
-
+    public bool IsCorrectlyOccupied => currentItem?.GetComponent<InteractableBase>()?.ItemName == requiredItemName;
     public override void OnInteractionStart(InteractionData data)
     {
+        if (PuzzleManager.Instance.IsPuzzleSolved())
+        {
+            Debug.Log("Puzzle is solved; pillars are locked.");
+            return;
+        }
         interactingPlayer = data.Interactor;
 
         if (isOccupied)
@@ -74,9 +58,7 @@ public class InteractablePillar : InteractableBase
         currentItem = itemObject;
         isOccupied = true;
 
-        Debug.Log($"{name}: Item placed = {currentItem.name}, IsOccupied = {isOccupied}");
 
-        // Disable interaction on the placed item
         var interactable = currentItem.GetComponent<IInteractable>();
         if (interactable != null)
         {
@@ -92,6 +74,11 @@ public class InteractablePillar : InteractableBase
 
     private void RemoveItemFromPillar()
     {
+        if (PuzzleManager.Instance.IsPuzzleSolved())
+        {
+            Debug.LogWarning("Puzzle is solved. Items cannot be removed from the pillars.");
+            return; // Prevent item removal if the puzzle is solved
+        }
         if (currentItem == null)
         {
             Debug.LogWarning("No item to remove from the pillar.");

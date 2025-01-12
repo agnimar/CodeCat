@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine;
 
 public class PuzzleManager : MonoBehaviour
 {
@@ -10,7 +10,6 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private UnityEvent onPuzzleCompleted;
 
     private bool isPuzzleSolved = false;
-    private bool allPillarAreCorrect = false;
 
     private void Awake()
     {
@@ -32,21 +31,18 @@ public class PuzzleManager : MonoBehaviour
             Debug.Log("Puzzle is already solved.");
             return;
         }
-        allPillarAreCorrect = true;
-        Debug.Log("Checking puzzle state...");
+
+        bool allPillarsCorrect = true;
         foreach (var pillar in pillars)
         {
-            //Debug.Log($"Pillar {pillar.name}: IsOccupied = {pillar.IsOccupied}, IsCorrectlyOccupied = {pillar.IsCorrectlyOccupied}");
-
             if (!pillar.IsCorrectlyOccupied)
             {
-                Debug.Log($"Pillar {pillar.name} is not correctly occupied or is empty.");
-                allPillarAreCorrect = false;
-                //return; // At least one pillar is incorrect
+                allPillarsCorrect = false;
+                break;
             }
         }
-        // If all pillars are correctly occupied, mark the puzzle as solved
-        if (allPillarAreCorrect)
+
+        if (allPillarsCorrect)
         {
             isPuzzleSolved = true;
             Debug.Log("Puzzle Solved!");
@@ -54,4 +50,8 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
+    public bool IsPuzzleSolved()
+    {
+        return isPuzzleSolved;
+    }
 }
