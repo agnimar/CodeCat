@@ -44,7 +44,6 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
 
         return true;
     }
-
     public virtual void OnInteractionStart(InteractionData data)
     {
         onInteractionStarted?.Invoke(data);
@@ -55,7 +54,6 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
         var itemGameObject = gameObject; // This is the actual in-scene object
         if (inventory.AddItem(itemGameObject))
         {
-            Debug.Log($"{ItemName} collected!");
             gameObject.SetActive(false); // Deactivate the item since it's now in the inventory.
         }
         else
@@ -63,8 +61,6 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
             Debug.Log($"{ItemName} is not added. Either it's already in the inventory or inventory is full.");
         }
     }
-
-
     public virtual void OnInteractionEnd(InteractionData data)
     {
         onInteractionEnded?.Invoke(data);
@@ -74,7 +70,6 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
     {
 
     }
-
     protected virtual void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.yellow;

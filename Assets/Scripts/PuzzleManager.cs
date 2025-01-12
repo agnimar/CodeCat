@@ -1,12 +1,14 @@
 using System.Collections.Generic;
-using UnityEngine.Events;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PuzzleManager : MonoBehaviour
 {
     public static PuzzleManager Instance { get; private set; }
 
     [SerializeField] private List<InteractablePillar> pillars;
+    [SerializeField] private GameObject entrance; // Reference to the entrance
+    [SerializeField] private Animator entranceAnimator; // Animator for the entrance
     [SerializeField] private UnityEvent onPuzzleCompleted;
 
     private bool isPuzzleSolved = false;
@@ -26,13 +28,10 @@ public class PuzzleManager : MonoBehaviour
 
     public void CheckPuzzleState()
     {
-        if (isPuzzleSolved)
-        {
-            Debug.Log("Puzzle is already solved.");
-            return;
-        }
+        if (isPuzzleSolved) return;
 
         bool allPillarsCorrect = true;
+
         foreach (var pillar in pillars)
         {
             if (!pillar.IsCorrectlyOccupied)
@@ -46,10 +45,23 @@ public class PuzzleManager : MonoBehaviour
         {
             isPuzzleSolved = true;
             Debug.Log("Puzzle Solved!");
+
+            UnlockEntrance(); // Trigger the entrance unlocking
             onPuzzleCompleted?.Invoke();
         }
     }
 
+    private void UnlockEntrance()
+    {
+        if (entranceAnimator != null)
+        {
+            entranceAnimator.SetTrigger("Unlock"); // Play unlock animation
+        }
+        else
+        {
+            Debug.LogError("Entrance Animator is not assigned!");
+        }
+    }
     public bool IsPuzzleSolved()
     {
         return isPuzzleSolved;
