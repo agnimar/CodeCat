@@ -2,36 +2,68 @@ using UnityEngine;
 
 public class InteractablePillar : InteractableBase
 {
-    [SerializeField] private string requiredItem;
     private bool isOccupied = false;
+    private GameObject interactingPlayer;
 
-    public bool IsOccupied => isOccupied; // Add this public property for access
+    public bool IsOccupied => isOccupied;
 
     public override void OnInteractionStart(InteractionData data)
     {
-        if (isOccupied) return;
-
-        var inventory = data.Interactor.GetComponent<InventoryManager>();
-        if (inventory == null) return;
-
-        GameObject itemObject = inventory.GetAndRemoveItem(requiredItem);
-        if (itemObject != null)
+        if (isOccupied)
         {
-            isOccupied = true;
-            itemObject.SetActive(true);
+            Debug.Log("Pillar is already occupied.");
+            return;
+        }
 
-            itemObject.transform.position = transform.position + Vector3.up * 1.0f; // adjust as needed
-            itemObject.transform.SetParent(transform);
+        interactingPlayer = data.Interactor;
 
-            Debug.Log($"{requiredItem} placed on pillar!");
-            onInteractionStarted?.Invoke(data);
+        // Open inventory for item selection
+        UIManager.Instance.ShowInventoryForSelection(OnItemSelected);
+    }
 
-            PuzzleManager.Instance?.CheckPuzzleState();
+    private void OnItemSelected(GameObject selectedItem)
+    {
+        if (selectedItem == null)
+        {
+            Debug.Log("No item selected.");
+            return;
+        }
+
+        var inventory = interactingPlayer.GetComponent<InventoryManager>();
+        if (inventory == null)
+        {
+            Debug.LogError("Interactor missing InventoryManager!");
+            return;
+        }
+
+        if (ValidateItem(selectedItem))
+        {
+            PlaceItemOnPillar(selectedItem);
+            inventory.GetAndRemoveItem(selectedItem.GetComponent<InteractableBase>().ItemName);
         }
         else
         {
-            Debug.Log($"Missing required item: {requiredItem} in inventory.");
+            Debug.Log("Incorrect item placed.");
+            Debug.Log("The item doesn't fit this pillar.");
         }
     }
 
+    private bool ValidateItem(GameObject item)
+    {
+        var interactableBase = item.GetComponent<InteractableBase>();
+        return interactableBase != null; // Customize validation if needed
+    }
+
+    private void PlaceItemOnPillar(GameObject itemObject)
+    {
+        isOccupied = true;
+
+        // Position and attach the item to the pillar
+        itemObject.SetActive(true);
+        itemObject.transform.position = transform.position + Vector3.up * 1.0f; // Adjust height
+        itemObject.transform.SetParent(transform);
+
+        Debug.Log($"{itemObject.name} placed on the pillar!");
+        PuzzleManager.Instance?.CheckPuzzleState();
+    }
 }
