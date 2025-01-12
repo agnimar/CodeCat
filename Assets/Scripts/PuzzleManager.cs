@@ -10,6 +10,7 @@ public class PuzzleManager : MonoBehaviour
     [SerializeField] private UnityEvent onPuzzleCompleted;
 
     private bool isPuzzleSolved = false;
+    private bool allPillarAreCorrect = false;
 
     private void Awake()
     {
@@ -26,18 +27,31 @@ public class PuzzleManager : MonoBehaviour
 
     public void CheckPuzzleState()
     {
-        if (isPuzzleSolved) return;
-
+        if (isPuzzleSolved)
+        {
+            Debug.Log("Puzzle is already solved.");
+            return;
+        }
+        allPillarAreCorrect = true;
+        Debug.Log("Checking puzzle state...");
         foreach (var pillar in pillars)
         {
-            if (!pillar.IsOccupied)
+            //Debug.Log($"Pillar {pillar.name}: IsOccupied = {pillar.IsOccupied}, IsCorrectlyOccupied = {pillar.IsCorrectlyOccupied}");
+
+            if (!pillar.IsCorrectlyOccupied)
             {
-                return; // Puzzle not solved yet
+                Debug.Log($"Pillar {pillar.name} is not correctly occupied or is empty.");
+                allPillarAreCorrect = false;
+                //return; // At least one pillar is incorrect
             }
         }
-
-        isPuzzleSolved = true;
-        Debug.Log("Puzzle Solved!");
-        onPuzzleCompleted.Invoke(); // Trigger completion event
+        // If all pillars are correctly occupied, mark the puzzle as solved
+        if (allPillarAreCorrect)
+        {
+            isPuzzleSolved = true;
+            Debug.Log("Puzzle Solved!");
+            onPuzzleCompleted?.Invoke();
+        }
     }
+
 }
