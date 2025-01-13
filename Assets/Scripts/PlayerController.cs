@@ -21,6 +21,11 @@ public class PlayerController : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
+    [Header("Camera Reference")]
+    public Transform cameraTransform; // Reference to the camera transform
+
+    private bool isFirstPerson = false; // First-person mode flag
+
     void Start()
     {
         // Get the character controller
@@ -31,6 +36,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         HandleMovement();
+    }
+
+    public void SetFirstPerson(bool firstPerson)
+    {
+        isFirstPerson = firstPerson; // Update the first-person mode state
     }
 
     private void HandleMovement()
@@ -44,23 +54,40 @@ public class PlayerController : MonoBehaviour
         }
 
         // Get input
-        float moveX = Input.GetAxis("Horizontal");
-        float moveZ = Input.GetAxis("Vertical");
+        float moveX = Input.GetAxis("Horizontal"); // A/D or Left/Right arrow keys
+        float moveZ = Input.GetAxis("Vertical");   // W/S or Up/Down arrow keys
 
-        // Calculate movement direction
-        movement = transform.right * moveX + transform.forward * moveZ;
+        // Movement direction relative to the camera
+        Vector3 forward = cameraTransform.forward;
+        Vector3 right = cameraTransform.right;
 
-        // Sprinting (Shift key)
-        if (Input.GetKey(KeyCode.LeftShift))
+        // Ignore vertical movement (Y-axis)
+        forward.y = 0f;
+        right.y = 0f;
+
+        forward.Normalize();
+        right.Normalize();
+
+        if (isFirstPerson)
         {
-            currentSpeed = sprintSpeed;
+            // In first-person mode, movement is based on camera direction without rotating the player
+            movement = (forward * moveZ + right * moveX).normalized;
         }
         else
         {
-            currentSpeed = walkSpeed;
+            // In third-person mode, movement is still relative to the camera but player rotates
+            movement = (forward * moveZ + right * moveX).normalized;
+
+            // Rotate the player to face the movement direction
+            if (movement.magnitude > 0)
+            {
+                Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 10f);
+            }
         }
 
-        // Apply movement
+        // Apply movement with speed
+        currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
         controller.Move(movement * currentSpeed * Time.deltaTime);
 
         // Apply gravity

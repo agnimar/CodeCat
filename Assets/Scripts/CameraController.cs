@@ -9,16 +9,22 @@ public class CameraController : MonoBehaviour
     public float mouseSensitivity = 100f;
 
     private bool isFirstPerson = false;
-    private float xRotation = 0f;
+    private float xRotation = 0f; // Vertical rotation
+    private float yRotation = 0f; // Horizontal rotation
+
+    [Header("Rotation Constraints")]
+    public float minVerticalAngle = -30f; // Minimum angle for looking down
+    public float maxVerticalAngle = 30f;  // Maximum angle for looking up
 
     void Start()
     {
-        UIManager.Instance.SetCursorLockState(true); // Lock the cursor when the game starts
+        UIManager.Instance.SetCursorLockState(true); 
+        yRotation = player.eulerAngles.y; 
     }
 
     void Update()
     {
-        if (Cursor.lockState == CursorLockMode.Locked) // Only handle camera if cursor is locked
+        if (Cursor.lockState == CursorLockMode.Locked) 
         {
             HandleViewSwitch();
             HandleMouseLook();
@@ -27,7 +33,7 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (Cursor.lockState == CursorLockMode.Locked) // Only update the camera if cursor is locked
+        if (Cursor.lockState == CursorLockMode.Locked) 
         {
             UpdateCameraPosition();
         }
@@ -38,6 +44,12 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             isFirstPerson = !isFirstPerson;
+
+            var playerController = player.GetComponent<PlayerController>();
+            if (playerController != null)
+            {
+                playerController.SetFirstPerson(isFirstPerson);
+            }
 
             if (isFirstPerson)
             {
@@ -60,7 +72,9 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            transform.RotateAround(player.position, Vector3.up, mouseX);
+            yRotation += mouseX;
+            xRotation -= mouseY;
+            xRotation = Mathf.Clamp(xRotation, minVerticalAngle, maxVerticalAngle);
         }
     }
 
@@ -73,7 +87,9 @@ public class CameraController : MonoBehaviour
         }
         else
         {
-            Vector3 desiredPosition = player.position + player.TransformDirection(thirdPersonOffset);
+            Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0);
+            Vector3 desiredPosition = player.position + rotation * thirdPersonOffset;
+
             transform.position = desiredPosition;
             transform.LookAt(player.position + Vector3.up * 1.2f);
         }

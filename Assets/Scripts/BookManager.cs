@@ -14,6 +14,10 @@ public class BookManager : MonoBehaviour
 
     private int currentPage = 0;
 
+    private void Awake()
+    {
+        bookUI.SetActive(false);
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.J))

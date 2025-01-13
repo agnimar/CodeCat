@@ -3118,6 +3118,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 128
+  cameraTransform: {fileID: 330585546}
 --- !u!136 &141531436
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6993,6 +6994,8 @@ MonoBehaviour:
   thirdPersonOffset: {x: 0, y: 5, z: -5}
   firstPersonOffset: {x: 0, y: 0.5, z: 0}
   mouseSensitivity: 200
+  minVerticalAngle: -30
+  maxVerticalAngle: 30
 --- !u!1 &331072058
 GameObject:
   m_ObjectHideFlags: 0
