@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
 
-        inventoryManager = FindObjectOfType<InventoryManager>();
+        inventoryManager = FindAnyObjectByType<InventoryManager>();
         if (inventoryManager == null)
         {
             Debug.LogError("InventoryManager not found in the scene!");
@@ -77,7 +77,6 @@ public class UIManager : MonoBehaviour
         if (index >= 0 && index < items.Count)
         {
             GameObject selectedItem = items[index];
-            Debug.Log($"Selected item: {selectedItem.name}");
             selectionCallback?.Invoke(selectedItem);
             CloseInventory();
         }

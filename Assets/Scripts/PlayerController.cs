@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     // Movement settings
     public float walkSpeed = 5f;
     public float sprintSpeed = 10f;
-    public float gravity = -9.81f; // Gravity force
+    public float gravity = -9.81f;
 
     // Components
     private CharacterController controller;
@@ -17,20 +17,20 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
 
     // Ground check settings
-    public Transform groundCheck; // Empty GameObject to check ground collision
+    public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
     [Header("Camera Reference")]
-    public Transform cameraTransform; // Reference to the camera transform
+    public Transform cameraTransform;
 
-    private bool isFirstPerson = false; // First-person mode flag
+    private bool isFirstPerson = false;
 
     void Start()
     {
         // Get the character controller
         controller = GetComponent<CharacterController>();
-        currentSpeed = walkSpeed; // Set default speed to walk
+        currentSpeed = walkSpeed;
     }
 
     void Update()
@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     public void SetFirstPerson(bool firstPerson)
     {
-        isFirstPerson = firstPerson; // Update the first-person mode state
+        isFirstPerson = firstPerson;
     }
 
     private void HandleMovement()
@@ -50,10 +50,10 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f; // Small downward force to ensure consistent ground collision
+            velocity.y = -2f; // Small downward force to keep player grounded
         }
 
-        // Get input
+        // Get input 
         float moveX = Input.GetAxis("Horizontal"); // A/D or Left/Right arrow keys
         float moveZ = Input.GetAxis("Vertical");   // W/S or Up/Down arrow keys
 
@@ -70,12 +70,10 @@ public class PlayerController : MonoBehaviour
 
         if (isFirstPerson)
         {
-            // In first-person mode, movement is based on camera direction without rotating the player
             movement = (forward * moveZ + right * moveX).normalized;
         }
         else
         {
-            // In third-person mode, movement is still relative to the camera but player rotates
             movement = (forward * moveZ + right * moveX).normalized;
 
             // Rotate the player to face the movement direction
@@ -86,8 +84,17 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Apply movement with speed
-        currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
+        // Stop movement if no input
+        if (movement.magnitude == 0)
+        {
+            currentSpeed = 0;
+        }
+        else
+        {
+            currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
+        }
+
+        // Apply movement
         controller.Move(movement * currentSpeed * Time.deltaTime);
 
         // Apply gravity

@@ -4,8 +4,8 @@ public class CameraController : MonoBehaviour
 {
     [Header("Camera Settings")]
     public Transform player;
-    public Vector3 thirdPersonOffset = new Vector3(0, 4, -5);
-    public Vector3 firstPersonOffset = new Vector3(0, 1.2f, 0);
+    public Vector3 thirdPersonOffset = new Vector3(0, 0, 0);
+    public Vector3 firstPersonOffset = new Vector3(0, 0.45f, 0);
     public float mouseSensitivity = 100f;
 
     private bool isFirstPerson = false;
@@ -54,10 +54,20 @@ public class CameraController : MonoBehaviour
             if (isFirstPerson)
             {
                 transform.position = player.TransformPoint(firstPersonOffset);
-                xRotation = transform.eulerAngles.x;
+
+                // Reset the vertical rotation so the camera is not looking down/up unexpectedly.
+                xRotation = 0f;
+                yRotation = player.eulerAngles.y;
+            }
+            else
+            {
+                // For third-person, just update yRotation (the inspector-set thirdPersonOffset will now remain unchanged)
+                xRotation = 18f;
+                yRotation = player.eulerAngles.y;
             }
         }
     }
+
 
     private void HandleMouseLook()
     {
