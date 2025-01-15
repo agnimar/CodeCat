@@ -45,38 +45,31 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        // Ground check
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f; // Small downward force to keep player grounded
+            velocity.y = -2f; 
         }
 
-        // Get input 
-        float moveX = Input.GetAxis("Horizontal"); // A/D or Left/Right arrow keys
-        float moveZ = Input.GetAxis("Vertical");   // W/S or Up/Down arrow keys
+        float rawMoveX = Input.GetAxisRaw("Horizontal"); 
+        float rawMoveZ = Input.GetAxisRaw("Vertical");   
 
-        // Movement direction relative to the camera
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
 
-        // Ignore vertical movement (Y-axis)
         forward.y = 0f;
         right.y = 0f;
 
         forward.Normalize();
         right.Normalize();
 
-        if (isFirstPerson)
-        {
-            movement = (forward * moveZ + right * moveX).normalized;
-        }
-        else
-        {
-            movement = (forward * moveZ + right * moveX).normalized;
+        Vector3 targetMovement = (forward * rawMoveZ + right * rawMoveX).normalized;
 
-            // Rotate the player to face the movement direction
+        movement = Vector3.Lerp(movement, targetMovement, Time.deltaTime * 10f);
+
+        if (!isFirstPerson)
+        {
             if (movement.magnitude > 0)
             {
                 Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
@@ -84,20 +77,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        // Stop movement if no input
-        if (movement.magnitude == 0)
-        {
-            currentSpeed = 0;
-        }
-        else
-        {
-            currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed;
-        }
+        currentSpeed = (movement.magnitude > 0) ?
+                       (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed) : 0;
 
-        // Apply movement
         controller.Move(movement * currentSpeed * Time.deltaTime);
 
-        // Apply gravity
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
     }
