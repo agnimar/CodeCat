@@ -37,6 +37,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         HandleInventoryToggle();
+        HandleRightClick();
     }
 
     // Toggle inventory visibility
@@ -56,6 +57,7 @@ public class UIManager : MonoBehaviour
     public void ShowInventoryForSelection(Action<GameObject> callback)
     {
         selectionCallback = callback;
+        inventoryManager.IsOpenedByPlayer = false;
         inventoryPanel.SetActive(true);
         isInventoryOpen = true;
         SetCursorLockState(false);
@@ -70,6 +72,11 @@ public class UIManager : MonoBehaviour
         {
             Debug.LogError("InventoryManager not found.");
             selectionCallback?.Invoke(null);
+            return;
+        }
+        if (inventoryManager.IsOpenedByPlayer)
+        {
+            Debug.LogWarning("Cannot interact with inventory slots when opened manually.");
             return;
         }
 
@@ -115,6 +122,7 @@ public class UIManager : MonoBehaviour
     public void CloseInventory()
     {
         inventoryPanel.SetActive(false);
+        inventoryManager.IsOpenedByPlayer = false;
         isInventoryOpen = false;
         SetCursorLockState(true);
     }
@@ -163,6 +171,7 @@ public class UIManager : MonoBehaviour
         // Open/close inventory with 'I'
         if (Input.GetKeyDown(KeyCode.I))
         {
+            inventoryManager.IsOpenedByPlayer = true;
             isInventoryOpen = !isInventoryOpen;
             inventoryPanel.SetActive(isInventoryOpen);
             SetCursorLockState(!isInventoryOpen);

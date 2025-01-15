@@ -6,6 +6,8 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private int maxCapacity = 8;
     [SerializeField] private Transform dropPosition; // Position to drop items
     private List<GameObject> items = new List<GameObject>();
+    public bool IsOpenedByPlayer { get; set; }
+
 
     public bool AddItem(GameObject item)
     {
