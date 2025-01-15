@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
         if (!isFirstPerson)
         {
-            if (movement.magnitude > 0)
+            if (movement.sqrMagnitude > .01f)
             {
                 Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
                 transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 10f);
