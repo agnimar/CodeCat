@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,19 +23,25 @@ public class PlayerController : MonoBehaviour
 
     [Header("Camera Reference")]
     public Transform cameraTransform;
+    public Animator animator;
 
     private bool isFirstPerson = false;
+
+    private bool isMoving = false;
+    private bool wasMoving = false;
 
     void Start()
     {
         // Get the character controller
         controller = GetComponent<CharacterController>();
+        
         currentSpeed = walkSpeed;
     }
 
     void Update()
     {
         HandleMovement();
+        HandleAnimation();
     }
 
     public void SetFirstPerson(bool firstPerson)
@@ -68,21 +74,43 @@ public class PlayerController : MonoBehaviour
 
         movement = Vector3.Lerp(movement, targetMovement, Time.deltaTime * 10f);
 
-        if (!isFirstPerson)
+        if (!isFirstPerson && movement.sqrMagnitude > 0.01f)
         {
-            if (movement.sqrMagnitude > .01f)
-            {
-                Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
-                transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 10f);
-            }
+            Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 10f);
         }
 
         currentSpeed = (movement.magnitude > 0) ?
                        (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed) : 0;
 
         controller.Move(movement * currentSpeed * Time.deltaTime);
+        animator.SetFloat("Speed", currentSpeed);
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+    }
+    private void HandleAnimation()
+    {
+        isMoving = movement.magnitude > 0.01f;
+
+        if (isMoving && !wasMoving)
+        {
+            animator.SetTrigger("StartMoving");
+        }
+        else if (!isMoving && wasMoving)
+        {
+            animator.SetTrigger("StopMoving");
+        }
+
+        // OPTIONAL: Separate trigger for "Standing"
+        // Typically you can just rely on "StopMoving" → Idle transition,
+        // but if you want a distinct trigger for your standing state:
+        if (isGrounded && !isMoving)
+        {
+            animator.SetTrigger("Standing");
+        }
+
+        // Keep track of state for next frame
+        wasMoving = isMoving;
     }
 }

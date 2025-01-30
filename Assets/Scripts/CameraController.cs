@@ -2,19 +2,29 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [Header("Camera Settings")]
+    [Header("References")]
     public Transform player;
+    [Tooltip("GameObject representing the nose or cockpit nose. Will be disabled in first-person view.")]
+    public GameObject noseObject;
+
+    [Header("Camera Offsets")]
     public Vector3 thirdPersonOffset = new Vector3(0, 0, 0);
     public Vector3 firstPersonOffset = new Vector3(0, 0.45f, 0);
+
+    [Header("Sensitivity")]
     public float mouseSensitivity = 100f;
+
+    [Header("First Person Rotation Constraints")]
+    public float fpMinVerticalAngle = -85f; // Change as needed
+    public float fpMaxVerticalAngle = 85f;  // Change as needed
+
+    [Header("Third Person Rotation Constraints")]
+    public float tpMinVerticalAngle = -30f; // Minimum angle for looking down
+    public float tpMaxVerticalAngle = 30f;  // Maximum angle for looking up
 
     private bool isFirstPerson = false;
     private float xRotation = 0f; // Vertical rotation
     private float yRotation = 0f; // Horizontal rotation
-
-    [Header("Rotation Constraints")]
-    public float minVerticalAngle = -30f; // Minimum angle for looking down
-    public float maxVerticalAngle = 30f;  // Maximum angle for looking up
 
     void Start()
     {
@@ -58,12 +68,20 @@ public class CameraController : MonoBehaviour
                 // Reset the vertical rotation so the camera is not looking down/up unexpectedly.
                 xRotation = 0f;
                 yRotation = player.eulerAngles.y;
+                if (noseObject != null)
+                {
+                    noseObject.SetActive(false);
+                }
             }
             else
             {
                 // For third-person, just update yRotation (the inspector-set thirdPersonOffset will now remain unchanged)
                 xRotation = 18f;
                 yRotation = player.eulerAngles.y;
+                if (noseObject != null)
+                {
+                    noseObject.SetActive(true);
+                }
             }
         }
     }
@@ -78,13 +96,13 @@ public class CameraController : MonoBehaviour
         {
             player.Rotate(Vector3.up * mouseX);
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+            xRotation = Mathf.Clamp(xRotation, fpMinVerticalAngle, fpMaxVerticalAngle);
         }
         else
         {
             yRotation += mouseX;
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, minVerticalAngle, maxVerticalAngle);
+            xRotation = Mathf.Clamp(xRotation, tpMinVerticalAngle, tpMaxVerticalAngle);
         }
     }
 
