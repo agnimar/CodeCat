@@ -2,96 +2,124 @@
 
 public class PlayerController : MonoBehaviour
 {
-    // Movement settings
-    public float walkSpeed = 5f;
-    public float sprintSpeed = 10f;
-    public float gravity = -9.81f;
+    [Header("Movement Settings")]
+    [SerializeField] private float walkSpeed = 4f;
+    [SerializeField] private float sprintSpeed = 7f;
+    [SerializeField] private float gravityForce = -9.81f;
+
+    [Header("Ground Check Settings")]
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundCheckRadius = 0.4f;
+    [SerializeField] private LayerMask groundLayer;
+
+    [Header("References")]
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private Animator animator;
 
     // Components
-    private CharacterController controller;
+    private CharacterController characterController;
 
-    // Input variables
-    private float currentSpeed;
-    private Vector3 movement;
-    private Vector3 velocity;
+    // Movement state
+    private float currentMoveSpeed;
+    private Vector3 smoothedMovement;
+    private Vector3 gravityVelocity;
     private bool isGrounded;
 
-    // Ground check settings
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
+    // Animation state
+    private bool isMoving;
+    private bool wasMoving;
+    private bool isSprinting;
 
-    [Header("Camera Reference")]
-    public Transform cameraTransform;
-    public Animator animator;
+    // First-person mode flag
+    private bool isFirstPersonMode = false;
 
-    private bool isFirstPerson = false;
-
-    private bool isMoving = false;
-    private bool wasMoving = false;
-
-    void Start()
+    private void Start()
     {
-        // Get the character controller
-        controller = GetComponent<CharacterController>();
-        
-        currentSpeed = walkSpeed;
+        characterController = GetComponent<CharacterController>();
+        currentMoveSpeed = walkSpeed;
     }
 
-    void Update()
+    private void Update()
     {
-        HandleMovement();
-        HandleAnimation();
+        ProcessMovement();
+        UpdateAnimations();
+        CheckSprintInput();
     }
 
-    public void SetFirstPerson(bool firstPerson)
+    public void SetFirstPersonMode(bool firstPerson)
     {
-        isFirstPerson = firstPerson;
+        isFirstPersonMode = firstPerson;
     }
 
-    private void HandleMovement()
+    private void ProcessMovement()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        UpdateGroundStatus();
+        Vector3 targetDirection = GetInputDirection();
+        UpdateSmoothedMovement(targetDirection);
+        RotatePlayer(smoothedMovement);
+        UpdateMovementSpeed();
+        MoveCharacter(smoothedMovement);
+        ApplyGravity();
+    }
 
-        if (isGrounded && velocity.y < 0)
+    private void UpdateGroundStatus()
+    {
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
+        if (isGrounded && gravityVelocity.y < 0)
         {
-            velocity.y = -2f; 
+            gravityVelocity.y = -2f;
         }
+    }
 
-        float rawMoveX = Input.GetAxisRaw("Horizontal"); 
-        float rawMoveZ = Input.GetAxisRaw("Vertical");   
+    private Vector3 GetInputDirection()
+    {
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
         Vector3 forward = cameraTransform.forward;
         Vector3 right = cameraTransform.right;
-
         forward.y = 0f;
         right.y = 0f;
-
         forward.Normalize();
         right.Normalize();
 
-        Vector3 targetMovement = (forward * rawMoveZ + right * rawMoveX).normalized;
-
-        movement = Vector3.Lerp(movement, targetMovement, Time.deltaTime * 10f);
-
-        if (!isFirstPerson && movement.sqrMagnitude > 0.01f)
-        {
-            Quaternion toRotation = Quaternion.LookRotation(movement, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, toRotation, Time.deltaTime * 10f);
-        }
-
-        currentSpeed = (movement.magnitude > 0) ?
-                       (Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : walkSpeed) : 0;
-
-        controller.Move(movement * currentSpeed * Time.deltaTime);
-        animator.SetFloat("Speed", currentSpeed);
-
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+        return (forward * vertical + right * horizontal).normalized;
     }
-    private void HandleAnimation()
+
+    private void UpdateSmoothedMovement(Vector3 targetDirection)
     {
-        isMoving = movement.magnitude > 0.01f;
+        smoothedMovement = Vector3.Lerp(smoothedMovement, targetDirection, Time.deltaTime * 10f);
+    }
+
+    private void RotatePlayer(Vector3 direction)
+    {
+        if (!isFirstPersonMode && direction.sqrMagnitude > 0.01f)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.up);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+        }
+    }
+
+    private void UpdateMovementSpeed()
+    {
+        isSprinting = Input.GetKey(KeyCode.LeftShift) && smoothedMovement.sqrMagnitude > 0.01f;
+        currentMoveSpeed = smoothedMovement.magnitude > 0 ? (isSprinting ? sprintSpeed : walkSpeed) : 0f;
+        animator.SetFloat("Speed", currentMoveSpeed);
+    }
+
+    private void MoveCharacter(Vector3 direction)
+    {
+        characterController.Move(direction * currentMoveSpeed * Time.deltaTime);
+    }
+
+    private void ApplyGravity()
+    {
+        gravityVelocity.y += gravityForce * Time.deltaTime;
+        characterController.Move(gravityVelocity * Time.deltaTime);
+    }
+    private void UpdateAnimations()
+    {
+        isMoving = smoothedMovement.magnitude > 0.01f;
 
         if (isMoving && !wasMoving)
         {
@@ -102,15 +130,23 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("StopMoving");
         }
 
-        // OPTIONAL: Separate trigger for "Standing"
-        // Typically you can just rely on "StopMoving" → Idle transition,
-        // but if you want a distinct trigger for your standing state:
         if (isGrounded && !isMoving)
         {
             animator.SetTrigger("Standing");
         }
 
-        // Keep track of state for next frame
         wasMoving = isMoving;
+    }
+
+    private void CheckSprintInput()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            animator.SetTrigger("StartSprinting");
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            animator.SetTrigger("StopSprinting");
+        }
     }
 }

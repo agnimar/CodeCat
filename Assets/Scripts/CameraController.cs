@@ -58,7 +58,7 @@ public class CameraController : MonoBehaviour
             var playerController = player.GetComponent<PlayerController>();
             if (playerController != null)
             {
-                playerController.SetFirstPerson(isFirstPerson);
+                playerController.SetFirstPersonMode(isFirstPerson);
             }
 
             if (isFirstPerson)
