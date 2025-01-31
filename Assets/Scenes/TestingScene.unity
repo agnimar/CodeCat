@@ -3111,14 +3111,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1e279d5c71255b43b2b328b743ced7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 8
-  sprintSpeed: 10
-  gravity: -9.81
+  walkSpeed: 4
+  sprintSpeed: 8
+  gravityForce: -9.81
   groundCheck: {fileID: 432412343}
-  groundDistance: 0.4
-  groundMask:
+  groundCheckRadius: 0.4
+  groundLayer:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   cameraTransform: {fileID: 330585546}
   animator: {fileID: 1316105516}
 --- !u!136 &141531436

@@ -104,7 +104,7 @@ public class PlayerController : MonoBehaviour
     {
         isSprinting = Input.GetKey(KeyCode.LeftShift) && smoothedMovement.sqrMagnitude > 0.01f;
         currentMoveSpeed = smoothedMovement.magnitude > 0 ? (isSprinting ? sprintSpeed : walkSpeed) : 0f;
-        animator.SetFloat("Speed", currentMoveSpeed);
+        animator.SetFloat("Speed", currentMoveSpeed/1.5f);
     }
 
     private void MoveCharacter(Vector3 direction)
@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour
     }
     private void UpdateAnimations()
     {
-        isMoving = smoothedMovement.magnitude > 0.01f;
+        isMoving = smoothedMovement.sqrMagnitude > 0.1f;
 
         if (isMoving && !wasMoving)
         {
