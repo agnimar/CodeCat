@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class InteractablePillar : InteractableBase
 {
-    [SerializeField] private string requiredItemName; // Specify the required item name for this pillar
+    [SerializeField] private string requiredItemName;
+    [SerializeField] private Transform placementPoint;
     private bool isOccupied = false;
-    private GameObject currentItem; // The item currently placed on the pillar
+    private GameObject currentItem; 
     private GameObject interactingPlayer;
 
     public bool IsOccupied => isOccupied;
