@@ -3,7 +3,7 @@ using UnityEngine;
 public class InteractablePillar : InteractableBase
 {
     [SerializeField] private string requiredItemName;
-    [SerializeField] private Transform placementPoint;
+    [SerializeField] private Transform itemPlacementPoint;
     private bool isOccupied = false;
     private GameObject currentItem; 
     private GameObject interactingPlayer;
@@ -67,7 +67,7 @@ public class InteractablePillar : InteractableBase
         }
 
         itemObject.SetActive(true);
-        itemObject.transform.position = transform.position + Vector3.up * 1.0f; // Adjust height
+        itemObject.transform.position = itemPlacementPoint.position; 
         itemObject.transform.SetParent(transform);
 
         PuzzleManager.Instance?.CheckPuzzleState();
