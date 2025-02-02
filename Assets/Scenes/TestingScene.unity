@@ -48428,61 +48428,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 331920006}
     m_Modifications:
-    - target: {fileID: 2263105077593112462, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2263105077593112462, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2263105077593112462, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 333
-      objectReference: {fileID: 0}
-    - target: {fileID: 2263105077593112462, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 420
-      objectReference: {fileID: 0}
-    - target: {fileID: 2263105077593112462, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 363.06775
-      objectReference: {fileID: 0}
-    - target: {fileID: 2263105077593112462, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -300
-      objectReference: {fileID: 0}
     - target: {fileID: 2949833629804235595, guid: 918926444748ecb48b8004fa5d138000, type: 3}
       propertyPath: m_Name
       value: BookPanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 2949833629804235595, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936863119041055075, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936863119041055075, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936863119041055075, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 333
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936863119041055075, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 420
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936863119041055075, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 703.06775
-      objectReference: {fileID: 0}
-    - target: {fileID: 4936863119041055075, guid: 918926444748ecb48b8004fa5d138000, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 8738780982785179949, guid: 918926444748ecb48b8004fa5d138000, type: 3}
       propertyPath: m_Pivot.x
@@ -48565,8 +48513,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2702422267696691856, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 918926444748ecb48b8004fa5d138000, type: 3}
