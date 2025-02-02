@@ -41,11 +41,19 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        ProcessMovement();
+        if (!IsAnyUIOpen())
+        {
+            ProcessMovement();
+            CheckSprintInput();
+        }
         UpdateAnimations();
-        CheckSprintInput();
     }
-
+    private bool IsAnyUIOpen()
+    {
+        bool inventoryOpen = UIManager.Instance != null && UIManager.Instance.IsInventoryOpen;
+        bool bookUIOpen = BookUIManager.Instance != null && BookUIManager.Instance.IsBookUIOpen;
+        return inventoryOpen || bookUIOpen;
+    }
     public void SetFirstPersonMode(bool firstPerson)
     {
         isFirstPersonMode = firstPerson;
@@ -119,8 +127,19 @@ public class PlayerController : MonoBehaviour
     }
     private void UpdateAnimations()
     {
-        isMoving = smoothedMovement.sqrMagnitude > 0.1f;
+        if (IsAnyUIOpen())
+        {
+            if (wasMoving)
+            {
+                animator.SetTrigger("StopMoving");
+            }
+            animator.SetTrigger("Standing");
+            wasMoving = false;
+            isMoving = false;
+            return;
+        }
 
+        isMoving = smoothedMovement.sqrMagnitude > 0.1f;
         if (isMoving && !wasMoving)
         {
             animator.SetTrigger("StartMoving");

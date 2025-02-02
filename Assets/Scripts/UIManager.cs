@@ -182,5 +182,5 @@ public class UIManager : MonoBehaviour
             }
         }
     }
-
+    public bool IsInventoryOpen => inventoryPanel.activeSelf;
 }

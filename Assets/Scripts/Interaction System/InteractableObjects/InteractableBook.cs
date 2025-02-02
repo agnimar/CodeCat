@@ -10,9 +10,18 @@ public class InteractableBook : InteractableBase
     {
         onInteractionStarted?.Invoke(data);
 
-        var itemGameObject = gameObject; 
-        //TODO enable UI button to open book or smtn
-        gameObject.SetActive(false); 
+        //var itemGameObject = gameObject;
+        if (BookUIManager.Instance != null)
+        {
+            BookUIManager.Instance.UnlockBookUI();
+            // (Optional) Set the book content if desired:
+            // BookUIManager.Instance.SetBookContent("Once upon a time, ...");
+        }
+        else
+        {
+            Debug.LogWarning("BookUIManager instance not found in the scene!");
+        }
+        gameObject.SetActive(false);
+
     }
-    
 }
