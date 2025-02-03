@@ -48447,18 +48447,98 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 331920006}
     m_Modifications:
+    - target: {fileID: 225077121749988763, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 435348894036321694, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 73.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1008255535835128408, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 115.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: 1062773179611704897, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 115.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: 1871595918621653639, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2709560243667061347, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 58.7
+      objectReference: {fileID: 0}
     - target: {fileID: 2949833629804235595, guid: 918926444748ecb48b8004fa5d138000, type: 3}
       propertyPath: m_Name
       value: BookPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3338286947617074909, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 58.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3427393252884762480, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 58.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671108658169266822, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 90.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 3671108658169266822, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -136.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4624927149542472893, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4848768992175421058, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 116
       objectReference: {fileID: 0}
     - target: {fileID: 5367860218021142173, guid: 918926444748ecb48b8004fa5d138000, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1776284184}
+    - target: {fileID: 5690923085730266719, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 58.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6299504924800486795, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784991588168149939, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7061227487884525669, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 58.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7100561896937578657, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 58.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7743719721460265090, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8104477778228794413, guid: 918926444748ecb48b8004fa5d138000, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1776284184}
+    - target: {fileID: 8336098914959188798, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 115.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713049713141858419, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 115.99997
+      objectReference: {fileID: 0}
     - target: {fileID: 8738780982785179949, guid: 918926444748ecb48b8004fa5d138000, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -48538,6 +48618,26 @@ PrefabInstance:
     - target: {fileID: 8738780982785179949, guid: 918926444748ecb48b8004fa5d138000, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9086743170673143727, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 115.99997
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115547035089092576, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_text
+      value: "Within the magical language of C#, variables act as enchanted containers,
+        storing important information. Different types of data require different
+        types of containers. \nIn the heart of the magical forest, objects infused
+        with the essence of these variables await discovery, each reflecting the
+        power of its data type.:\r"
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115547035089092576, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_fontSize
+      value: 11.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9115547035089092576, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 11.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

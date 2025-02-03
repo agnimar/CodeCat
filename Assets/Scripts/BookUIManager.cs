@@ -42,6 +42,11 @@ public class BookUIManager : MonoBehaviour
         {
             ToggleBookUI();
         }
+
+        if (isBookUIOpen && Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleBookUI();
+        }
     }
 
     public void UnlockBookUI()
@@ -53,8 +58,8 @@ public class BookUIManager : MonoBehaviour
     public void ToggleBookUI()
     {
         if (!isBookUnlocked) return;
-
         isBookUIOpen = !isBookUIOpen;
+        
         if (bookPanel != null)
         {
             bookPanel.SetActive(isBookUIOpen);
