@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public enum SoundType
@@ -5,20 +6,25 @@ public enum SoundType
     FOOTSTEP,
     INTERACT,
     MOEW,
-    PICK_UP,
-    PLACE_ON_PILLAR
+    PICK_UP_OBJECT,
+    PICK_UP_BOOK,
+    DROP,
+    PLACE_ON_PILLAR,
+    PUZZLE_SOLVED,
+    OPEN_UI
 }
 
-[RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] private AudioClip[] audioClips;
+    [SerializeField] private SoundList[] soundList;
     public static SoundManager instance { get; private set; }
     private AudioSource audioSource;
 
     private void Awake()
     {
         instance = this;
+
     }
 
     private void Start()
@@ -27,8 +33,27 @@ public class SoundManager : MonoBehaviour
     }
     public static void PlaySound(SoundType sound, float volume = 1)
     {
-        instance.audioSource.PlayOneShot(instance.audioClips[(int)sound]);
-
+        AudioClip[] clips = instance.soundList[(int)sound].Sounds;
+        AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
+        instance.audioSource.PlayOneShot(randomClip, volume);
     }
+#if UNITY_EDITOR
+    private void OnEnable()
+    {
+        string[] names = Enum.GetNames(typeof(SoundType));
+        Array.Resize(ref soundList, names.Length);
+        for (int i = 0; i < soundList.Length; i++)
+        {
+            soundList[i].name = names[i];
+        }
+    }
+#endif
 }
 
+[Serializable]
+public struct SoundList
+{
+    public AudioClip[] Sounds {get => sounds;}
+    [HideInInspector] public string name;
+    [SerializeField] private AudioClip[] sounds;
+}

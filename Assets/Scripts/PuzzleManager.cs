@@ -44,9 +44,8 @@ public class PuzzleManager : MonoBehaviour
         if (allPillarsCorrect)
         {
             isPuzzleSolved = true;
-            Debug.Log("Puzzle Solved!");
-
-            UnlockEntrance(); // Trigger the entrance unlocking
+            SoundManager.PlaySound(SoundType.PUZZLE_SOLVED);
+            UnlockEntrance();
             onPuzzleCompleted?.Invoke();
         }
     }

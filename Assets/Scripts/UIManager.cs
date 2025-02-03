@@ -40,19 +40,6 @@ public class UIManager : MonoBehaviour
         HandleRightClick();
     }
 
-    // Toggle inventory visibility
-    public void ToggleInventory()
-    {
-        isInventoryOpen = !isInventoryOpen;
-        inventoryPanel.SetActive(isInventoryOpen);
-        SetCursorLockState(!isInventoryOpen);
-
-        if (isInventoryOpen)
-        {
-            UpdateInventoryUI();
-        }
-    }
-
     // Show inventory for selection with callback
     public void ShowInventoryForSelection(Action<GameObject> callback)
     {
@@ -172,6 +159,7 @@ public class UIManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             inventoryManager.IsOpenedByPlayer = true;
+            SoundManager.PlaySound(SoundType.OPEN_UI);
             isInventoryOpen = !isInventoryOpen;
             inventoryPanel.SetActive(isInventoryOpen);
             SetCursorLockState(!isInventoryOpen);

@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour
         if (!IsAnyUIOpen())
         {
             ProcessMovement();
-            CheckSprintInput();
         }
         UpdateAnimations();
     }
@@ -157,15 +156,4 @@ public class PlayerController : MonoBehaviour
         wasMoving = isMoving;
     }
 
-    private void CheckSprintInput()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            animator.SetTrigger("StartSprinting");
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            animator.SetTrigger("StopSprinting");
-        }
-    }
 }

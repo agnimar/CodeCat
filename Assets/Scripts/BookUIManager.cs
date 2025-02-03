@@ -52,7 +52,7 @@ public class BookUIManager : MonoBehaviour
     public void UnlockBookUI()
     {
         isBookUnlocked = true;
-        Debug.Log("Book UI unlocked! Press Q to open.");
+        SoundManager.PlaySound(SoundType.PICK_UP_BOOK);
     }
 
     public void ToggleBookUI()
@@ -75,6 +75,8 @@ public class BookUIManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+        SoundManager.PlaySound(SoundType.OPEN_UI);
+
     }
 
     public void SetBookContent(string content)

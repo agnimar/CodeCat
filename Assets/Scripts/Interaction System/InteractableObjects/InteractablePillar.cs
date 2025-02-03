@@ -27,6 +27,8 @@ public class InteractablePillar : InteractableBase
         {
             UIManager.Instance.ShowInventoryForSelection(OnItemSelected);
         }
+        SoundManager.PlaySound(SoundType.INTERACT);
+
     }
 
     private void OnItemSelected(GameObject selectedItem)
@@ -69,7 +71,7 @@ public class InteractablePillar : InteractableBase
         itemObject.SetActive(true);
         itemObject.transform.position = itemPlacementPoint.position; 
         itemObject.transform.SetParent(transform);
-
+        SoundManager.PlaySound(SoundType.PLACE_ON_PILLAR);
         PuzzleManager.Instance?.CheckPuzzleState();
     }
 
@@ -108,6 +110,7 @@ public class InteractablePillar : InteractableBase
 
         currentItem = null;
         isOccupied = false;
+        SoundManager.PlaySound(SoundType.PICK_UP_OBJECT);
 
         PuzzleManager.Instance?.CheckPuzzleState();
     }

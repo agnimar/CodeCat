@@ -19,7 +19,8 @@ public class InventoryManager : MonoBehaviour
 
         items.Add(item);
         item.SetActive(false);
-        
+        SoundManager.PlaySound(SoundType.PICK_UP_OBJECT);
+
         return true;
     }
 
@@ -41,7 +42,7 @@ public class InventoryManager : MonoBehaviour
         {
             dropPoint = hitInfo.point;
         }
-
+        SoundManager.PlaySound(SoundType.DROP);
         item.transform.position = dropPoint;
     }
 
