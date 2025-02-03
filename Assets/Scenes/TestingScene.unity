@@ -24554,6 +24554,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+--- !u!1 &1114504261 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3641196823122250493, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+  m_PrefabInstance: {fileID: 8986625314142901094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1116807351
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39000,6 +39005,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookPanel: {fileID: 8986625314142901095}
+  pageGroups:
+  - {fileID: 2137606745}
+  - {fileID: 1934975048}
+  - {fileID: 1114504261}
 --- !u!4 &1776321736 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4121562907451998689, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
@@ -42588,6 +42597,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba731b1ba3da29944a656c4c78db78db, type: 3}
+--- !u!1 &1934975048 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3158782066707344855, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+  m_PrefabInstance: {fileID: 8986625314142901094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1936870713
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47999,6 +48013,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 205225750828494961, guid: d9abbef61a4d7fd439bf7bf04308f292, type: 3}
   m_PrefabInstance: {fileID: 782173424}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2137606745 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2741773996855954906, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+  m_PrefabInstance: {fileID: 8986625314142901094}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2139280821
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48432,6 +48451,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 5367860218021142173, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1776284184}
+    - target: {fileID: 8104477778228794413, guid: 918926444748ecb48b8004fa5d138000, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1776284184}
     - target: {fileID: 8738780982785179949, guid: 918926444748ecb48b8004fa5d138000, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

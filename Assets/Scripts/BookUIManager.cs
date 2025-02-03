@@ -7,8 +7,11 @@ public class BookUIManager : MonoBehaviour
 
     [Header("Book UI Elements")]
     [SerializeField] private GameObject bookPanel;
-    //[SerializeField] private TMP_Text bookText;
 
+    [Header("Book Pages")]
+    [SerializeField] private GameObject[] pageGroups;
+
+    private int currentPageIndex = 0;
     private bool isBookUnlocked = false;
     private bool isBookUIOpen = false;
 
@@ -29,7 +32,10 @@ public class BookUIManager : MonoBehaviour
             bookPanel.SetActive(false);
         }
     }
-
+    private void Start()
+    {
+        UpdatePageVisibility();
+    }
     private void Update()
     {
         if (isBookUnlocked && Input.GetKeyDown(KeyCode.Q))
@@ -73,6 +79,44 @@ public class BookUIManager : MonoBehaviour
         //    bookText.text = content;
         //}
     }
+    public void NextPage()
+    {
+        if (pageGroups == null || pageGroups.Length == 0) return;
+        if (currentPageIndex >= pageGroups.Length - 1) return;
 
+        pageGroups[currentPageIndex].SetActive(false);
+
+        currentPageIndex++;
+        if (currentPageIndex >= pageGroups.Length)
+        {
+            currentPageIndex = 0;
+        }
+
+        pageGroups[currentPageIndex].SetActive(true);
+    }
+    public void PrevPage()
+    {
+        if (pageGroups == null || pageGroups.Length == 0) return;
+        if (currentPageIndex <= 0) return;
+
+        pageGroups[currentPageIndex].SetActive(false);
+
+        currentPageIndex--;
+        if (currentPageIndex < 0)
+        {
+            currentPageIndex = pageGroups.Length - 1;
+        }
+
+        pageGroups[currentPageIndex].SetActive(true);
+    }
+    private void UpdatePageVisibility()
+    {
+        if (pageGroups == null || pageGroups.Length == 0) return;
+
+        for (int i = 0; i < pageGroups.Length; i++)
+        {
+            pageGroups[i].SetActive(i == currentPageIndex);
+        }
+    }
     public bool IsBookUIOpen => bookPanel.activeSelf;
 }
