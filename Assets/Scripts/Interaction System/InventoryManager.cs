@@ -31,7 +31,7 @@ public class InventoryManager : MonoBehaviour
             Debug.LogWarning("Invalid inventory slot index.");
             return;
         }
-
+        SoundManager.PlaySound(SoundType.DROP);
         GameObject item = items[index];
         items.RemoveAt(index);
 
@@ -42,7 +42,6 @@ public class InventoryManager : MonoBehaviour
         {
             dropPoint = hitInfo.point;
         }
-        SoundManager.PlaySound(SoundType.DROP);
         item.transform.position = dropPoint;
     }
 

@@ -98,7 +98,7 @@ public class BookUIManager : MonoBehaviour
         {
             currentPageIndex = 0;
         }
-
+        SoundManager.PlaySound(SoundType.OPEN_UI);
         pageGroups[currentPageIndex].SetActive(true);
     }
     public void PrevPage()
@@ -113,7 +113,7 @@ public class BookUIManager : MonoBehaviour
         {
             currentPageIndex = pageGroups.Length - 1;
         }
-
+        SoundManager.PlaySound(SoundType.OPEN_UI);
         pageGroups[currentPageIndex].SetActive(true);
     }
     private void UpdatePageVisibility()

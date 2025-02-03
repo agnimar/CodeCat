@@ -11,7 +11,8 @@ public enum SoundType
     DROP,
     PLACE_ON_PILLAR,
     PUZZLE_SOLVED,
-    OPEN_UI
+    OPEN_UI,
+    BACKGROUND_MUSIC
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
@@ -19,7 +20,8 @@ public class SoundManager : MonoBehaviour
 {
     [SerializeField] private SoundList[] soundList;
     public static SoundManager instance { get; private set; }
-    private AudioSource audioSource;
+    private AudioSource sfxSource;
+    [SerializeField] private AudioSource bgmSource;
 
     private void Awake()
     {
@@ -29,13 +31,34 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        sfxSource = GetComponent<AudioSource>();
+        if (bgmSource == null)
+        {
+            bgmSource = gameObject.AddComponent<AudioSource>();
+            bgmSource.loop = true; 
+        }
     }
     public static void PlaySound(SoundType sound, float volume = 1)
     {
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;
         AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
-        instance.audioSource.PlayOneShot(randomClip, volume);
+        instance.sfxSource.PlayOneShot(randomClip, volume);
+    }
+    public static void PlayBackgroundMusic(SoundType sound, float volume = 1)
+    {
+        AudioClip[] clips = instance.soundList[(int)sound].Sounds;
+        if (clips == null || clips.Length == 0) return;
+
+        AudioClip clip = clips[0];
+
+        instance.bgmSource.clip = clip;
+        instance.bgmSource.volume = volume;
+        instance.bgmSource.loop = true;
+        instance.bgmSource.Play();
+    }
+    public static void StopBackgroundMusic()
+    {
+        instance.bgmSource.Stop();
     }
 #if UNITY_EDITOR
     private void OnEnable()
