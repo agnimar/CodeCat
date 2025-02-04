@@ -80,7 +80,7 @@ public class InteractablePillar : InteractableBase
         if (PuzzleManager.Instance.IsPuzzleSolved())
         {
             Debug.LogWarning("Puzzle is solved. Items cannot be removed from the pillars.");
-            return; // Prevent item removal if the puzzle is solved
+            return;
         }
         if (currentItem == null)
         {
@@ -96,12 +96,11 @@ public class InteractablePillar : InteractableBase
         else
         {
             currentItem.SetActive(true);
-            currentItem.transform.position = transform.position + Vector3.down * 0.5f; // Adjust drop height
+            currentItem.transform.position = transform.position + Vector3.down * 0.5f;
             currentItem.transform.SetParent(null);
             Debug.Log($"{currentItem.name} dropped at the base of the pillar.");
         }
 
-        // Re-enable interaction on the removed item
         var interactable = currentItem.GetComponent<IInteractable>();
         if (interactable != null)
         {

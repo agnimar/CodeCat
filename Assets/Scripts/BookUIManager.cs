@@ -58,6 +58,9 @@ public class BookUIManager : MonoBehaviour
     public void ToggleBookUI()
     {
         if (!isBookUnlocked) return;
+
+        if (!isBookUIOpen && UIManager.Instance != null && UIManager.Instance.IsInventoryOpen) return;
+
         isBookUIOpen = !isBookUIOpen;
         
         if (bookPanel != null)

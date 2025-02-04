@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton setup
         if (Instance == null)
         {
             Instance = this;
@@ -40,7 +39,6 @@ public class UIManager : MonoBehaviour
         HandleRightClick();
     }
 
-    // Show inventory for selection with callback
     public void ShowInventoryForSelection(Action<GameObject> callback)
     {
         selectionCallback = callback;
@@ -52,7 +50,6 @@ public class UIManager : MonoBehaviour
         UpdateInventoryUI();
     }
 
-    // Handle clicking on inventory slots
     public void HandleInventorySlotClick(int index)
     {
         if (inventoryManager == null)
@@ -80,8 +77,6 @@ public class UIManager : MonoBehaviour
             selectionCallback?.Invoke(null);
         }
     }
-
-    // Update inventory UI
     private void UpdateInventoryUI()
     {
         if (inventoryManager == null) return;
@@ -95,17 +90,13 @@ public class UIManager : MonoBehaviour
             inventorySlotTexts[i].text = interactable != null ? interactable.ItemName : "Unknown Item";
         }
     }
-
-    // Clear all inventory slots
     private void ClearInventorySlots()
     {
         foreach (var slotText in inventorySlotTexts)
         {
-            slotText.text = ""; // Clear the text in each slot
+            slotText.text = "";
         }
     }
-
-    // Close the inventory UI
     public void CloseInventory()
     {
         inventoryPanel.SetActive(false);
@@ -113,8 +104,6 @@ public class UIManager : MonoBehaviour
         isInventoryOpen = false;
         SetCursorLockState(true);
     }
-
-    // Cursor lock state handling
     public void SetCursorLockState(bool lockCursor)
     {
         Cursor.lockState = lockCursor ? CursorLockMode.Locked : CursorLockMode.Confined;
@@ -122,13 +111,12 @@ public class UIManager : MonoBehaviour
     }
     private void HandleRightClick()
     {
-        if (Input.GetMouseButtonDown(1) && isInventoryOpen) // Right-click while inventory is open
+        if (Input.GetMouseButtonDown(1) && isInventoryOpen)
         {
             Vector2 mousePosition = Input.mousePosition;
 
             for (int i = 0; i < inventorySlotTexts.Length; i++)
             {
-                // Check if the mouse position overlaps with a slot
                 RectTransform slotRectTransform = inventorySlotTexts[i].rectTransform;
                 if (RectTransformUtility.RectangleContainsScreenPoint(slotRectTransform, mousePosition))
                 {
@@ -140,8 +128,8 @@ public class UIManager : MonoBehaviour
                         return;
                     }
 
-                    inventoryManager.DropItem(i); // Drop the item from the inventory
-                    UpdateInventoryUI(); // Refresh the inventory display
+                    inventoryManager.DropItem(i);
+                    UpdateInventoryUI();
                     break;
                 }
             }
@@ -149,15 +137,14 @@ public class UIManager : MonoBehaviour
     }
     private void HandleInventoryToggle()
     {
-        // Close inventory if ESC is pressed
         if (isInventoryOpen && Input.GetKeyDown(KeyCode.Escape))
         {
             CloseInventory();
         }
 
-        // Open/close inventory with 'I'
         if (Input.GetKeyDown(KeyCode.I))
         {
+            if (BookUIManager.Instance != null && BookUIManager.Instance.IsBookUIOpen) return;
             inventoryManager.IsOpenedByPlayer = true;
             SoundManager.PlaySound(SoundType.OPEN_UI);
             isInventoryOpen = !isInventoryOpen;

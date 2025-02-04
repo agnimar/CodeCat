@@ -71,6 +71,15 @@ public class SoundManager : MonoBehaviour
         }
     }
 #endif
+    public AudioClip[] GetSoundClips(SoundType sound)
+    {
+        if (soundList == null || soundList.Length <= (int)sound)
+        {
+            Debug.LogError("Sound list not properly configured for " + sound);
+            return null;
+        }
+        return soundList[(int)sound].Sounds;
+    }
 }
 
 [Serializable]
