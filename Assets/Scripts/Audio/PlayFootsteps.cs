@@ -40,6 +40,7 @@ public class PlayFootsteps : MonoBehaviour
 
         // Optionally, set other AudioSource properties if needed.
         // tempSource.spatialBlend = 1.0f;
+        tempSource.outputAudioMixerGroup = SoundManager.instance.GetSFXMixerGroup();
 
         tempSource.Play();
         Destroy(tempAudio, randomClip.length / randomPitch);

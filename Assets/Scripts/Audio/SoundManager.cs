@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public enum SoundType
 {
@@ -18,7 +19,13 @@ public enum SoundType
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]
 public class SoundManager : MonoBehaviour
 {
+    [Header("Sound List")]
     [SerializeField] private SoundList[] soundList;
+
+    [Header("Audio Mixer Groups")]
+    [SerializeField] private AudioMixerGroup sfxAudioMixerGroup;
+    [SerializeField] private AudioMixerGroup bgmAudioMixerGroup; // Optional, for BGM
+
     public static SoundManager instance { get; private set; }
     private AudioSource sfxSource;
     [SerializeField] private AudioSource bgmSource;
@@ -32,10 +39,20 @@ public class SoundManager : MonoBehaviour
     private void Start()
     {
         sfxSource = GetComponent<AudioSource>();
+
+        if (sfxAudioMixerGroup != null)
+        {
+            sfxSource.outputAudioMixerGroup = sfxAudioMixerGroup;
+        }
+
         if (bgmSource == null)
         {
             bgmSource = gameObject.AddComponent<AudioSource>();
             bgmSource.loop = true; 
+        }
+        if (bgmAudioMixerGroup != null)
+        {
+            bgmSource.outputAudioMixerGroup = bgmAudioMixerGroup;
         }
     }
     public static void PlaySound(SoundType sound, float volume = 1)
@@ -80,6 +97,11 @@ public class SoundManager : MonoBehaviour
         }
         return soundList[(int)sound].Sounds;
     }
+    public AudioMixerGroup GetSFXMixerGroup()
+    {
+        return sfxAudioMixerGroup;
+    }
+
 }
 
 [Serializable]
