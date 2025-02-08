@@ -58,7 +58,7 @@ public class BookUIManager : MonoBehaviour
     public void ToggleBookUI()
     {
         if (!isBookUnlocked) return;
-
+        if (SettingsOptionsUI.Instance != null && SettingsOptionsUI.Instance.IsAnyMenuOpen) return;
         if (!isBookUIOpen && UIManager.Instance != null && UIManager.Instance.IsInventoryOpen) return;
 
         isBookUIOpen = !isBookUIOpen;
@@ -80,14 +80,6 @@ public class BookUIManager : MonoBehaviour
         }
         SoundManager.PlaySound(SoundType.OPEN_UI);
 
-    }
-
-    public void SetBookContent(string content)
-    {
-        //if (bookText != null)
-        //{
-        //    bookText.text = content;
-        //}
     }
     public void NextPage()
     {

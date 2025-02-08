@@ -32,7 +32,10 @@ public class UIManager : MonoBehaviour
             Debug.LogError("InventoryManager not found in the scene!");
         }
     }
-
+    public void Start()
+    {
+        inventoryPanel.SetActive(false);
+    }
     private void Update()
     {
         HandleInventoryToggle();
@@ -137,6 +140,8 @@ public class UIManager : MonoBehaviour
     }
     private void HandleInventoryToggle()
     {
+        if (SettingsOptionsUI.Instance != null && SettingsOptionsUI.Instance.IsAnyMenuOpen) return;
+
         if (isInventoryOpen && Input.GetKeyDown(KeyCode.Escape))
         {
             CloseInventory();

@@ -25,7 +25,9 @@ public class InteractablePillar : InteractableBase
         }
         else
         {
-            UIManager.Instance.ShowInventoryForSelection(OnItemSelected);
+            if(!UIManager.Instance.IsInventoryOpen)
+                UIManager.Instance.ShowInventoryForSelection(OnItemSelected);
+            else UIManager.Instance.CloseInventory();
         }
         SoundManager.PlaySound(SoundType.INTERACT);
 

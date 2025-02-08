@@ -507,7 +507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2037618451545839491, guid: 77a5fd09d8dfa564fa0cc68a1499d151, type: 3}
       propertyPath: m_text
-      value: -500
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2037618451545839491, guid: 77a5fd09d8dfa564fa0cc68a1499d151, type: 3}
       propertyPath: m_fontColor.b
