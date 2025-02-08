@@ -6,22 +6,25 @@ public class InteractableBook : InteractableBase
     {
         ItemName = "Book";
     }
+
     public override void OnInteractionStart(InteractionData data)
     {
         onInteractionStarted?.Invoke(data);
 
-        //var itemGameObject = gameObject;
+        // Unlock the Book UI.
         if (BookUIManager.Instance != null)
         {
             BookUIManager.Instance.UnlockBookUI();
-            // (Optional) Set the book content if desired:
-            // BookUIManager.Instance.SetBookContent("Once upon a time, ...");
         }
         else
         {
             Debug.LogWarning("BookUIManager instance not found in the scene!");
         }
-        gameObject.SetActive(false);
 
+        PlayerEvents.BookInteracted();
+
+        InventoryEvents.BookCollected();
+
+        gameObject.SetActive(false);
     }
 }

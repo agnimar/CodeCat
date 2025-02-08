@@ -138,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 63b47525dd3355345a0f6ef691037806, type: 2}
     - target: {fileID: 919132149155446097, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
       propertyPath: m_Name
-      value: grass_1
+      value: Grass_BigLeaves
       objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
       propertyPath: m_LocalScale.x
@@ -171,6 +171,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8388737189979106805}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4877199519460429079}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 622650640523312617}
   m_SourcePrefab: {fileID: 100100000, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
 --- !u!1 &1322546767802436775 stripped
 GameObject:
@@ -222,3 +228,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4877199519460429079
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322546767802436775}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.18942738, y: 0.09646797, z: 0.13169289}
+  m_Center: {x: -0.17945528, y: -0.05019617, z: 0.020255089}
+--- !u!114 &622650640523312617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322546767802436775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704d8b4a2316517498e7101d5213d8d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  groundOffset: 0
+  maxGroundCheckDistance: 50

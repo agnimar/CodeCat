@@ -190,7 +190,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e2593b58ae331ca418c2c8c4c00d55ed, type: 2}
     - target: {fileID: 919132149155446097, guid: 67aa520dbcb4b714193f484fe0c5676f, type: 3}
       propertyPath: m_Name
-      value: tree_3
+      value: Tree_Larch
       objectReference: {fileID: 0}
     - target: {fileID: 1513771085810929158, guid: 67aa520dbcb4b714193f484fe0c5676f, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -306,6 +306,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67aa520dbcb4b714193f484fe0c5676f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1475469347937098161}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67aa520dbcb4b714193f484fe0c5676f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1490818522516365008}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 67aa520dbcb4b714193f484fe0c5676f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1137019758470421217}
   m_SourcePrefab: {fileID: 100100000, guid: 67aa520dbcb4b714193f484fe0c5676f, type: 3}
 --- !u!1 &689836993430252235 stripped
 GameObject:
@@ -378,3 +384,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1490818522516365008
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689836993430252235}
+  m_Mesh: {fileID: 0}
+--- !u!114 &1137019758470421217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 689836993430252235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704d8b4a2316517498e7101d5213d8d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  groundOffset: 0
+  maxGroundCheckDistance: 50
