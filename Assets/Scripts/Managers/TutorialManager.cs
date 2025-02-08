@@ -11,8 +11,6 @@ public class TutorialManager : MonoBehaviour
         WaitingForMovement,
         WaitingForBookArea,
         WaitingForBookInteraction,
-        WaitingForBookAndInventory,
-        WaitingForProceedDownRoad,
         Completed
     }
 
@@ -33,9 +31,6 @@ public class TutorialManager : MonoBehaviour
         PlayerEvents.OnMoved += HandleMoved;
         BookTrigger.OnEnteredBookArea += HandleBookAreaReached;
         PlayerEvents.OnBookInteracted += HandleBookInteracted;
-        InventoryEvents.OnBookCollected += HandleBookCollected;
-        PlayerEvents.OnOpenedBookAndInventory += HandleBookAndInventoryOpened;
-        PlayerEvents.OnProceedDownRoad += HandleProceedDownRoad;
     }
 
     private void OnDisable()
@@ -45,9 +40,6 @@ public class TutorialManager : MonoBehaviour
         PlayerEvents.OnMoved -= HandleMoved;
         BookTrigger.OnEnteredBookArea -= HandleBookAreaReached;
         PlayerEvents.OnBookInteracted -= HandleBookInteracted;
-        InventoryEvents.OnBookCollected -= HandleBookCollected;
-        PlayerEvents.OnOpenedBookAndInventory -= HandleBookAndInventoryOpened;
-        PlayerEvents.OnProceedDownRoad -= HandleProceedDownRoad;
     }
 
     private void Start()
@@ -57,28 +49,38 @@ public class TutorialManager : MonoBehaviour
     }
     public bool IsMovementAllowed => currentState >= TutorialState.WaitingForMovement;
 
+    // --- Helper Coroutine ---
+    private IEnumerator DelayedMessage(string message, TutorialState nextState, float messageDuration)
+    {
+        yield return new WaitForSeconds(messageDuration);
+        dialogueManager.ShowMessage(message, 0);
+        currentState = nextState;
+    }
+    private IEnumerator DelayedHide()
+    {
+        yield return new WaitForSeconds(2f);
+        dialogueManager.HideMessage();
+        currentState = TutorialState.Completed;
+    }
+
     // --- Event Handlers ---
     private void HandleLookedAround()
     {
         if (currentState == TutorialState.WaitingForLookAround)
         {
-            StartCoroutine(DelayedCameraSwitchPrompt());
+            StartCoroutine(DelayedMessage("Press 'V' to switch between first and third person view.", TutorialState.WaitingForCameraSwitch, 2f));
         }
     }
-
-    private IEnumerator DelayedCameraSwitchPrompt()
+    private IEnumerator DelayedStateUpdate(TutorialState nextState, float delayDuration)
     {
-        yield return new WaitForSeconds(3f);
-        dialogueManager.ShowMessage("Press 'V' to switch between first and third person view.", 0);
-        currentState = TutorialState.WaitingForCameraSwitch;
+        yield return new WaitForSeconds(delayDuration);
+        currentState = nextState;
     }
-
     private void HandleCameraSwitched()
     {
         if (currentState == TutorialState.WaitingForCameraSwitch)
         {
-            dialogueManager.ShowMessage("Move around using WASD.", 0);
-            currentState = TutorialState.WaitingForMovement;
+            StartCoroutine(DelayedMessage("Move around using WASD.", TutorialState.WaitingForMovement, 2f));
         }
     }
 
@@ -86,8 +88,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (currentState == TutorialState.WaitingForMovement)
         {
-            dialogueManager.ShowMessage("Hmm, what's that on the ground?", 0);
-            currentState = TutorialState.WaitingForBookArea;
+            StartCoroutine(DelayedMessage("Hmm, what's that on the ground?", TutorialState.WaitingForBookArea, 2f));
         }
     }
 
@@ -95,8 +96,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (currentState == TutorialState.WaitingForBookArea)
         {
-            dialogueManager.ShowMessage("Press 'E' to interact.", 0);
-            currentState = TutorialState.WaitingForBookInteraction;
+            StartCoroutine(DelayedMessage("Press 'E' to interact.", TutorialState.WaitingForBookInteraction, 0.1f));
         }
     }
 
@@ -104,34 +104,9 @@ public class TutorialManager : MonoBehaviour
     {
         if (currentState == TutorialState.WaitingForBookInteraction)
         {
-            currentState = TutorialState.WaitingForBookAndInventory;
-        }
-    }
-
-    private void HandleBookCollected()
-    {
-        if (currentState == TutorialState.WaitingForBookAndInventory)
-        {
-            dialogueManager.ShowMessage("Press 'Q' to open the book and 'I' to open your inventory.", 0);
-        }
-    }
-
-    private void HandleBookAndInventoryOpened()
-    {
-        if (currentState == TutorialState.WaitingForBookAndInventory)
-        {
-            dialogueManager.ShowMessage("<color=blue>Those mysterious variables.. I should look around</color>", 0);
-            currentState = TutorialState.WaitingForProceedDownRoad;
-        }
-    }
-
-    private void HandleProceedDownRoad()
-    {
-        if (currentState == TutorialState.WaitingForProceedDownRoad)
-        {
-            dialogueManager.HideMessage();
+            dialogueManager.ShowMessage("Press 'Q' to open the book and 'I' to open your inventory.", 3f);
             currentState = TutorialState.Completed;
-            // Tutorial is complete.
         }
     }
+
 }

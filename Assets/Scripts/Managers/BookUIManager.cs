@@ -70,6 +70,7 @@ public class BookUIManager : MonoBehaviour
 
         if (isBookUIOpen)
         {
+            PlayerEvents.OpenedBookAndInventory();
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
         }
@@ -79,7 +80,6 @@ public class BookUIManager : MonoBehaviour
             Cursor.visible = false;
         }
         SoundManager.PlaySound(SoundType.OPEN_UI);
-
     }
     public void NextPage()
     {
