@@ -2,36 +2,21 @@ using UnityEngine;
 
 public class InteractablePillar : InteractableBase
 {
-    [SerializeField] private string requiredItemName; // Specify the required item name for this pillar
+    [SerializeField] private string requiredItemName;
+    [SerializeField] private Transform itemPlacementPoint;
     private bool isOccupied = false;
-    private GameObject currentItem; // The item currently placed on the pillar
+    private GameObject currentItem; 
     private GameObject interactingPlayer;
 
     public bool IsOccupied => isOccupied;
-    public bool IsCorrectlyOccupied
-    {
-        get
-        {
-            if (currentItem == null)
-            {
-                return false;
-            }
-
-            var interactableBase = currentItem.GetComponent<InteractableBase>();
-            if (interactableBase == null)
-            {
-                return false;
-            }
-
-            string placedItemName = interactableBase.ItemName;
-            bool isCorrect = placedItemName == requiredItemName;
-            Debug.Log($"{name}: Required = {requiredItemName}, Placed = {placedItemName}, Correct = {isCorrect}");
-            return isCorrect;
-        }
-    }
-
+    public bool IsCorrectlyOccupied => currentItem?.GetComponent<InteractableBase>()?.ItemName == requiredItemName;
     public override void OnInteractionStart(InteractionData data)
     {
+        if (PuzzleManager.Instance.IsPuzzleSolved())
+        {
+            Debug.Log("Puzzle is solved; pillars are locked.");
+            return;
+        }
         interactingPlayer = data.Interactor;
 
         if (isOccupied)
@@ -40,8 +25,12 @@ public class InteractablePillar : InteractableBase
         }
         else
         {
-            UIManager.Instance.ShowInventoryForSelection(OnItemSelected);
+            if(!UIManager.Instance.IsInventoryOpen)
+                UIManager.Instance.ShowInventoryForSelection(OnItemSelected);
+            else UIManager.Instance.CloseInventory();
         }
+        SoundManager.PlaySound(SoundType.INTERACT);
+
     }
 
     private void OnItemSelected(GameObject selectedItem)
@@ -74,9 +63,7 @@ public class InteractablePillar : InteractableBase
         currentItem = itemObject;
         isOccupied = true;
 
-        Debug.Log($"{name}: Item placed = {currentItem.name}, IsOccupied = {isOccupied}");
 
-        // Disable interaction on the placed item
         var interactable = currentItem.GetComponent<IInteractable>();
         if (interactable != null)
         {
@@ -84,14 +71,19 @@ public class InteractablePillar : InteractableBase
         }
 
         itemObject.SetActive(true);
-        itemObject.transform.position = transform.position + Vector3.up * 1.0f; // Adjust height
+        itemObject.transform.position = itemPlacementPoint.position; 
         itemObject.transform.SetParent(transform);
-
+        SoundManager.PlaySound(SoundType.PLACE_ON_PILLAR);
         PuzzleManager.Instance?.CheckPuzzleState();
     }
 
     private void RemoveItemFromPillar()
     {
+        if (PuzzleManager.Instance.IsPuzzleSolved())
+        {
+            Debug.LogWarning("Puzzle is solved. Items cannot be removed from the pillars.");
+            return;
+        }
         if (currentItem == null)
         {
             Debug.LogWarning("No item to remove from the pillar.");
@@ -106,12 +98,11 @@ public class InteractablePillar : InteractableBase
         else
         {
             currentItem.SetActive(true);
-            currentItem.transform.position = transform.position + Vector3.down * 0.5f; // Adjust drop height
+            currentItem.transform.position = transform.position + Vector3.down * 0.5f;
             currentItem.transform.SetParent(null);
             Debug.Log($"{currentItem.name} dropped at the base of the pillar.");
         }
 
-        // Re-enable interaction on the removed item
         var interactable = currentItem.GetComponent<IInteractable>();
         if (interactable != null)
         {
@@ -120,6 +111,7 @@ public class InteractablePillar : InteractableBase
 
         currentItem = null;
         isOccupied = false;
+        SoundManager.PlaySound(SoundType.PICK_UP_OBJECT);
 
         PuzzleManager.Instance?.CheckPuzzleState();
     }

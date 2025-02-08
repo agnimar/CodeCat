@@ -28,7 +28,6 @@ public class PlayerInteraction : MonoBehaviour
     {
         if (interactionSource == null)
             interactionSource = Camera.main.transform;
-        // Attempt to find InventoryManager on the same GameObject
 
         inventoryManager = GetComponent<InventoryManager>();
 
