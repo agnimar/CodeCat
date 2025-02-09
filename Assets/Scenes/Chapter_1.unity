@@ -273058,6 +273058,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrains
       objectReference: {fileID: 0}
+    - target: {fileID: 5815319730859516085, guid: 2d98968d79e8ea547a272387cadfe5a3, type: 3}
+      propertyPath: m_TerrainData
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6198301310066796013, guid: 2d98968d79e8ea547a272387cadfe5a3, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -273075,7 +273079,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 940592405}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7549437603226482539, guid: 2d98968d79e8ea547a272387cadfe5a3, type: 3}
+    - {fileID: 6508249760184257217, guid: 2d98968d79e8ea547a272387cadfe5a3, type: 3}
+    - {fileID: 314285838495858830, guid: 2d98968d79e8ea547a272387cadfe5a3, type: 3}
+    - {fileID: 3611183217014287074, guid: 2d98968d79e8ea547a272387cadfe5a3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d98968d79e8ea547a272387cadfe5a3, type: 3}
