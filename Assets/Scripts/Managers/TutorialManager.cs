@@ -11,6 +11,7 @@ public class TutorialManager : MonoBehaviour
         WaitingForMovement,
         WaitingForBookArea,
         WaitingForBookInteraction,
+        TutorialEndState,
         Completed
     }
 
@@ -31,6 +32,7 @@ public class TutorialManager : MonoBehaviour
         PlayerEvents.OnMoved += HandleMoved;
         BookTrigger.OnEnteredBookArea += HandleBookAreaReached;
         PlayerEvents.OnBookInteracted += HandleBookInteracted;
+        PlayerEvents.OnTutorialEnded += HandleTutorialEnd;
     }
 
     private void OnDisable()
@@ -40,6 +42,7 @@ public class TutorialManager : MonoBehaviour
         PlayerEvents.OnMoved -= HandleMoved;
         BookTrigger.OnEnteredBookArea -= HandleBookAreaReached;
         PlayerEvents.OnBookInteracted -= HandleBookInteracted;
+        PlayerEvents.OnTutorialEnded -= HandleTutorialEnd;
     }
 
     private void Start()
@@ -50,10 +53,10 @@ public class TutorialManager : MonoBehaviour
     public bool IsMovementAllowed => currentState >= TutorialState.WaitingForMovement;
 
     // --- Helper Coroutine ---
-    private IEnumerator DelayedMessage(string message, TutorialState nextState, float messageDuration)
+    private IEnumerator DelayedMessage(string message, TutorialState nextState, float messageDuration, float delayDuration)
     {
-        yield return new WaitForSeconds(messageDuration);
-        dialogueManager.ShowMessage(message, 0);
+        yield return new WaitForSeconds(delayDuration);
+        dialogueManager.ShowMessage(message, messageDuration);
         currentState = nextState;
     }
     private IEnumerator DelayedHide()
@@ -68,7 +71,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (currentState == TutorialState.WaitingForLookAround)
         {
-            StartCoroutine(DelayedMessage("Press 'V' to switch between first and third person view.", TutorialState.WaitingForCameraSwitch, 2f));
+            StartCoroutine(DelayedMessage("Press 'V' to switch between first and third person view.", TutorialState.WaitingForCameraSwitch, 0, 2f));
         }
     }
     private IEnumerator DelayedStateUpdate(TutorialState nextState, float delayDuration)
@@ -80,7 +83,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (currentState == TutorialState.WaitingForCameraSwitch)
         {
-            StartCoroutine(DelayedMessage("Move around using WASD.", TutorialState.WaitingForMovement, 2f));
+            StartCoroutine(DelayedMessage("Move around using WASD. Sprint using SHIFT", TutorialState.WaitingForMovement, 0, 2f));
         }
     }
 
@@ -88,7 +91,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (currentState == TutorialState.WaitingForMovement)
         {
-            StartCoroutine(DelayedMessage("Hmm, what's that on the ground?", TutorialState.WaitingForBookArea, 2f));
+            StartCoroutine(DelayedMessage("Hmm, what's that on the ground?", TutorialState.WaitingForBookArea, 0, 2f));
         }
     }
 
@@ -96,7 +99,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (currentState == TutorialState.WaitingForBookArea)
         {
-            StartCoroutine(DelayedMessage("Press 'E' to interact.", TutorialState.WaitingForBookInteraction, 0.1f));
+            StartCoroutine(DelayedMessage("Press 'E' to interact with the book.", TutorialState.WaitingForBookInteraction, 0, 0));
         }
     }
 
@@ -104,9 +107,14 @@ public class TutorialManager : MonoBehaviour
     {
         if (currentState == TutorialState.WaitingForBookInteraction)
         {
-            dialogueManager.ShowMessage("Press 'Q' to open the book and 'I' to open your inventory.", 3f);
-            currentState = TutorialState.Completed;
+            StartCoroutine(DelayedMessage("Press 'Tab' to open the book and 'I' to open your inventory.", TutorialState.TutorialEndState, 3f, 0.3f));
         }
     }
-
+    private void HandleTutorialEnd()
+    {
+        if (currentState == TutorialState.TutorialEndState)
+        {
+            StartCoroutine(DelayedMessage("Proceed down the road and refer to the book for guidance!", TutorialState.Completed, 3f, 0));
+        }
+    }
 }

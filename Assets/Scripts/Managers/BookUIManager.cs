@@ -38,7 +38,7 @@ public class BookUIManager : MonoBehaviour
     }
     private void Update()
     {
-        if (isBookUnlocked && Input.GetKeyDown(KeyCode.Q))
+        if (isBookUnlocked && Input.GetKeyDown(KeyCode.Tab))
         {
             ToggleBookUI();
         }
@@ -76,6 +76,7 @@ public class BookUIManager : MonoBehaviour
         }
         else
         {
+            PlayerEvents.ProceedDownRoad();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
