@@ -8324,7 +8324,7 @@ Texture2D:
   m_Name: Shape Bit Atlas
   m_ImageContentsHash:
     serializedVersion: 2
-    Hash: 00000000000000000000000000000000
+    Hash: 05935cb5bb45953a285ab83e9490f419
   m_IsAlphaChannelOptional: 0
   serializedVersion: 4
   m_Width: 1024
