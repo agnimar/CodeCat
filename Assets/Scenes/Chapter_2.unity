@@ -4207,7 +4207,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3440397208986052325, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_text
-      value: 9
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3640414692911753309, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4666,8 +4666,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6692265174610837340, guid: a188d06e29dd3274bb85a200000b26a0, type: 3}
       propertyPath: m_text
-      value: "sum % 2 == 0 checks if the sum is evenly divisible by 2 (i.e., it\u2019s
-        even).  \n"
+      value: The condition sum % 2 == 0 checks whether the sum is even (divisible
+        by 2). Here, the sum is 3 + 4 = 7, which is not an even number. Since 7 is
+        odd, the result is calculated as 7 * 2, which is greater than 10.
+      objectReference: {fileID: 0}
+    - target: {fileID: 6692265174610837340, guid: a188d06e29dd3274bb85a200000b26a0, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 1024
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4821,9 +4826,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1594464972}
     m_Modifications:
+    - target: {fileID: 255228349235649199, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1010521315837906623, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_Name
       value: QuestionWall (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655085144070427553, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2120824476258927897, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_text
@@ -4873,6 +4886,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8260286932630207011, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8728007352356023310, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_text
       value: "if ((3 * 2 == 6) && (10 - 5 < 2))\n{\n    // Take the left path\n}\nelse\n{\n   
@@ -4885,6 +4902,10 @@ PrefabInstance:
     - target: {fileID: 8841891395818201514, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 2.0709982
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129655918147218971, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8903,9 +8924,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1594464972}
     m_Modifications:
+    - target: {fileID: 255228349235649199, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1010521315837906623, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_Name
       value: QuestionWall (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655085144070427553, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2120824476258927897, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_text
@@ -8951,6 +8980,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8260286932630207011, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8728007352356023310, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_text
       value: "int x = 10;\r\nif (x != 8 + 2)\r\n{\r\n    // Take the right path\r\n}\r\nelse\r\n{\r\n   
@@ -8963,6 +8996,10 @@ PrefabInstance:
     - target: {fileID: 8841891395818201514, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 1.43
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129655918147218971, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11867,6 +11904,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5017182004160908481, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5017182004160908481, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7758763309648906060, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 2.67
@@ -14296,9 +14341,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1594464972}
     m_Modifications:
+    - target: {fileID: 255228349235649199, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1010521315837906623, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_Name
       value: QuestionWall (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1655085144070427553, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2120824476258927897, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_text
@@ -14352,6 +14405,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 3.2199984
       objectReference: {fileID: 0}
+    - target: {fileID: 8260286932630207011, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8728007352356023310, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_text
       value: "int x = 10;\r\nif (x > 5)\r\n{\r\n    if (x < 15)\r\n    {\r\n       
@@ -14365,6 +14422,10 @@ PrefabInstance:
     - target: {fileID: 8841891395818201514, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_LocalPosition.z
       value: 2.0709982
+      objectReference: {fileID: 0}
+    - target: {fileID: 9129655918147218971, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
