@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6046071667205956483}
   - component: {fileID: 3862770707253734492}
   - component: {fileID: 7106158439296799704}
+  - component: {fileID: 263406642791053864}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369899664781089910}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -92,7 +93,6 @@ MonoBehaviour:
   resolutionDropdown: {fileID: 0}
   fullscreenToggle: {fileID: 0}
   vsyncToggle: {fileID: 0}
-  mouseSensitivitySlider: {fileID: 0}
   settingsPanel: {fileID: 0}
   pauseMenuPanel: {fileID: 0}
   controlsPanel: {fileID: 0}
@@ -101,3 +101,17 @@ MonoBehaviour:
   optionsButton: {fileID: 0}
   mainMenuButton: {fileID: 0}
   quitButton: {fileID: 0}
+--- !u!114 &263406642791053864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 369899664781089910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e017b7a5a8ee7c94a9735887d4a34e03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayInfoPanel: {fileID: 0}
+  displayInfoText: {fileID: 0}

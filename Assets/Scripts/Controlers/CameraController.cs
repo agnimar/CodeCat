@@ -72,8 +72,8 @@ public class CameraController : MonoBehaviour
 
             xRotation = isFirstPerson ? 0f : 18f;
             yRotation = player.eulerAngles.y;
+            PlayerEvents.CameraSwitched();
         }
-        PlayerEvents.CameraSwitched();
     }
 
     private void HandleMouseLook()

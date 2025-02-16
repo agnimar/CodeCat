@@ -16,7 +16,7 @@ public class InteractableBook : InteractableBase
             {
                 SphereCollider sphere = rangeGameObject.AddComponent<SphereCollider>();
                 sphere.isTrigger = true;
-                sphere.radius = 6f; 
+                sphere.radius = 7f; 
             }
             else
             {
