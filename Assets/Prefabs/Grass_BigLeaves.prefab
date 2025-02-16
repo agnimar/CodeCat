@@ -263,6 +263,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   groundOffset: 0
-  maxGroundCheckDistance: 50
+  maxGroundCheckDistance: 100

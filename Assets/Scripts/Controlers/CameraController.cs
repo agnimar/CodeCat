@@ -4,39 +4,47 @@ public class CameraController : MonoBehaviour
 {
     [Header("References")]
     public Transform player;
-    [Tooltip("GameObject representing the nose or cockpit nose. Will be disabled in first-person view.")]
-    public GameObject noseObject;
+    [Tooltip("Pivot point for the camera, placed at head level of the player.")]
+    public Transform cameraPivot;
 
     [Header("Camera Offsets")]
-    public Vector3 thirdPersonOffset = new Vector3(0, 0, 0);
-    public Vector3 firstPersonOffset = new Vector3(0, 0.45f, 0);
+    public Vector3 thirdPersonOffset = new Vector3(0, 2, -4);
+    public Vector3 firstPersonOffset = new Vector3(0, 0, 0);
+    public Vector3 sprintFirstPersonOffset = new Vector3(0, 0.45f, 0.2f);
 
     [Header("Sensitivity")]
     public float mouseSensitivity = 100f;
 
+    [Header("Smoothing")]
+    public float positionLerpSpeed = 10f;
+    public float rotationLerpSpeed = 10f;
+
     [Header("First Person Rotation Constraints")]
-    public float fpMinVerticalAngle = -85f; // Change as needed
-    public float fpMaxVerticalAngle = 85f;  // Change as needed
+    public float fpMinVerticalAngle = -85f;
+    public float fpMaxVerticalAngle = 85f;
 
     [Header("Third Person Rotation Constraints")]
-    public float tpMinVerticalAngle = -30f; // Minimum angle for looking down
-    public float tpMaxVerticalAngle = 30f;  // Maximum angle for looking up
+    public float tpMinVerticalAngle = -30f;
+    public float tpMaxVerticalAngle = 30f;
 
     private bool isFirstPerson = false;
-    private float xRotation = 0f; // Vertical rotation
-    private float yRotation = 0f; // Horizontal rotation
+    private float xRotation = 0f;
+    private float yRotation = 0f;
+    private Vector3 targetPosition;
+    private Quaternion targetRotation;
 
     private bool hasLookedAround = false;
-
+    private PlayerController playerController;
     void Start()
     {
-        UIManager.Instance.SetCursorLockState(true); 
-        yRotation = player.eulerAngles.y; 
+        UIManager.Instance.SetCursorLockState(true);
+        yRotation = player.eulerAngles.y;
+        playerController = player.GetComponent<PlayerController>();
     }
 
     void Update()
     {
-        if (Cursor.lockState == CursorLockMode.Locked) 
+        if (Cursor.lockState == CursorLockMode.Locked)
         {
             HandleViewSwitch();
             HandleMouseLook();
@@ -45,9 +53,9 @@ public class CameraController : MonoBehaviour
 
     void LateUpdate()
     {
-        if (Cursor.lockState == CursorLockMode.Locked) 
+        if (Cursor.lockState == CursorLockMode.Locked)
         {
-            UpdateCameraPosition();
+            SmoothUpdateCameraPosition();
         }
     }
 
@@ -57,42 +65,19 @@ public class CameraController : MonoBehaviour
         {
             isFirstPerson = !isFirstPerson;
 
-            var playerController = player.GetComponent<PlayerController>();
             if (playerController != null)
             {
                 playerController.SetFirstPersonMode(isFirstPerson);
             }
 
-            if (isFirstPerson)
-            {
-                transform.position = player.TransformPoint(firstPersonOffset);
-
-                // Reset the vertical rotation so the camera is not looking down/up unexpectedly.
-                xRotation = 0f;
-                yRotation = player.eulerAngles.y;
-                if (noseObject != null)
-                {
-                    noseObject.SetActive(false);
-                }
-            }
-            else
-            {
-                // For third-person, just update yRotation (the inspector-set thirdPersonOffset will now remain unchanged)
-                xRotation = 18f;
-                yRotation = player.eulerAngles.y;
-                if (noseObject != null)
-                {
-                    noseObject.SetActive(true);
-                }
-            }
-            PlayerEvents.CameraSwitched();
+            xRotation = isFirstPerson ? 0f : 18f;
+            yRotation = player.eulerAngles.y;
         }
+        PlayerEvents.CameraSwitched();
     }
-
 
     private void HandleMouseLook()
     {
-
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
@@ -115,21 +100,22 @@ public class CameraController : MonoBehaviour
         }
     }
 
-
-    private void UpdateCameraPosition()
+    private void SmoothUpdateCameraPosition()
     {
         if (isFirstPerson)
         {
-            transform.position = player.TransformPoint(firstPersonOffset);
-            transform.rotation = Quaternion.Euler(xRotation, player.eulerAngles.y, 0f);
+            Vector3 offset = playerController != null && playerController.isSprinting ? sprintFirstPersonOffset : firstPersonOffset;
+            targetPosition = cameraPivot.position + cameraPivot.TransformDirection(offset);
+            targetRotation = Quaternion.Euler(xRotation, player.eulerAngles.y, 0f);
         }
         else
         {
             Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0);
-            Vector3 desiredPosition = player.position + rotation * thirdPersonOffset;
-
-            transform.position = desiredPosition;
-            transform.LookAt(player.position + Vector3.up * 1.2f);
+            targetPosition = player.position + rotation * thirdPersonOffset;
+            targetRotation = Quaternion.LookRotation((player.position + Vector3.up * 1.2f) - targetPosition);
         }
+
+        transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * positionLerpSpeed);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationLerpSpeed);
     }
 }

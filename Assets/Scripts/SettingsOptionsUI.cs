@@ -22,9 +22,6 @@ public class SettingsOptionsUI : MonoBehaviour
     [SerializeField] private Toggle fullscreenToggle;
     [SerializeField] private Toggle vsyncToggle;
 
-    [Header("Mouse Settings")]
-    [SerializeField] private Slider mouseSensitivitySlider;
-
     [Header("Settings Panels")]
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject pauseMenuPanel;
@@ -51,7 +48,6 @@ public class SettingsOptionsUI : MonoBehaviour
     private const string RESOLUTION_PREF = "ResolutionIndex";
     private const string FULLSCREEN_PREF = "Fullscreen";
     private const string VSYNC_PREF = "VSync";
-    private const string MOUSE_SENSITIVITY_PREF = "MouseSensitivity";
 
     public bool IsAnyMenuOpen => settingsPanel.activeSelf || pauseMenuPanel.activeSelf || controlsPanel.activeSelf;
 
@@ -70,7 +66,6 @@ public class SettingsOptionsUI : MonoBehaviour
     {
         SetupAudio();
         SetupGraphics();
-        SetupMouseSettings();
         pauseMenuPanel.SetActive(false);
         settingsPanel.SetActive(false);
         controlsPanel.SetActive(false);
@@ -139,14 +134,6 @@ public class SettingsOptionsUI : MonoBehaviour
         vsyncToggle.isOn = PlayerPrefs.GetInt(VSYNC_PREF, 0) == 1;
         vsyncToggle.onValueChanged.AddListener(SetVSync);
     }
-
-    private void SetupMouseSettings()
-    {
-        float savedSensitivity = PlayerPrefs.GetFloat(MOUSE_SENSITIVITY_PREF, 1f);
-        mouseSensitivitySlider.value = savedSensitivity;
-        mouseSensitivitySlider.onValueChanged.AddListener(SetMouseSensitivity);
-    }
-
     public void SetMasterVolume(float value)
     {
         float dB = (value <= 0.0001f) ? -80f : Mathf.Log10(value) * 20f;
@@ -185,11 +172,6 @@ public class SettingsOptionsUI : MonoBehaviour
     {
         QualitySettings.vSyncCount = isEnabled ? 1 : 0;
         PlayerPrefs.SetInt(VSYNC_PREF, isEnabled ? 1 : 0);
-    }
-
-    public void SetMouseSensitivity(float value)
-    {
-        PlayerPrefs.SetFloat(MOUSE_SENSITIVITY_PREF, value);
     }
     public bool IsPaused => isPaused;
     private void ToggleSettingsMenu()

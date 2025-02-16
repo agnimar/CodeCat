@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     // Animation state
     private bool isMoving;
     private bool wasMoving;
-    private bool isSprinting;
+    public bool isSprinting;
 
     // First-person mode flag
     private bool isFirstPersonMode = false;

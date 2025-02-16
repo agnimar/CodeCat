@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6318306507042723959}
-  - component: {fileID: 8481289458667063381}
   m_Layer: 0
   m_Name: Rock_L_Purple
   m_TagString: Untagged
@@ -33,23 +32,6 @@ Transform:
   - {fileID: 7040508886325118054}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8481289458667063381
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1864423656647523567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 704d8b4a2316517498e7101d5213d8d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  groundOffset: 0
-  maxGroundCheckDistance: 50
 --- !u!1 &3598804425653043035
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +43,8 @@ GameObject:
   - component: {fileID: 7040508886325118054}
   - component: {fileID: 1910644382729031965}
   - component: {fileID: 3032881735394083854}
-  - component: {fileID: 1598323710293735699}
+  - component: {fileID: 1250825585318347877}
+  - component: {fileID: 2014506132800482594}
   m_Layer: 0
   m_Name: Rock_L_Purple_model
   m_TagString: Untagged
@@ -137,8 +120,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1598323710293735699
-BoxCollider:
+--- !u!64 &1250825585318347877
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -155,6 +138,24 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.9235382, y: 3.137156, z: 1.5529271}
-  m_Center: {x: 0.13330054, y: 0.51787996, z: 0.7751746}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 289301614986012343, guid: e064cf969cb2e994eb02dc14259a5416, type: 3}
+--- !u!114 &2014506132800482594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3598804425653043035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704d8b4a2316517498e7101d5213d8d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  groundOffset: 0
+  maxGroundCheckDistance: 100

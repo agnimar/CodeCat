@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8347861035025541342}
-  - component: {fileID: -6859920781221553534}
   m_Layer: 0
   m_Name: Rock_L_Blue
   m_TagString: Untagged
@@ -33,23 +32,6 @@ Transform:
   - {fileID: 6963737664442940688}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6859920781221553534
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2180189576498809081}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 704d8b4a2316517498e7101d5213d8d5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  groundOffset: 0
-  maxGroundCheckDistance: 50
 --- !u!1 &8746030088295355539
 GameObject:
   m_ObjectHideFlags: 0
@@ -61,7 +43,8 @@ GameObject:
   - component: {fileID: 6963737664442940688}
   - component: {fileID: 6780589006713517850}
   - component: {fileID: 622099831372136761}
-  - component: {fileID: 3613856445996168499}
+  - component: {fileID: 7498310277884904605}
+  - component: {fileID: 1162208725518605298}
   m_Layer: 0
   m_Name: Rock_L_Blue_model
   m_TagString: Untagged
@@ -137,8 +120,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3613856445996168499
-BoxCollider:
+--- !u!114 &7498310277884904605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746030088295355539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 704d8b4a2316517498e7101d5213d8d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  groundOffset: 0
+  maxGroundCheckDistance: 100
+--- !u!64 &1162208725518605298
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -155,6 +155,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.554851, y: 3.5651903, z: 1.8125556}
-  m_Center: {x: 0.059634924, y: 0.4364374, z: 0.906311}
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 289301614986012343, guid: 9e070a0fca181484bae29e2914159b67, type: 3}
