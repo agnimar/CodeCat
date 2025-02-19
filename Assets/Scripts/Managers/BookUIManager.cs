@@ -20,6 +20,7 @@ public class BookUIManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -31,6 +32,7 @@ public class BookUIManager : MonoBehaviour
         {
             bookPanel.SetActive(false);
         }
+        LoadBookState();
     }
     private void Start()
     {
@@ -48,10 +50,15 @@ public class BookUIManager : MonoBehaviour
             ToggleBookUI();
         }
     }
-
+    private void LoadBookState()
+    {
+        isBookUnlocked = PlayerPrefs.GetInt("BookUnlocked", 0) == 1;
+    }
     public void UnlockBookUI()
     {
         isBookUnlocked = true;
+        PlayerPrefs.SetInt("BookUnlocked", 1); 
+        PlayerPrefs.Save(); 
         SoundManager.PlaySound(SoundType.PICK_UP_BOOK);
     }
 

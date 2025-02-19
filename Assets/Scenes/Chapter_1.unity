@@ -421917,10 +421917,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BookPanel
       objectReference: {fileID: 0}
-    - target: {fileID: 2949833629804235595, guid: dff5c018b36806249a734c73284d4cd9, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5367860218021142173, guid: dff5c018b36806249a734c73284d4cd9, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

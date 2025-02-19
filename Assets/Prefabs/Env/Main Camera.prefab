@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6279011168199276214}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.01, y: 2.574, z: 29.085}
+  m_LocalRotation: {x: -0, y: 0.62272424, z: -0, w: 0.78244144}
+  m_LocalPosition: {x: -111.19, y: 29.263, z: 72.23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -155,11 +155,11 @@ MonoBehaviour:
   cameraPivot: {fileID: 0}
   thirdPersonOffset: {x: 0, y: 0.5, z: -3.33}
   firstPersonOffset: {x: 0, y: 0.15, z: 0.1}
-  sprintFirstPersonOffset: {x: 0, y: 0.15, z: 0.2}
+  sprintFirstPersonOffset: {x: 0, y: 0.15, z: 0.3}
   mouseSensitivity: 100
   positionLerpSpeed: 15
   rotationLerpSpeed: 10
-  fpMinVerticalAngle: -30
+  fpMinVerticalAngle: -25
   fpMaxVerticalAngle: 50
   tpMinVerticalAngle: -20
   tpMaxVerticalAngle: 30

@@ -20,8 +20,8 @@ public class CameraController : MonoBehaviour
     public float rotationLerpSpeed = 10f;
 
     [Header("First Person Rotation Constraints")]
-    public float fpMinVerticalAngle = -85f;
-    public float fpMaxVerticalAngle = 85f;
+    [SerializeField] public float fpMinVerticalAngle = -85f;
+    [SerializeField] public float fpMaxVerticalAngle = 85f;
 
     [Header("Third Person Rotation Constraints")]
     public float tpMinVerticalAngle = -30f;

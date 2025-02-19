@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 smoothedMovement;
     private Vector3 gravityVelocity;
     private bool isGrounded;
+    private Vector3 lastSafePosition;
 
     // Animation state
     private bool isMoving;
@@ -46,6 +47,7 @@ public class PlayerController : MonoBehaviour
             ProcessMovement();
         }
         UpdateAnimations();
+        CheckFallThreshold();
     }
     private bool IsAnyUIOpen()
     {
@@ -74,9 +76,10 @@ public class PlayerController : MonoBehaviour
     private void UpdateGroundStatus()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, groundLayer);
-        if (isGrounded && gravityVelocity.y < 0)
+        if (isGrounded)
         {
             gravityVelocity.y = -2f;
+            lastSafePosition = transform.position;
         }
     }
 
@@ -158,6 +161,17 @@ public class PlayerController : MonoBehaviour
         }
 
         wasMoving = isMoving;
+    }
+    private void CheckFallThreshold()
+    {
+        if (transform.position.y < -10)
+        {
+            Debug.LogWarning("Player fell through terrain! Resetting position.");
+            characterController.enabled = false;
+            transform.position = lastSafePosition + Vector3.up * 1f; 
+            characterController.enabled = true;
+            gravityVelocity = Vector3.zero;
+        }
     }
 
 }
