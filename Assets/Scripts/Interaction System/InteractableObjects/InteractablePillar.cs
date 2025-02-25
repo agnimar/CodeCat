@@ -12,7 +12,7 @@ public class InteractablePillar : InteractableBase
     public bool IsCorrectlyOccupied => currentItem?.GetComponent<InteractableBase>()?.ItemName == requiredItemName;
     public override void OnInteractionStart(InteractionData data)
     {
-        if (PuzzleManager.Instance.IsPuzzleSolved())
+        if (PillarPuzzleManager.Instance.IsPuzzleSolved())
         {
             Debug.Log("Puzzle is solved; pillars are locked.");
             return;
@@ -74,12 +74,12 @@ public class InteractablePillar : InteractableBase
         itemObject.transform.position = itemPlacementPoint.position; 
         itemObject.transform.SetParent(transform);
         SoundManager.PlaySound(SoundType.PLACE_ON_PILLAR);
-        PuzzleManager.Instance?.CheckPuzzleState();
+        PillarPuzzleManager.Instance?.CheckPuzzleState();
     }
 
     private void RemoveItemFromPillar()
     {
-        if (PuzzleManager.Instance.IsPuzzleSolved())
+        if (PillarPuzzleManager.Instance.IsPuzzleSolved())
         {
             Debug.LogWarning("Puzzle is solved. Items cannot be removed from the pillars.");
             return;
@@ -113,7 +113,7 @@ public class InteractablePillar : InteractableBase
         isOccupied = false;
         SoundManager.PlaySound(SoundType.PICK_UP_OBJECT);
 
-        PuzzleManager.Instance?.CheckPuzzleState();
+        PillarPuzzleManager.Instance?.CheckPuzzleState();
     }
 
     public void ResetPillar()

@@ -20,7 +20,6 @@ public class SettingsOptionsUI : MonoBehaviour
     [Header("Graphics Settings")]
     [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private Toggle fullscreenToggle;
-    [SerializeField] private Toggle vsyncToggle;
 
     [Header("Settings Panels")]
     [SerializeField] private GameObject settingsPanel;
@@ -131,8 +130,6 @@ public class SettingsOptionsUI : MonoBehaviour
         fullscreenToggle.isOn = PlayerPrefs.GetInt(FULLSCREEN_PREF, 1) == 1;
         fullscreenToggle.onValueChanged.AddListener(SetFullscreen);
 
-        vsyncToggle.isOn = PlayerPrefs.GetInt(VSYNC_PREF, 0) == 1;
-        vsyncToggle.onValueChanged.AddListener(SetVSync);
     }
     public void SetMasterVolume(float value)
     {

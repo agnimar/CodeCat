@@ -2,9 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PuzzleManager : MonoBehaviour
+public class PillarPuzzleManager : MonoBehaviour
 {
-    public static PuzzleManager Instance { get; private set; }
+    public static PillarPuzzleManager Instance { get; private set; }
 
     [SerializeField] private List<InteractablePillar> pillars;
     [SerializeField] private GameObject entrance; // Reference to the entrance
