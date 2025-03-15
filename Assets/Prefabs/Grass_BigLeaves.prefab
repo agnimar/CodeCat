@@ -48,6 +48,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8391222552659086748, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -5477749408508380018, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
       propertyPath: m_LocalScale.x
       value: 65.529
@@ -136,9 +144,17 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 63b47525dd3355345a0f6ef691037806, type: 2}
+    - target: {fileID: -516098083770646512, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
       propertyPath: m_Name
       value: Grass_BigLeaves
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 4083501151425157549, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
       propertyPath: m_LocalScale.x
@@ -163,6 +179,10 @@ PrefabInstance:
     - target: {fileID: 4083501151425157549, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.0057947
+      objectReference: {fileID: 0}
+    - target: {fileID: 8416272007918961125, guid: 0da6d8d2afb6d8d4b9897a36d3259991, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -7,6 +7,10 @@ public class CameraController : MonoBehaviour
     [Tooltip("Pivot point for the camera, placed at head level of the player.")]
     public Transform cameraPivot;
 
+    [Header("Player Rendering")]
+    [Tooltip("The layer name assigned to the player game object that should be excluded from the camera when in first-person.")]
+    public string playerLayerName = "Player";
+
     [Header("Camera Offsets")]
     public Vector3 thirdPersonOffset = new Vector3(0, 2, -4);
     public Vector3 firstPersonOffset = new Vector3(0, 0, 0);
@@ -35,11 +39,17 @@ public class CameraController : MonoBehaviour
 
     private bool hasLookedAround = false;
     private PlayerController playerController;
+
+    private Camera cam;
+    private int playerLayer;
+
     void Start()
     {
         UIManager.Instance.SetCursorLockState(true);
         yRotation = player.eulerAngles.y;
         playerController = player.GetComponent<PlayerController>();
+        cam = GetComponent<Camera>();
+        playerLayer = LayerMask.NameToLayer(playerLayerName);
     }
 
     void Update()
@@ -68,6 +78,17 @@ public class CameraController : MonoBehaviour
             if (playerController != null)
             {
                 playerController.SetFirstPersonMode(isFirstPerson);
+            }
+            if (cam != null)
+            {
+                if (isFirstPerson)
+                {
+                    cam.cullingMask &= ~(1 << playerLayer);
+                }
+                else
+                {
+                    cam.cullingMask |= (1 << playerLayer);
+                }
             }
 
             xRotation = isFirstPerson ? 0f : 18f;
@@ -104,7 +125,7 @@ public class CameraController : MonoBehaviour
     {
         if (isFirstPerson)
         {
-            Vector3 offset = playerController != null && playerController.isSprinting ? sprintFirstPersonOffset : firstPersonOffset;
+            Vector3 offset = (playerController != null && playerController.isSprinting) ? sprintFirstPersonOffset : firstPersonOffset;
             targetPosition = cameraPivot.position + cameraPivot.TransformDirection(offset);
             targetRotation = Quaternion.Euler(xRotation, player.eulerAngles.y, 0f);
         }
