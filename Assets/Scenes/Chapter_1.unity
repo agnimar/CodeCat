@@ -428382,6 +428382,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8986625314142901095}
     - target: {fileID: 3862770707253734492, guid: 87116f42681d27243ade125d840e891e, type: 3}
+      propertyPath: pageGroups.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3862770707253734492, guid: 87116f42681d27243ade125d840e891e, type: 3}
       propertyPath: 'pageGroups.Array.data[0]'
       value: 
       objectReference: {fileID: 2137606745}
@@ -428485,7 +428489,8 @@ PrefabInstance:
       propertyPath: resolutionDropdown
       value: 
       objectReference: {fileID: 1819548318}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8053971503544478162, guid: 87116f42681d27243ade125d840e891e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
