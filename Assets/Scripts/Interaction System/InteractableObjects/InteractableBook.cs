@@ -58,6 +58,7 @@ public class InteractableBook : InteractableBase
         if (BookUIManager.Instance != null)
         {
             BookUIManager.Instance.UnlockBookUI();
+            BookUIManager.Instance.ToggleBookUI();
         }
         else
         {

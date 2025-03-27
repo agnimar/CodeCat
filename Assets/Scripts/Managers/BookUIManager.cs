@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI; // Needed for Button
 using TMPro;
 
 public class BookUIManager : MonoBehaviour
@@ -7,6 +8,8 @@ public class BookUIManager : MonoBehaviour
 
     [Header("Book UI Elements")]
     [SerializeField] private GameObject bookPanel;
+    [SerializeField] private Button nextPageButton; 
+    [SerializeField] private Button prevPageButton; 
 
     [Header("Book Pages")]
     [SerializeField] private GameObject[] pageGroups;
@@ -32,12 +35,14 @@ public class BookUIManager : MonoBehaviour
         {
             bookPanel.SetActive(false);
         }
-        LoadBookState();
+        isBookUnlocked = false;
     }
+
     private void Start()
     {
         UpdatePageVisibility();
     }
+
     private void Update()
     {
         if (isBookUnlocked && Input.GetKeyDown(KeyCode.Tab))
@@ -50,15 +55,12 @@ public class BookUIManager : MonoBehaviour
             ToggleBookUI();
         }
     }
-    private void LoadBookState()
-    {
-        isBookUnlocked = PlayerPrefs.GetInt("BookUnlocked", 0) == 1;
-    }
+
     public void UnlockBookUI()
     {
         isBookUnlocked = true;
-        PlayerPrefs.SetInt("BookUnlocked", 1); 
-        PlayerPrefs.Save(); 
+        PlayerPrefs.SetInt("BookUnlocked", 1);
+        PlayerPrefs.Save();
         SoundManager.PlaySound(SoundType.PICK_UP_BOOK);
     }
 
@@ -69,7 +71,7 @@ public class BookUIManager : MonoBehaviour
         if (!isBookUIOpen && UIManager.Instance != null && UIManager.Instance.IsInventoryOpen) return;
 
         isBookUIOpen = !isBookUIOpen;
-        
+
         if (bookPanel != null)
         {
             bookPanel.SetActive(isBookUIOpen);
@@ -89,36 +91,31 @@ public class BookUIManager : MonoBehaviour
         }
         SoundManager.PlaySound(SoundType.OPEN_UI);
     }
+
     public void NextPage()
     {
         if (pageGroups == null || pageGroups.Length == 0) return;
         if (currentPageIndex >= pageGroups.Length - 1) return;
 
         pageGroups[currentPageIndex].SetActive(false);
-
         currentPageIndex++;
-        if (currentPageIndex >= pageGroups.Length)
-        {
-            currentPageIndex = 0;
-        }
         SoundManager.PlaySound(SoundType.OPEN_UI);
         pageGroups[currentPageIndex].SetActive(true);
+        UpdatePageVisibility(); 
     }
+
     public void PrevPage()
     {
         if (pageGroups == null || pageGroups.Length == 0) return;
         if (currentPageIndex <= 0) return;
 
         pageGroups[currentPageIndex].SetActive(false);
-
         currentPageIndex--;
-        if (currentPageIndex < 0)
-        {
-            currentPageIndex = pageGroups.Length - 1;
-        }
         SoundManager.PlaySound(SoundType.OPEN_UI);
         pageGroups[currentPageIndex].SetActive(true);
+        UpdatePageVisibility();
     }
+
     private void UpdatePageVisibility()
     {
         if (pageGroups == null || pageGroups.Length == 0) return;
@@ -127,6 +124,35 @@ public class BookUIManager : MonoBehaviour
         {
             pageGroups[i].SetActive(i == currentPageIndex);
         }
+
+        bool canGoPrev = currentPageIndex > 0;
+        bool canGoNext = currentPageIndex < pageGroups.Length - 1;
+        
+        if (prevPageButton != null)
+        {
+            prevPageButton.interactable = canGoPrev;
+            TextMeshProUGUI prevText = prevPageButton.GetComponentInChildren<TextMeshProUGUI>();
+            if (prevText != null)
+            {
+                Color color = prevText.color;
+                color.a = canGoPrev ? 1f : 0.5f;
+                prevText.color = color;
+            }
+        }
+
+        if (nextPageButton != null)
+        {
+            nextPageButton.interactable = canGoNext;
+            TextMeshProUGUI nextText = nextPageButton.GetComponentInChildren<TextMeshProUGUI>();
+            if (nextText != null)
+            {
+                Color color = nextText.color;
+                color.a = canGoNext ? 1f : 0.5f;
+                nextText.color = color;
+            }
+        }
     }
+
+
     public bool IsBookUIOpen => bookPanel.activeSelf;
 }
