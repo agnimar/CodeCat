@@ -93,7 +93,6 @@ public class CameraController : MonoBehaviour
 
             xRotation = isFirstPerson ? 0f : 18f;
             yRotation = player.eulerAngles.y;
-            PlayerEvents.CameraSwitched();
         }
     }
 
@@ -117,7 +116,6 @@ public class CameraController : MonoBehaviour
         if (!hasLookedAround && (Mathf.Abs(mouseX) > 0.01f || Mathf.Abs(mouseY) > 0.01f))
         {
             hasLookedAround = true;
-            PlayerEvents.LookedAround();
         }
     }
 

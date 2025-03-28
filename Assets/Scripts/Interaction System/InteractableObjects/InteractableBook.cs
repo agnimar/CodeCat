@@ -65,8 +65,6 @@ public class InteractableBook : InteractableBase
             Debug.LogWarning("BookUIManager instance not found in the scene!");
         }
 
-        PlayerEvents.BookInteracted();
-
         gameObject.SetActive(false);
     }
 }

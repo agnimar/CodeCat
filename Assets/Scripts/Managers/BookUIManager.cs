@@ -9,13 +9,13 @@ public class BookUIManager : MonoBehaviour
     [Header("Book UI Elements")]
     [SerializeField] private GameObject bookPanel;
     [SerializeField] private Button nextPageButton; 
-    [SerializeField] private Button prevPageButton; 
+    [SerializeField] private Button prevPageButton;
+    [SerializeField] public bool isBookUnlocked = false;
 
     [Header("Book Pages")]
     [SerializeField] private GameObject[] pageGroups;
 
     private int currentPageIndex = 0;
-    private bool isBookUnlocked = false;
     private bool isBookUIOpen = false;
 
     private void Awake()
@@ -35,7 +35,7 @@ public class BookUIManager : MonoBehaviour
         {
             bookPanel.SetActive(false);
         }
-        isBookUnlocked = false;
+        
     }
 
     private void Start()
@@ -79,13 +79,13 @@ public class BookUIManager : MonoBehaviour
 
         if (isBookUIOpen)
         {
-            PlayerEvents.OpenedBookAndInventory();
+            //PlayerEvents.OpenedBookAndInventory();
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
         }
         else
         {
-            PlayerEvents.ProceedDownRoad();
+            //PlayerEvents.ProceedDownRoad();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }

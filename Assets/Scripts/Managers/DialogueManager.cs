@@ -6,14 +6,28 @@ public class DialogueManager : MonoBehaviour
 {
     public static DialogueManager Instance { get; private set; }
 
-    [Header("Dialogue Panel Settings")]
-    [Tooltip("The panel that will display dialogue messages.")]
-    [SerializeField] private GameObject displayInfoPanel;
+    [Header("UI Settings")]
+    [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] private TMP_Text dialogueText;
 
-    [Tooltip("The TextMeshPro component used to show the message.")]
-    [SerializeField] private TMP_Text displayInfoText;
+    [Header("Tutorial Settings")]
+    [SerializeField] private bool playTutorialOnStart = true;
+    [SerializeField] private DialogueEntry[] tutorialEntries;
 
-    private Coroutine currentMessageCoroutine;
+    [Header("Player References")]
+    [SerializeField] private PlayerController playerController;
+    [SerializeField] private PlayerInteraction playerInteraction;
+
+    private Coroutine currentDialogueCoroutine;
+
+    [System.Serializable]
+    public class DialogueEntry
+    {
+        public string message;
+        public float duration;
+        public bool lockMovement;
+        public bool lockInteraction;
+    }
 
     private void Awake()
     {
@@ -23,40 +37,41 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Multiple DialogueManager instances detected! Destroying duplicate.");
+            Debug.LogWarning("Multiple DialogueManagerAdvanced instances found. Destroying duplicate.");
             Destroy(gameObject);
-        }
-
-        if (displayInfoPanel != null)
-        {
-            displayInfoPanel.SetActive(false);
-        }
-        else
-        {
-            Debug.LogError("Display Info Panel is not assigned in the Inspector!");
-        }
-    }
-
-    public void ShowMessage(string message, float duration)
-    {
-        if (currentMessageCoroutine != null)
-        {
-            StopCoroutine(currentMessageCoroutine);
-        }
-
-        if (displayInfoText != null)
-        {
-            displayInfoText.text = message;
-        }
-        else
-        {
-            Debug.LogError("Display Info Text is not assigned in the Inspector!");
             return;
         }
 
-        displayInfoPanel.SetActive(true);
+        if (dialoguePanel != null)
+        {
+            dialoguePanel.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("Dialogue Panel not assigned in the Inspector!");
+        }
+    }
+
+    private void Start()
+    {
+        if (playTutorialOnStart && tutorialEntries != null && tutorialEntries.Length > 0)
+        {
+            StartCoroutine(RunTutorialSequence());
+        }
+    }
+
+    public void ShowMessage(string message, float duration = 0f)
+    {
+        if (currentDialogueCoroutine != null)
+            StopCoroutine(currentDialogueCoroutine);
+
+        dialogueText.text = message;
+        dialoguePanel.SetActive(true);
+
         if (duration > 0)
-            currentMessageCoroutine = StartCoroutine(HideAfterDuration(duration));
+        {
+            currentDialogueCoroutine = StartCoroutine(HideAfterDuration(duration));
+        }
     }
 
     private IEnumerator HideAfterDuration(float duration)
@@ -67,12 +82,42 @@ public class DialogueManager : MonoBehaviour
 
     public void HideMessage()
     {
-        if (currentMessageCoroutine != null)
+        if (currentDialogueCoroutine != null)
         {
-            StopCoroutine(currentMessageCoroutine);
-            currentMessageCoroutine = null;
+            StopCoroutine(currentDialogueCoroutine);
+            currentDialogueCoroutine = null;
+        }
+        dialoguePanel.SetActive(false);
+    }
+
+    private IEnumerator RunTutorialSequence()
+    {
+        if (playerController != null)
+            playerController.enabled = false;
+        if (playerInteraction != null)
+            playerInteraction.enabled = false;
+
+        foreach (var entry in tutorialEntries)
+        {
+            if (entry.lockMovement && playerController != null)
+                playerController.enabled = false;
+            if (entry.lockInteraction && playerInteraction != null)
+                playerInteraction.enabled = false;
+
+            ShowMessage(entry.message, entry.duration);
+            yield return new WaitForSeconds(entry.duration + 0.5f); // Small delay between messages.
         }
 
-        displayInfoPanel.SetActive(false);
+        if (playerController != null)
+            playerController.enabled = true;
+        if (playerInteraction != null)
+            playerInteraction.enabled = true;
+
+        HideMessage();
+    }
+
+    public void ShowInteractPrompt(string prompt = "Press E to interact")
+    {
+        ShowMessage(prompt, 0);
     }
 }

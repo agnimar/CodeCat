@@ -82431,6 +82431,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3505452660478798014, guid: 5286c14db4d6f254a9a9b2538351337b, type: 3}
   m_PrefabInstance: {fileID: 739155234}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &409758052 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8836703761807407050, guid: d34771158dfa3954c9ec517550a0cb6e, type: 3}
+  m_PrefabInstance: {fileID: 9009317791261625707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b683473311e014399567a32740eea5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &409758054 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1209395661874102249, guid: d34771158dfa3954c9ec517550a0cb6e, type: 3}
+  m_PrefabInstance: {fileID: 9009317791261625707}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1e279d5c71255b43b2b328b743ced7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -312588,7 +312610,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9844fcebbf9e65c43830b4eb9f111e0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueManager: {fileID: 1776284186}
+  tutorialSteps:
+  - message: CodeCat is lost in the magical forest, help him find the way!
+    duration: 3
+    inputType: 0
+    keyToPress: 0
+    lockMovement: 1
+    lockInteraction: 1
+  - message: Look around using your mouse.
+    duration: 0
+    inputType: 2
+    keyToPress: 0
+    lockMovement: 1
+    lockInteraction: 1
+  - message: "Press \u2018V\u2019 to switch between first and third person view."
+    duration: 0
+    inputType: 1
+    keyToPress: 118
+    lockMovement: 1
+    lockInteraction: 1
+  - message: Move around using WASD. Hold SHIFT to sprint.
+    duration: 0
+    inputType: 3
+    keyToPress: 119
+    lockMovement: 0
+    lockInteraction: 0
+  - message: "Press \u2018E\u2019 to interact with the book."
+    duration: 0
+    inputType: 0
+    keyToPress: 32
+    lockMovement: 0
+    lockInteraction: 0
+  - message: "Press \u2018Tab\u2019 to open the book and \u2018I\u2019 to open your
+      inventory."
+    duration: 5
+    inputType: 0
+    keyToPress: 32
+    lockMovement: 0
+    lockInteraction: 0
+  - message: Proceed down the road and refer to the book for guidance!
+    duration: 3
+    inputType: 0
+    keyToPress: 32
+    lockMovement: 0
+    lockInteraction: 0
+  playerController: {fileID: 409758054}
+  playerInteraction: {fileID: 409758052}
 --- !u!4 &1546256317 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2793417520904635871, guid: 74ce2fb651d9d7947bef7bc5b62ceee1, type: 3}
@@ -357292,17 +357359,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 53022627ae7c5c644ac1e89d9cfd3537, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1776284186 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-  m_PrefabInstance: {fileID: 6010637168519632957}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e017b7a5a8ee7c94a9735887d4a34e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1776418631 stripped
@@ -427972,8 +428028,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -60.850006}
-  m_SizeDelta: {x: 653.1, y: 93.91}
+  m_AnchoredPosition: {x: -377.2, y: -147.4}
+  m_SizeDelta: {x: 292.96, y: 278}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &401309709382502086
 RectTransform:
@@ -439589,7 +439645,7 @@ GameObject:
   - component: {fileID: 6171270751121447299}
   - component: {fileID: 6751099938883909837}
   m_Layer: 5
-  m_Name: DisplayInfoPanel
+  m_Name: DialoguePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -445729,6 +445785,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 864296722}
     m_Modifications:
     - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 6520864790013330770}
+    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
+      propertyPath: dialoguePanel
+      value: 
+      objectReference: {fileID: 4017082735339344798}
+    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
       propertyPath: displayInfoText
       value: 
       objectReference: {fileID: 6520864790013330770}
@@ -445736,6 +445800,22 @@ PrefabInstance:
       propertyPath: displayInfoPanel
       value: 
       objectReference: {fileID: 4017082735339344798}
+    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
+      propertyPath: playerController
+      value: 
+      objectReference: {fileID: 409758054}
+    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
+      propertyPath: playerInteraction
+      value: 
+      objectReference: {fileID: 409758052}
+    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
+      propertyPath: playTutorialOnStart
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
+      propertyPath: tutorialEntries.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 369899664781089910, guid: 87116f42681d27243ade125d840e891e, type: 3}
       propertyPath: m_Name
       value: UIManager
@@ -447229,8 +447309,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 27276044619dd6648adf02dcfae3f66a, type: 2}
-  m_sharedMaterial: {fileID: 4170502907893543865, guid: 27276044619dd6648adf02dcfae3f66a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ae4c5276c9f10f240893b4a37a513ee0, type: 2}
+  m_sharedMaterial: {fileID: -7179098317939240757, guid: ae4c5276c9f10f240893b4a37a513ee0, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -447254,21 +447334,21 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_HorizontalAlignment: 8
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
+  m_paragraphSpacing: 0.6
   m_charWidthMaxAdj: 0
   m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
@@ -447292,7 +447372,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: -0.0000038557164, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -450292,8 +450372,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 617.7, y: 106.7}
+  m_AnchoredPosition: {x: 1.3740039, y: -2.7480655}
+  m_SizeDelta: {x: 266.3951, y: 245.0229}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &7434284920888045432
 RectTransform:
