@@ -143,10 +143,11 @@ public class TutorialManager : MonoBehaviour
                 }
                 break;
             case TutorialInputType.CharacterMovement:
-                if (step.targetObject != null && playerController != null)
+                if (playerController != null)
                 {
-                    float dist = Vector3.Distance(playerController.transform.position, step.targetObject.transform.position);
-                    if (dist <= step.targetDistanceThreshold)
+                    float horizontal = Input.GetAxis("Horizontal");
+                    float vertical = Input.GetAxis("Vertical");
+                    if (Mathf.Abs(horizontal) > 0.01f || Mathf.Abs(vertical) > 0.01f)
                     {
                         TryAdvanceStep(step.delayBeforeAdvance);
                     }

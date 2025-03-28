@@ -86811,6 +86811,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8925765598970821279, guid: 7d30b5e05d524c1479c9c18833411d79, type: 3}
   m_PrefabInstance: {fileID: 1560829197}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &434796278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7190479988707187516, guid: 80b044da5d460454a859fa95816534ec, type: 3}
+  m_PrefabInstance: {fileID: 936274476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &434878227 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3056955510407861114, guid: 790acbbd618f2b7499becf71909b8a4c, type: 3}
@@ -312615,43 +312620,64 @@ MonoBehaviour:
     duration: 3
     inputType: 0
     keyToPress: 0
+    targetObject: {fileID: 0}
+    targetDistanceThreshold: 2
+    delayBeforeAdvance: 3
     lockMovement: 1
     lockInteraction: 1
   - message: Look around using your mouse.
     duration: 0
     inputType: 2
     keyToPress: 0
+    targetObject: {fileID: 0}
+    targetDistanceThreshold: 2
+    delayBeforeAdvance: 2
     lockMovement: 1
     lockInteraction: 1
   - message: "Press \u2018V\u2019 to switch between first and third person view."
     duration: 0
     inputType: 1
     keyToPress: 118
+    targetObject: {fileID: 0}
+    targetDistanceThreshold: 2
+    delayBeforeAdvance: 1
     lockMovement: 1
     lockInteraction: 1
   - message: Move around using WASD. Hold SHIFT to sprint.
     duration: 0
     inputType: 3
     keyToPress: 119
+    targetObject: {fileID: 0}
+    targetDistanceThreshold: 2
+    delayBeforeAdvance: 2
     lockMovement: 0
     lockInteraction: 0
   - message: "Press \u2018E\u2019 to interact with the book."
     duration: 0
-    inputType: 0
-    keyToPress: 32
+    inputType: 4
+    keyToPress: 101
+    targetObject: {fileID: 434796278}
+    targetDistanceThreshold: 3
+    delayBeforeAdvance: 0
     lockMovement: 0
     lockInteraction: 0
   - message: "Press \u2018Tab\u2019 to open the book and \u2018I\u2019 to open your
       inventory."
-    duration: 5
-    inputType: 0
-    keyToPress: 32
+    duration: 0
+    inputType: 1
+    keyToPress: 105
+    targetObject: {fileID: 0}
+    targetDistanceThreshold: 2
+    delayBeforeAdvance: 2
     lockMovement: 0
     lockInteraction: 0
   - message: Proceed down the road and refer to the book for guidance!
     duration: 3
     inputType: 0
     keyToPress: 32
+    targetObject: {fileID: 0}
+    targetDistanceThreshold: 2
+    delayBeforeAdvance: 0
     lockMovement: 0
     lockInteraction: 0
   playerController: {fileID: 409758054}

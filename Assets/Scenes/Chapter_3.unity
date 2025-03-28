@@ -927,6 +927,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 115392041605150001}
     m_Modifications:
+    - target: {fileID: 1885231547655688130, guid: f9f36b9c3bcdaa04d98ef546da51859b, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3161538173665754494, guid: f9f36b9c3bcdaa04d98ef546da51859b, type: 3}
       propertyPath: linkedCrystal
       value: 
@@ -3871,6 +3875,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 115392041605150001}
     m_Modifications:
+    - target: {fileID: 1885231547655688130, guid: f9f36b9c3bcdaa04d98ef546da51859b, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3161538173665754494, guid: f9f36b9c3bcdaa04d98ef546da51859b, type: 3}
       propertyPath: linkedCrystal
       value: 
@@ -9722,6 +9730,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 115392041605150001}
     m_Modifications:
+    - target: {fileID: 1885231547655688130, guid: f9f36b9c3bcdaa04d98ef546da51859b, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3161538173665754494, guid: f9f36b9c3bcdaa04d98ef546da51859b, type: 3}
       propertyPath: linkedCrystal
       value: 
@@ -17806,6 +17818,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 115392041605150001}
     m_Modifications:
+    - target: {fileID: 1885231547655688130, guid: f9f36b9c3bcdaa04d98ef546da51859b, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3161538173665754494, guid: f9f36b9c3bcdaa04d98ef546da51859b, type: 3}
       propertyPath: linkedCrystal
       value: 
@@ -19590,6 +19606,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 115392041605150001}
     m_Modifications:
+    - target: {fileID: 1885231547655688130, guid: f9f36b9c3bcdaa04d98ef546da51859b, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3161538173665754494, guid: f9f36b9c3bcdaa04d98ef546da51859b, type: 3}
       propertyPath: linkedCrystal
       value: 
