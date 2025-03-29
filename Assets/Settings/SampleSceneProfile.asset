@@ -118,13 +118,13 @@ MonoBehaviour:
   active: 1
   Density:
     m_OverrideState: 1
-    m_Value: 0.0263
+    m_Value: 0.05
   StartDistance:
     m_OverrideState: 1
     m_Value: 0
   HeightRange:
     m_OverrideState: 1
-    m_Value: {x: 0, y: 4.9}
+    m_Value: {x: 0, y: 0.46}
   Tint:
     m_OverrideState: 1
     m_Value: {r: 0, g: 0.13170782, b: 0.4716981, a: 1}
