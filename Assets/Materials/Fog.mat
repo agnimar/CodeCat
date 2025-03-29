@@ -37,11 +37,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Density: 0.01
+    - _Density: 0.0152
     - _StartDistance: 3
     - _SunScatteringIntensity: 0.5
     m_Colors:
-    - _Height_Range: {r: 0, g: 25.1, b: 0, a: 0}
-    - _Tint: {r: 0.75701725, g: 1, b: 0.32941175, a: 1}
+    - _Height_Range: {r: 0, g: 1.9, b: 0, a: 0}
+    - _Tint: {r: 0.1462264, g: 0.19749552, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

@@ -23,7 +23,7 @@ MonoBehaviour:
       dilationIterations: 0
       squaredDistWeighting: 0
     virtualOffsetSettings:
-      useVirtualOffset: 0
+      useVirtualOffset: 1
       validityThreshold: 0.25
       outOfGeoOffset: 0
       searchMultiplier: 0
