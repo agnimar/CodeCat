@@ -11986,10 +11986,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -1
       objectReference: {fileID: 0}
-    - target: {fileID: 3430672008697109722, guid: d34771158dfa3954c9ec517550a0cb6e, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 1d46e6b520509d1429cbe08d5d55eb63, type: 2}
     - target: {fileID: 7000232684928135149, guid: d34771158dfa3954c9ec517550a0cb6e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -22691,7 +22687,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 1
-  size: {x: 60.807198, y: 21.988607, z: 72.76525}
+  size: {x: 60.8072, y: 21.988607, z: 72.76525}
   overrideRendererFilters: 0
   minRendererVolumeSize: 0.1
   objectLayerMask:
@@ -22731,7 +22727,7 @@ Transform:
   m_GameObject: {fileID: 1920437364}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5249977, y: 3, z: 27.617376}
+  m_LocalPosition: {x: 0.5249996, y: 3, z: 27.617376}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
