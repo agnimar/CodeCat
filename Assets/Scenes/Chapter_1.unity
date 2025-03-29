@@ -313145,7 +313145,7 @@ MonoBehaviour:
     inputType: 4
     keyToPress: 101
     targetObject: {fileID: 434796278}
-    targetDistanceThreshold: 2
+    targetDistanceThreshold: 2.5
     delayBeforeAdvance: 0
     lockMovement: 0
     lockInteraction: 0
@@ -428435,61 +428435,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4017082735339344798}
     - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: displayInfoText
-      value: 
-      objectReference: {fileID: 6520864790013330770}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 141531434}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: displayInfoPanel
-      value: 
-      objectReference: {fileID: 4017082735339344798}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: playerController
-      value: 
-      objectReference: {fileID: 409758054}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: playerInteraction
-      value: 
-      objectReference: {fileID: 409758052}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: playTutorialOnStart
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: promptEntries.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: tutorialEntries.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: promptEntries.Array.data[0].message
-      value: Press 'E' to interact
-      objectReference: {fileID: 0}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: promptEntries.Array.data[0].autoShow
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: promptEntries.Array.data[0].interactKey
-      value: 101
-      objectReference: {fileID: 0}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: promptEntries.Array.data[0].targetObject
-      value: 
-      objectReference: {fileID: 434796278}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: promptEntries.Array.data[0].distanceThreshold
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 263406642791053864, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: promptEntries.Array.data[0].targetLayer.m_Bits
-      value: 64
-      objectReference: {fileID: 0}
     - target: {fileID: 369899664781089910, guid: 87116f42681d27243ade125d840e891e, type: 3}
       propertyPath: m_Name
       value: UIManager
@@ -428546,10 +428494,6 @@ PrefabInstance:
       propertyPath: prevPageButton
       value: 
       objectReference: {fileID: 3602528452853979266}
-    - target: {fileID: 3862770707253734492, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: pageGroups.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 3862770707253734492, guid: 87116f42681d27243ade125d840e891e, type: 3}
       propertyPath: 'pageGroups.Array.data[0]'
       value: 
@@ -428611,10 +428555,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5059881778724547799}
     - target: {fileID: 7106158439296799704, guid: 87116f42681d27243ade125d840e891e, type: 3}
-      propertyPath: vsyncToggle
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7106158439296799704, guid: 87116f42681d27243ade125d840e891e, type: 3}
       propertyPath: masterSlider
       value: 
       objectReference: {fileID: 6887632185426836049}
@@ -428658,8 +428598,7 @@ PrefabInstance:
       propertyPath: mouseSensitivitySlider
       value: 
       objectReference: {fileID: 1510926108}
-    m_RemovedComponents:
-    - {fileID: 8053971503544478162, guid: 87116f42681d27243ade125d840e891e, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
