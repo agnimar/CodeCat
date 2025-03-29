@@ -118,16 +118,16 @@ MonoBehaviour:
   active: 1
   Density:
     m_OverrideState: 1
-    m_Value: 0.01
+    m_Value: 0.0152
   StartDistance:
     m_OverrideState: 1
     m_Value: 3
   HeightRange:
     m_OverrideState: 1
-    m_Value: {x: 0, y: 25.1}
+    m_Value: {x: 0, y: 1.9}
   Tint:
     m_OverrideState: 1
-    m_Value: {r: 0.75701725, g: 1, b: 0.32941175, a: 1}
+    m_Value: {r: 0.1462264, g: 0.19749552, b: 1, a: 1}
   SunScatteringIntensity:
     m_OverrideState: 1
     m_Value: 0.5
@@ -165,7 +165,7 @@ MonoBehaviour:
   active: 0
   mode:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   neutralHDRRangeReductionMode:
     m_OverrideState: 0
     m_Value: 2
