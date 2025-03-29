@@ -21,6 +21,10 @@ public class SettingsOptionsUI : MonoBehaviour
     [SerializeField] private TMP_Dropdown resolutionDropdown;
     [SerializeField] private Toggle fullscreenToggle;
 
+    [Header("Controls Settings")]
+    [SerializeField] private Slider mouseSensitivitySlider;
+    private const string MOUSE_SENSITIVITY_PREF = "MouseSensitivity";
+
     [Header("Settings Panels")]
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject pauseMenuPanel;
@@ -65,6 +69,7 @@ public class SettingsOptionsUI : MonoBehaviour
     {
         SetupAudio();
         SetupGraphics();
+        SetupMouseSensitivity();
         pauseMenuPanel.SetActive(false);
         settingsPanel.SetActive(false);
         controlsPanel.SetActive(false);
@@ -87,6 +92,27 @@ public class SettingsOptionsUI : MonoBehaviour
             {
                 TogglePauseMenu();
             }
+        }
+    }
+    private void SetupMouseSensitivity()
+    {
+        float savedSensitivity = PlayerPrefs.GetFloat(MOUSE_SENSITIVITY_PREF, 100f);
+        mouseSensitivitySlider.value = savedSensitivity;
+        mouseSensitivitySlider.onValueChanged.AddListener(SetMouseSensitivity);
+        ApplyMouseSensitivity(savedSensitivity);
+    }
+
+    private void SetMouseSensitivity(float value)
+    {
+        PlayerPrefs.SetFloat(MOUSE_SENSITIVITY_PREF, value);
+        ApplyMouseSensitivity(value);
+    }
+
+    private void ApplyMouseSensitivity(float value)
+    {
+        if (Camera.main.TryGetComponent(out CameraController camCtrl))
+        {
+            camCtrl.SetMouseSensitivity(value*100);
         }
     }
     private void SetupAudio()

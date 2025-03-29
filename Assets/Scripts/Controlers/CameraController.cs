@@ -137,4 +137,10 @@ public class CameraController : MonoBehaviour
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * positionLerpSpeed);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationLerpSpeed);
     }
+
+    public void SetMouseSensitivity(float value)
+    {
+        mouseSensitivity = value;
+    }
+
 }

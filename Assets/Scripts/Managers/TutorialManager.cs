@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using System.Collections;
+using TMPro;
 
 public enum TutorialInputType
 {
@@ -48,17 +49,22 @@ public class TutorialManager : MonoBehaviour
     public static TutorialManager Instance { get; private set; }
 
     [Header("Tutorial Steps")]
-    [Tooltip("Configure the tutorial steps in order.")]
     public TutorialStep[] tutorialSteps;
 
     [Header("Player References")]
     [SerializeField] private PlayerController playerController;
     [SerializeField] private PlayerInteraction playerInteraction;
 
+    [Header("Tutorial UI")]
+    [SerializeField] private GameObject tutorialPanel;
+    [SerializeField] private TMP_Text tutorialText;
+
     private int currentStepIndex = 0;
     private Coroutine autoAdvanceCoroutine;
     private bool waitingForInput = false;
     private bool isAdvancing = false;
+    private bool objectMessageDisplayed = false;
+    private Coroutine hideTutorialCoroutine;
 
     private void Awake()
     {
@@ -99,18 +105,39 @@ public class TutorialManager : MonoBehaviour
         if (playerInteraction != null)
             playerInteraction.enabled = !step.lockInteraction;
 
-        DialogueManager.Instance.ShowMessage(step.message, step.duration > 0 ? step.duration : 0f);
+        ShowTutorialMessage(step.message, step.duration > 0 ? step.duration : 0f);
 
         if (step.duration > 0)
         {
+            waitingForInput = false;
             if (autoAdvanceCoroutine != null)
                 StopCoroutine(autoAdvanceCoroutine);
             autoAdvanceCoroutine = StartCoroutine(AutoAdvance(step.duration + step.delayBeforeAdvance));
-            waitingForInput = false;
         }
         else
         {
             waitingForInput = true;
+            if (step.inputType == TutorialInputType.ObjectInteraction)
+            {
+                if (step.targetObject != null && playerController != null)
+                {
+                    float dist = Vector3.Distance(playerController.transform.position, step.targetObject.transform.position);
+                    if (dist <= step.targetDistanceThreshold)
+                    {
+                        ShowTutorialMessage(step.message, 0f);
+                        objectMessageDisplayed = true;
+                    }
+                    else
+                    {
+                        HideTutorialMessage();
+                        objectMessageDisplayed = false;
+                    }
+                }
+            }
+            else
+            {
+                ShowTutorialMessage(step.message, 0f);
+            }
         }
 
         isAdvancing = false;
@@ -154,12 +181,25 @@ public class TutorialManager : MonoBehaviour
                 }
                 break;
             case TutorialInputType.ObjectInteraction:
-                if (step.targetObject != null && playerController != null && Input.GetKeyDown(KeyCode.E))
+                if (!objectMessageDisplayed)
                 {
-                    float dist = Vector3.Distance(playerController.transform.position, step.targetObject.transform.position);
-                    if (dist <= step.targetDistanceThreshold)
+                    ShowTutorialMessage(step.message, 0f);
+                    objectMessageDisplayed = true;
+                }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (step.targetObject != null && playerController != null)
                     {
-                        TryAdvanceStep(step.delayBeforeAdvance);
+                        float dist = Vector3.Distance(playerController.transform.position, step.targetObject.transform.position);
+                        Debug.Log("Distance to target: " + dist);
+                        if (dist <= step.targetDistanceThreshold)
+                        {
+                            TryAdvanceStep(step.delayBeforeAdvance);
+                        }
+                        else
+                        {
+                            Debug.Log("Player not in range. Required: " + step.targetDistanceThreshold);
+                        }
                     }
                 }
                 break;
@@ -196,6 +236,7 @@ public class TutorialManager : MonoBehaviour
     {
         waitingForInput = false;
         currentStepIndex++;
+        objectMessageDisplayed = false;
         if (currentStepIndex >= tutorialSteps.Length)
         {
             EndTutorial();
@@ -210,6 +251,32 @@ public class TutorialManager : MonoBehaviour
     {
         if (playerController != null) playerController.enabled = true;
         if (playerInteraction != null) playerInteraction.enabled = true;
-        DialogueManager.Instance.HideMessage();
+        HideTutorialMessage();
     }
+
+    private void ShowTutorialMessage(string message, float duration = 0f)
+    {
+        if (hideTutorialCoroutine != null)
+            StopCoroutine(hideTutorialCoroutine);
+
+        tutorialText.text = message;
+        tutorialPanel.SetActive(true);
+
+        if (duration > 0f)
+        {
+            hideTutorialCoroutine = StartCoroutine(HideTutorialAfterDuration(duration));
+        }
+    }
+
+    private IEnumerator HideTutorialAfterDuration(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        HideTutorialMessage();
+    }
+
+    private void HideTutorialMessage()
+    {
+        tutorialPanel.SetActive(false);
+    }
+
 }
