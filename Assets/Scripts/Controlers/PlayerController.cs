@@ -114,7 +114,9 @@ public class PlayerController : MonoBehaviour
     {
         isSprinting = Input.GetKey(KeyCode.LeftShift) && smoothedMovement.sqrMagnitude > 0.01f;
         currentMoveSpeed = smoothedMovement.magnitude > 0 ? (isSprinting ? sprintSpeed : walkSpeed) : 0f;
-        animator.SetFloat("Speed", currentMoveSpeed/1.5f);
+        float speedMultiplier = SoundManager.GetSpeedMultiplier(SoundType.FOOTSTEP);
+        animator.SetFloat("Speed", (currentMoveSpeed / 1.5f) * speedMultiplier);
+
     }
 
     private void MoveCharacter(Vector3 direction)

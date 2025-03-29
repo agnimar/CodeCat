@@ -55,12 +55,30 @@ public class SoundManager : MonoBehaviour
             bgmSource.outputAudioMixerGroup = bgmAudioMixerGroup;
         }
     }
-    public static void PlaySound(SoundType sound, float volume = 1)
+    public static void PlaySound(SoundType sound, float volume = 1f)
     {
-        AudioClip[] clips = instance.soundList[(int)sound].Sounds;
-        AudioClip randomClip = clips[UnityEngine.Random.Range(0, clips.Length)];
-        instance.sfxSource.PlayOneShot(randomClip, volume);
+        SoundList list = instance.soundList[(int)sound];
+        AudioClip[] clips = list.Sounds;
+
+        if (clips == null || clips.Length == 0) return;
+
+        AudioClip clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+        float pitch = list.pitch <= 0f ? 1f : list.pitch;
+
+        GameObject tempGO = new GameObject("TempAudio");
+        AudioSource tempSource = tempGO.AddComponent<AudioSource>();
+
+        tempSource.clip = clip;
+        tempSource.pitch = pitch;
+        tempSource.volume = volume;
+        tempSource.outputAudioMixerGroup = instance.sfxAudioMixerGroup;
+        tempSource.Play();
+
+        UnityEngine.Object.Destroy(tempGO, clip.length / pitch);
+
     }
+
+
     public static void PlayBackgroundMusic(SoundType sound, float volume = 1)
     {
         AudioClip[] clips = instance.soundList[(int)sound].Sounds;
@@ -101,6 +119,14 @@ public class SoundManager : MonoBehaviour
     {
         return sfxAudioMixerGroup;
     }
+    public static float GetSpeedMultiplier(SoundType sound)
+    {
+        if (instance == null || instance.soundList == null || instance.soundList.Length <= (int)sound)
+            return 1f;
+
+        float speed = instance.soundList[(int)sound].speedMultiplier;
+        return speed <= 0f ? 1f : speed;
+    }
 
 }
 
@@ -110,4 +136,6 @@ public struct SoundList
     public AudioClip[] Sounds {get => sounds;}
     [HideInInspector] public string name;
     [SerializeField] private AudioClip[] sounds;
+    public float pitch;
+    public float speedMultiplier;
 }
