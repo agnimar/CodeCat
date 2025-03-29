@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3862770707253734492}
   - component: {fileID: 7106158439296799704}
   - component: {fileID: 263406642791053864}
-  - component: {fileID: 8053971503544478162}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -71,12 +70,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bookPanel: {fileID: 0}
+  nextPageButton: {fileID: 0}
+  prevPageButton: {fileID: 0}
+  isBookUnlocked: 0
   pageGroups:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -98,6 +95,7 @@ MonoBehaviour:
   sfxSlider: {fileID: 0}
   resolutionDropdown: {fileID: 0}
   fullscreenToggle: {fileID: 0}
+  mouseSensitivitySlider: {fileID: 0}
   settingsPanel: {fileID: 0}
   pauseMenuPanel: {fileID: 0}
   controlsPanel: {fileID: 0}
@@ -118,8 +116,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e017b7a5a8ee7c94a9735887d4a34e03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayInfoPanel: {fileID: 0}
-  displayInfoText: {fileID: 0}
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  promptEntries:
+  - message: Press 'E' to interact
+    targetLayer:
+      serializedVersion: 2
+      m_Bits: 64
+    distanceThreshold: 3
+    interactKey: 101
+    autoShow: 1
+  playerTransform: {fileID: 0}
 --- !u!1001 &7466411565464945226
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -175,25 +182,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3582987493547009051, guid: 030d21e17342c584bac0da858ed045e9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8053971503544478162}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 030d21e17342c584bac0da858ed045e9, type: 3}
---- !u!114 &8053971503544478162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 369899664781089910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37578d423d5bb464f977ed263af065e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puzzlePanel: {fileID: 0}
-  questionText: {fileID: 0}
-  optionsContainer: {fileID: 0}
-  optionTogglePrefab: {fileID: 2985740213843908565, guid: defb37b6f58c099418f3cae3927360ee, type: 3}
-  submitButton: {fileID: 0}
