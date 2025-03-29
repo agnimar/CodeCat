@@ -63,8 +63,6 @@ public class PlayerController : MonoBehaviour
     private void ProcessMovement()
     {
         UpdateGroundStatus();
-        if (TutorialManager.Instance != null && !TutorialManager.Instance.IsMovementAllowed)
-            return;
         Vector3 targetDirection = GetInputDirection();
         UpdateSmoothedMovement(targetDirection);
         RotatePlayer(smoothedMovement);
@@ -122,7 +120,6 @@ public class PlayerController : MonoBehaviour
     private void MoveCharacter(Vector3 direction)
     {
         characterController.Move(direction * currentMoveSpeed * Time.deltaTime);
-        
     }
 
     private void ApplyGravity()
@@ -148,7 +145,6 @@ public class PlayerController : MonoBehaviour
         if (isMoving && !wasMoving)
         {
             animator.SetTrigger("StartMoving");
-            PlayerEvents.Moved();
         }
         else if (!isMoving && wasMoving)
         {

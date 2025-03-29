@@ -58,13 +58,12 @@ public class InteractableBook : InteractableBase
         if (BookUIManager.Instance != null)
         {
             BookUIManager.Instance.UnlockBookUI();
+            BookUIManager.Instance.ToggleBookUI();
         }
         else
         {
             Debug.LogWarning("BookUIManager instance not found in the scene!");
         }
-
-        PlayerEvents.BookInteracted();
 
         gameObject.SetActive(false);
     }
