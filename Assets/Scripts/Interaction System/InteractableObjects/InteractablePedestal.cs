@@ -17,8 +17,17 @@ public class InteractablePedestal : InteractableBase
     [Header("UI Settings")]
     [SerializeField] private PuzzleUIManager puzzleUIManager;
 
+    [Header("State Visuals")]
+    [SerializeField] private GameObject activeStateGO;
+    [SerializeField] private GameObject inactiveStateGO;
+
     private bool puzzleSolved = false;
-    private bool isLocked = false; 
+    private bool isLocked = false;
+
+    private void Awake()
+    {
+        UpdateVisualState();
+    }
 
     public override void OnInteractionStart(InteractionData data)
     {
@@ -50,6 +59,7 @@ public class InteractablePedestal : InteractableBase
     {
         puzzleSolved = true;
         Debug.Log($"{itemName} puzzle solved. Activating linked crystal.");
+
         if (linkedCrystal != null)
         {
             linkedCrystal.Activate();
@@ -66,6 +76,8 @@ public class InteractablePedestal : InteractableBase
         {
             Debug.LogWarning("Linked Crystal is not assigned on " + gameObject.name);
         }
+
+        UpdateVisualState();
     }
 
     public void OnPuzzleFailed()
@@ -101,6 +113,21 @@ public class InteractablePedestal : InteractableBase
         if (puzzleUIManager != null)
         {
             puzzleUIManager.ResetPuzzleUI();
+        }
+
+        UpdateVisualState();
+    }
+
+    private void UpdateVisualState()
+    {
+        if (activeStateGO != null)
+        {
+            activeStateGO.SetActive(puzzleSolved);
+        }
+
+        if (inactiveStateGO != null)
+        {
+            inactiveStateGO.SetActive(!puzzleSolved);
         }
     }
 }
