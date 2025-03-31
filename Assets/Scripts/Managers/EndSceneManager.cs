@@ -31,6 +31,7 @@ public class EndSceneManager : MonoBehaviour
             Color c = fadePanel.color;
             c.a = 0f;
             fadePanel.color = c;
+            fadePanel.raycastTarget = false;
             fadePanel.gameObject.SetActive(true);
         }
 
@@ -39,6 +40,7 @@ public class EndSceneManager : MonoBehaviour
             endTimeline.stopped += OnTimelineFinished;
         }
     }
+
 
     public void StartEndSequence()
     {

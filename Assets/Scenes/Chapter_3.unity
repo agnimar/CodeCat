@@ -13993,7 +13993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 236615455137517399, guid: d34771158dfa3954c9ec517550a0cb6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 6.9460263
+      value: 7.025
       objectReference: {fileID: 0}
     - target: {fileID: 236615455137517399, guid: d34771158dfa3954c9ec517550a0cb6e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22986,7 +22986,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: fe07174a7245a504185f088951cd542c, type: 2}
+  - {fileID: 2100000, guid: 3287184918d9a01469ebdafb97180a49, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26482,7 +26482,7 @@ MonoBehaviour:
   lowestSubdivLevelOverride: 0
   highestSubdivLevelOverride: 7
   overridesSubdivLevels: 0
-  mightNeedRebaking: 0
+  mightNeedRebaking: 1
   cachedTransform:
     e00: 1
     e01: 0
@@ -29956,6 +29956,10 @@ PrefabInstance:
     - target: {fileID: 3553181257885875690, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
       propertyPath: m_Name
       value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 3851318136565959054, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
       objectReference: {fileID: 0}
     - target: {fileID: 4098682148550182319, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
