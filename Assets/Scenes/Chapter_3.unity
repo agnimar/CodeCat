@@ -13997,7 +13997,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 236615455137517399, guid: d34771158dfa3954c9ec517550a0cb6e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.711
+      value: -17.711
       objectReference: {fileID: 0}
     - target: {fileID: 236615455137517399, guid: d34771158dfa3954c9ec517550a0cb6e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20935,7 +20935,7 @@ PrefabInstance:
     - target: {fileID: 7106158439296799704, guid: 87116f42681d27243ade125d840e891e, type: 3}
       propertyPath: sfxSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766783736}
     - target: {fileID: 7106158439296799704, guid: 87116f42681d27243ade125d840e891e, type: 3}
       propertyPath: quitButton
       value: 
@@ -20943,11 +20943,11 @@ PrefabInstance:
     - target: {fileID: 7106158439296799704, guid: 87116f42681d27243ade125d840e891e, type: 3}
       propertyPath: musicSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766783737}
     - target: {fileID: 7106158439296799704, guid: 87116f42681d27243ade125d840e891e, type: 3}
       propertyPath: masterSlider
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1766783738}
     - target: {fileID: 7106158439296799704, guid: 87116f42681d27243ade125d840e891e, type: 3}
       propertyPath: resumeButton
       value: 
@@ -24315,6 +24315,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3282242832999349735, guid: 591080a02b4e8ea45871593b8d4e7a6a, type: 3}
   m_PrefabInstance: {fileID: 1766712729}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1766783736 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1732078567396879270, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+  m_PrefabInstance: {fileID: 2083954340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1766783737 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3898400808334987424, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+  m_PrefabInstance: {fileID: 2083954340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1766783738 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2459997021465158570, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+  m_PrefabInstance: {fileID: 2083954340}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1767321220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26440,7 +26473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mode: 1
-  size: {x: 60.807198, y: 28.472519, z: 81.200005}
+  size: {x: 60.80719, y: 28.472519, z: 81.200005}
   overrideRendererFilters: 0
   minRendererVolumeSize: 0.1
   objectLayerMask:
@@ -26480,7 +26513,7 @@ Transform:
   m_GameObject: {fileID: 1920437364}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5249977, y: 8.312504, z: 24}
+  m_LocalPosition: {x: 0.5249939, y: 8.312504, z: 24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30041,8 +30074,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 7570306511933965027, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8972099468549302091, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
       insertIndex: -1
