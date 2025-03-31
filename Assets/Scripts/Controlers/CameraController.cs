@@ -142,5 +142,29 @@ public class CameraController : MonoBehaviour
     {
         mouseSensitivity = value;
     }
+    public void SetFirstPersonExternally(bool isFirstPersonView)
+    {
+        isFirstPerson = isFirstPersonView;
+
+        if (playerController != null)
+        {
+            playerController.SetFirstPersonMode(isFirstPerson);
+        }
+
+        if (cam != null)
+        {
+            if (isFirstPerson)
+            {
+                cam.cullingMask &= ~(1 << playerLayer);
+            }
+            else
+            {
+                cam.cullingMask |= (1 << playerLayer);
+            }
+        }
+
+        xRotation = isFirstPerson ? 0f : 18f;
+        yRotation = player.eulerAngles.y;
+    }
 
 }
