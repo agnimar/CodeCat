@@ -24218,6 +24218,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7755365914901813430}
+    - target: {fileID: 4098682148550182319, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClosePanels
+      objectReference: {fileID: 0}
     - target: {fileID: 4205256463484539285, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -24317,6 +24321,14 @@ PrefabInstance:
     - target: {fileID: 8352069011841270047, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8538043151379117169, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7755365914901813430}
+    - target: {fileID: 8538043151379117169, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClosePanels
       objectReference: {fileID: 0}
     - target: {fileID: 8548205251812110617, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
       propertyPath: m_AnchoredPosition.y
