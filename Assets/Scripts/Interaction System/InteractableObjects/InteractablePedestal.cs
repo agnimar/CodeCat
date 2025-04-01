@@ -53,6 +53,7 @@ public class InteractablePedestal : InteractableBase
         {
             Debug.LogWarning("PuzzleUIManager is not assigned on " + gameObject.name);
         }
+        SoundManager.PlaySound(SoundType.INTERACT);
     }
 
     public void OnPuzzleSolved()

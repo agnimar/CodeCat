@@ -24,7 +24,7 @@ public class SoundManager : MonoBehaviour
 
     [Header("Audio Mixer Groups")]
     [SerializeField] private AudioMixerGroup sfxAudioMixerGroup;
-    [SerializeField] private AudioMixerGroup bgmAudioMixerGroup; // Optional, for BGM
+    [SerializeField] private AudioMixerGroup bgmAudioMixerGroup;
 
     public static SoundManager instance { get; private set; }
     private AudioSource sfxSource;

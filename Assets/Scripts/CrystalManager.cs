@@ -71,6 +71,7 @@ public class CrystalManager : MonoBehaviour
 
     private void LowerBarrier()
     {
+        SoundManager.PlaySound(SoundType.PUZZLE_SOLVED);
         Debug.Log("LowerBarrier called");
         if (barrierAnimator != null)
         {
