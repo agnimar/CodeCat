@@ -47,7 +47,9 @@ public class InteractablePedestal : InteractableBase
 
         if (puzzleUIManager != null)
         {
-            puzzleUIManager.OpenPuzzleUI(puzzleQuestion, multipleChoiceOptions, correctAnswerIndices, this);
+            if (!puzzleUIManager.isPanelActive())
+                puzzleUIManager.OpenPuzzleUI(puzzleQuestion, multipleChoiceOptions, correctAnswerIndices, this);
+            else puzzleUIManager.ClosePuzzleUI();
         }
         else
         {
@@ -77,7 +79,7 @@ public class InteractablePedestal : InteractableBase
         {
             Debug.LogWarning("Linked Crystal is not assigned on " + gameObject.name);
         }
-
+        SoundManager.PlaySound(SoundType.SUCCESS);
         UpdateVisualState();
     }
 

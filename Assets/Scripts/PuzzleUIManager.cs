@@ -154,5 +154,8 @@ public class PuzzleUIManager : MonoBehaviour
             resumeButton.interactable = true;
         }
     }
-    
+    public bool isPanelActive()
+    {
+        return puzzlePanel.activeSelf;
+    }
 }

@@ -13,7 +13,8 @@ public enum SoundType
     PLACE_ON_PILLAR,
     PUZZLE_SOLVED,
     OPEN_UI,
-    BACKGROUND_MUSIC
+    BACKGROUND_MUSIC, 
+    SUCCESS
 }
 
 [RequireComponent(typeof(AudioSource)), ExecuteInEditMode]

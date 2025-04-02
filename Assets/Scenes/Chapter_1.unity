@@ -313135,7 +313135,7 @@ MonoBehaviour:
     keyToPress: 0
     targetObject: {fileID: 0}
     targetDistanceThreshold: 2
-    delayBeforeAdvance: 1
+    delayBeforeAdvance: 2
     lockMovement: 1
     lockInteraction: 1
   - message: "Press \u2018V\u2019 to switch between first and third person view."
@@ -428225,6 +428225,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3872754684338827495, guid: dcaf3be8613f52647ba2faa5086addbf, type: 3}
+      propertyPath: soundList.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872754684338827495, guid: dcaf3be8613f52647ba2faa5086addbf, type: 3}
+      propertyPath: soundList.Array.data[10].name
+      value: SUCCESS
+      objectReference: {fileID: 0}
+    - target: {fileID: 3872754684338827495, guid: dcaf3be8613f52647ba2faa5086addbf, type: 3}
+      propertyPath: 'soundList.Array.data[6].sounds.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8300000, guid: 1846e2a86688d574483928356b19a172, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
