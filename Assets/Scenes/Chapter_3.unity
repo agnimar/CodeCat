@@ -5269,7 +5269,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -15100,12 +15100,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   endTimeline: {fileID: 2091066061}
   fadePanel: {fileID: 400568414}
-  fadeDuration: 15
+  fadeDuration: 14
   playerController: {fileID: 2091066066}
   cameraController: {fileID: 1340168350}
   endCameraPosition: {fileID: 139377222}
   mainCamera: {fileID: 1340168353}
   sceneToLoad: EndScene
+  gameAudioMixer: {fileID: 24100000, guid: 2db78cb1a541d6b4dbb06eb30505cdd5, type: 2}
+  sfxVolumeParameter: SFXVolume
 --- !u!1 &1200358014
 GameObject:
   m_ObjectHideFlags: 0
@@ -21382,7 +21384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barrierSound: {fileID: 8300000, guid: b4dab022a20cf974b91c7a2217f4f95b, type: 3}
-  maxVolume: 0.6
+  maxVolume: 0.49
   maxDistance: 10
 --- !u!95 &1504774138
 Animator:

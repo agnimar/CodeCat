@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; // Added for scene loading
+using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 using System.Collections;
 
 public class EndSceneManager : MonoBehaviour
@@ -24,6 +25,10 @@ public class EndSceneManager : MonoBehaviour
     [Header("Scene Loading")]
     public string sceneToLoad;
 
+    [Header("Audio Control")]
+    public AudioMixer gameAudioMixer;
+    public string sfxVolumeParameter = "SFXVolume";
+
     private void Start()
     {
         if (fadePanel != null)
@@ -41,9 +46,13 @@ public class EndSceneManager : MonoBehaviour
         }
     }
 
-
     public void StartEndSequence()
     {
+        if (gameAudioMixer != null)
+        {
+            gameAudioMixer.SetFloat(sfxVolumeParameter, -80f);
+        }
+
         LockPlayerControl();
         ForceThirdPersonCamera();
         LockAndPositionCamera();
