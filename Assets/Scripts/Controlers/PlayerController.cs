@@ -162,7 +162,7 @@ public class PlayerController : MonoBehaviour
     }
     private void CheckFallThreshold()
     {
-        if (transform.position.y < -10)
+        if (transform.position.y < -1)
         {
             Debug.LogWarning("Player fell through terrain! Resetting position.");
             characterController.enabled = false;
