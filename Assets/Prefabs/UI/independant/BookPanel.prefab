@@ -17668,7 +17668,7 @@ MonoBehaviour:
     storing important information. Different types of data require different types
     of containers. \nIn the heart of the magical forest, objects infused with the
     essence of these variables await discovery, each reflecting the power of its
-    data type.:\r"
+    data type:"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b0aae22f55f1cf54c8768d2a8854e9ad, type: 2}
   m_sharedMaterial: {fileID: -5731986960139758937, guid: b0aae22f55f1cf54c8768d2a8854e9ad, type: 2}
@@ -17701,7 +17701,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 8
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -17736,7 +17736,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &8594412713933953125
