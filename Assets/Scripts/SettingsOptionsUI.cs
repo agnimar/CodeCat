@@ -112,7 +112,7 @@ public class SettingsOptionsUI : MonoBehaviour
     {
         if (Camera.main.TryGetComponent(out CameraController camCtrl))
         {
-            camCtrl.SetMouseSensitivity(value*100);
+            camCtrl.SetMouseSensitivity(value*200);
         }
     }
     private void SetupAudio()
