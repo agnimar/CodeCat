@@ -31,8 +31,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Slider mouseSensitivitySlider;
     private const string MOUSE_SENSITIVITY_PREF = "MouseSensitivity";
 
-    private const float MOUSE_SLIDER_MIN = 1f;
-    private const float MOUSE_SLIDER_MAX = 200f;
+    private const float MOUSE_SLIDER_MIN = 50f;
+    private const float MOUSE_SLIDER_MAX = 250f;
     private const float MOUSE_MULTIPLIER_MIN = 0.1f;
     private const float MOUSE_MULTIPLIER_MAX = 2.0f;
     private const float MOUSE_SLIDER_DEFAULT = 100f;
