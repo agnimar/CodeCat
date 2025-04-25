@@ -17,7 +17,9 @@ public class CameraController : MonoBehaviour
     public Vector3 sprintFirstPersonOffset = new Vector3(0, 0.45f, 0.2f);
 
     [Header("Sensitivity")]
-    public float mouseSensitivity = 100f;
+    [Tooltip("Base sensitivity multiplier. The slider value adjusts this.")]
+    [SerializeField] private float baseSensitivity = 1.0f;
+    private float sensitivityMultiplier = 1.0f;
 
     [Header("Smoothing")]
     public float positionLerpSpeed = 10f;
@@ -45,7 +47,17 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        UIManager.Instance.SetCursorLockState(true);
+        if (UIManager.Instance != null)
+        {
+            UIManager.Instance.SetCursorLockState(true);
+        }
+        else
+        {
+            Debug.LogWarning("UIManager instance not found in Start. Cursor state might not be set correctly.");
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
         yRotation = player.eulerAngles.y;
         playerController = player.GetComponent<PlayerController>();
         cam = GetComponent<Camera>();
@@ -74,32 +86,15 @@ public class CameraController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V))
         {
             isFirstPerson = !isFirstPerson;
-
-            if (playerController != null)
-            {
-                playerController.SetFirstPersonMode(isFirstPerson);
-            }
-            if (cam != null)
-            {
-                if (isFirstPerson)
-                {
-                    cam.cullingMask &= ~(1 << playerLayer);
-                }
-                else
-                {
-                    cam.cullingMask |= (1 << playerLayer);
-                }
-            }
-
-            xRotation = isFirstPerson ? 0f : 18f;
-            yRotation = player.eulerAngles.y;
+            SetFirstPersonModeInternal(isFirstPerson);
         }
     }
 
     private void HandleMouseLook()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
+        float finalSensitivity = baseSensitivity * sensitivityMultiplier;
+        float mouseX = Input.GetAxis("Mouse X") * finalSensitivity;
+        float mouseY = Input.GetAxis("Mouse Y") * finalSensitivity;
 
         if (isFirstPerson)
         {
@@ -113,6 +108,7 @@ public class CameraController : MonoBehaviour
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, tpMinVerticalAngle, tpMaxVerticalAngle);
         }
+
         if (!hasLookedAround && (Mathf.Abs(mouseX) > 0.01f || Mathf.Abs(mouseY) > 0.01f))
         {
             hasLookedAround = true;
@@ -131,20 +127,27 @@ public class CameraController : MonoBehaviour
         {
             Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0);
             targetPosition = player.position + rotation * thirdPersonOffset;
-            targetRotation = Quaternion.LookRotation((player.position + Vector3.up * 1.2f) - targetPosition);
+            Vector3 lookTargetPos = player.position + Vector3.up * 1.0f;
+            targetRotation = Quaternion.LookRotation(lookTargetPos - targetPosition);
         }
 
         transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * positionLerpSpeed);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationLerpSpeed);
     }
 
-    public void SetMouseSensitivity(float value)
+    public void SetSensitivityMultiplier(float multiplier)
     {
-        mouseSensitivity = value;
+        sensitivityMultiplier = Mathf.Max(0.01f, multiplier);
     }
+
     public void SetFirstPersonExternally(bool isFirstPersonView)
     {
-        isFirstPerson = isFirstPersonView;
+        SetFirstPersonModeInternal(isFirstPersonView);
+    }
+
+    private void SetFirstPersonModeInternal(bool firstPerson)
+    {
+        isFirstPerson = firstPerson;
 
         if (playerController != null)
         {
@@ -163,8 +166,7 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        xRotation = isFirstPerson ? 0f : 18f;
+        xRotation = isFirstPerson ? 0f : Mathf.Clamp(xRotation, tpMinVerticalAngle, tpMaxVerticalAngle);
         yRotation = player.eulerAngles.y;
     }
-
 }

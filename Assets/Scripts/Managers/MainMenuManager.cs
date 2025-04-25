@@ -31,6 +31,12 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private Slider mouseSensitivitySlider;
     private const string MOUSE_SENSITIVITY_PREF = "MouseSensitivity";
 
+    private const float MOUSE_SLIDER_MIN = 1f;
+    private const float MOUSE_SLIDER_MAX = 200f;
+    private const float MOUSE_MULTIPLIER_MIN = 0.1f;
+    private const float MOUSE_MULTIPLIER_MAX = 2.0f;
+    private const float MOUSE_SLIDER_DEFAULT = 100f;
+
     private Resolution[] allResolutions; 
     private List<string> uniqueResolutionOptions; 
 
@@ -83,16 +89,20 @@ public class MainMenuManager : MonoBehaviour
     private void SetupMouseSensitivity()
     {
         if (mouseSensitivitySlider == null) return;
-        float savedSensitivity = PlayerPrefs.GetFloat(MOUSE_SENSITIVITY_PREF, 150f);
-        mouseSensitivitySlider.value = savedSensitivity;
-        mouseSensitivitySlider.onValueChanged.AddListener(SetMouseSensitivity);
-        ApplyMouseSensitivity(savedSensitivity);
+
+        mouseSensitivitySlider.minValue = MOUSE_SLIDER_MIN;
+        mouseSensitivitySlider.maxValue = MOUSE_SLIDER_MAX;
+        mouseSensitivitySlider.wholeNumbers = false;
+
+        float savedSliderValue = PlayerPrefs.GetFloat(MOUSE_SENSITIVITY_PREF, MOUSE_SLIDER_DEFAULT);
+        mouseSensitivitySlider.value = savedSliderValue;
+
+        mouseSensitivitySlider.onValueChanged.AddListener(SetMouseSensitivityFromSlider);
     }
 
-    private void SetMouseSensitivity(float value)
+    private void SetMouseSensitivityFromSlider(float sliderValue)
     {
-        PlayerPrefs.SetFloat(MOUSE_SENSITIVITY_PREF, value);
-        ApplyMouseSensitivity(value);
+        PlayerPrefs.SetFloat(MOUSE_SENSITIVITY_PREF, sliderValue);
     }
 
     private void ApplyMouseSensitivity(float value)

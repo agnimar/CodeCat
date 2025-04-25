@@ -4,7 +4,7 @@ using UnityEngine.Audio;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
-using System.Linq; 
+using System.Linq;
 
 public class SettingsOptionsUI : MonoBehaviour
 {
@@ -26,6 +26,12 @@ public class SettingsOptionsUI : MonoBehaviour
     [SerializeField] private Slider mouseSensitivitySlider;
     private const string MOUSE_SENSITIVITY_PREF = "MouseSensitivity";
 
+    private const float MOUSE_SLIDER_MIN = 1f;
+    private const float MOUSE_SLIDER_MAX = 200f;
+    private const float MOUSE_MULTIPLIER_MIN = 0.1f;
+    private const float MOUSE_MULTIPLIER_MAX = 2.0f;
+    private const float MOUSE_SLIDER_DEFAULT = 100f;
+
     [Header("Settings Panels")]
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject pauseMenuPanel;
@@ -33,8 +39,8 @@ public class SettingsOptionsUI : MonoBehaviour
 
     [Header("Buttons")]
     [SerializeField] private Button resumeButton;
-    [SerializeField] private Button controlsButton; 
-    [SerializeField] private Button optionsButton;  
+    [SerializeField] private Button controlsButton;
+    [SerializeField] private Button optionsButton;
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button quitButton;
 
@@ -83,7 +89,6 @@ public class SettingsOptionsUI : MonoBehaviour
         optionsButton?.onClick.AddListener(OpenSettings);
         mainMenuButton?.onClick.AddListener(ReturnToMainMenu);
         quitButton?.onClick.AddListener(QuitGame);
-
     }
 
     private void Update()
@@ -103,27 +108,34 @@ public class SettingsOptionsUI : MonoBehaviour
     private void SetupMouseSensitivity()
     {
         if (mouseSensitivitySlider == null) return;
-        float savedSensitivity = PlayerPrefs.GetFloat(MOUSE_SENSITIVITY_PREF, 100f);
-        mouseSensitivitySlider.value = savedSensitivity;
-        mouseSensitivitySlider.onValueChanged.AddListener(SetMouseSensitivity);
-        ApplyMouseSensitivity(savedSensitivity); 
+
+        mouseSensitivitySlider.minValue = MOUSE_SLIDER_MIN;
+        mouseSensitivitySlider.maxValue = MOUSE_SLIDER_MAX;
+        mouseSensitivitySlider.wholeNumbers = false;
+
+        float savedSliderValue = PlayerPrefs.GetFloat(MOUSE_SENSITIVITY_PREF, MOUSE_SLIDER_DEFAULT);
+        mouseSensitivitySlider.value = savedSliderValue;
+
+        mouseSensitivitySlider.onValueChanged.AddListener(SetMouseSensitivityFromSlider);
+
+        ApplyMouseSensitivity(savedSliderValue);
     }
 
-    private void SetMouseSensitivity(float value)
+    private void SetMouseSensitivityFromSlider(float sliderValue)
     {
-        PlayerPrefs.SetFloat(MOUSE_SENSITIVITY_PREF, value);
-        ApplyMouseSensitivity(value);
+        PlayerPrefs.SetFloat(MOUSE_SENSITIVITY_PREF, sliderValue);
+        ApplyMouseSensitivity(sliderValue);
     }
 
-    private void ApplyMouseSensitivity(float value)
+    private void ApplyMouseSensitivity(float sliderValue)
     {
+        float normalizedValue = (sliderValue - MOUSE_SLIDER_MIN) / (MOUSE_SLIDER_MAX - MOUSE_SLIDER_MIN);
+        float multiplier = MOUSE_MULTIPLIER_MIN + normalizedValue * (MOUSE_MULTIPLIER_MAX - MOUSE_MULTIPLIER_MIN);
+
         CameraController camCtrl = FindObjectOfType<CameraController>();
         if (camCtrl != null)
         {
-            camCtrl.SetMouseSensitivity(value);
-        }
-        else
-        {
+            camCtrl.SetSensitivityMultiplier(multiplier);
         }
     }
 
@@ -165,7 +177,7 @@ public class SettingsOptionsUI : MonoBehaviour
         string currentScreenResString = Screen.currentResolution.width + "x" + Screen.currentResolution.height;
         int currentScreenIndexInOptions = uniqueResolutionOptions.FindIndex(option => option == currentScreenResString);
 
-        int targetIndex = 0; 
+        int targetIndex = 0;
 
         if (savedIndex != -1 && savedIndex < uniqueResolutionOptions.Count)
         {
@@ -177,26 +189,24 @@ public class SettingsOptionsUI : MonoBehaviour
             else if (currentScreenIndexInOptions != -1)
             {
                 targetIndex = currentScreenIndexInOptions;
-                PlayerPrefs.SetInt(RESOLUTION_PREF, targetIndex); // Update saved pref
+                PlayerPrefs.SetInt(RESOLUTION_PREF, targetIndex);
             }
             else
             {
                 targetIndex = savedIndex;
             }
-
         }
         else if (currentScreenIndexInOptions != -1)
         {
             targetIndex = currentScreenIndexInOptions;
-            PlayerPrefs.SetInt(RESOLUTION_PREF, targetIndex); // Save the correct index
+            PlayerPrefs.SetInt(RESOLUTION_PREF, targetIndex);
         }
         else
         {
             Debug.LogWarning($"Current resolution {currentScreenResString} not found in available options. Defaulting.");
             targetIndex = 0;
-            PlayerPrefs.SetInt(RESOLUTION_PREF, targetIndex); // Save fallback index
+            PlayerPrefs.SetInt(RESOLUTION_PREF, targetIndex);
         }
-
 
         resolutionDropdown.value = targetIndex;
         resolutionDropdown.RefreshShownValue();
@@ -205,7 +215,6 @@ public class SettingsOptionsUI : MonoBehaviour
 
         fullscreenToggle.isOn = PlayerPrefs.GetInt(FULLSCREEN_PREF, 1) == 1;
         fullscreenToggle.onValueChanged.AddListener(SetFullscreen);
-
         SetFullscreen(fullscreenToggle.isOn);
     }
 
@@ -251,7 +260,7 @@ public class SettingsOptionsUI : MonoBehaviour
                                             .OrderByDescending(r => r.refreshRateRatio.numerator / (double)r.refreshRateRatio.denominator)
                                             .FirstOrDefault();
 
-            if (targetResolution.width > 0) 
+            if (targetResolution.width > 0)
             {
                 Debug.Log($"Setting resolution to: {targetResolution.width}x{targetResolution.height} @ {targetResolution.refreshRateRatio}");
                 Screen.SetResolution(targetResolution.width, targetResolution.height, Screen.fullScreenMode, targetResolution.refreshRateRatio);
@@ -272,7 +281,7 @@ public class SettingsOptionsUI : MonoBehaviour
 
     public void SetFullscreen(bool isFullscreen)
     {
-        Screen.fullScreenMode = isFullscreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed; // Or ExclusiveFullScreen if preferred
+        Screen.fullScreenMode = isFullscreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
         PlayerPrefs.SetInt(FULLSCREEN_PREF, isFullscreen ? 1 : 0);
     }
 
@@ -287,7 +296,7 @@ public class SettingsOptionsUI : MonoBehaviour
             controlsPanel.SetActive(false);
         }
 
-        Time.timeScale = isPaused ? 0f : 1f; 
+        Time.timeScale = isPaused ? 0f : 1f;
         Cursor.lockState = isPaused ? CursorLockMode.Confined : CursorLockMode.Locked;
         Cursor.visible = isPaused;
     }
@@ -296,7 +305,7 @@ public class SettingsOptionsUI : MonoBehaviour
     {
         if (isPaused)
         {
-            TogglePauseMenu(); 
+            TogglePauseMenu();
         }
     }
 
@@ -326,8 +335,8 @@ public class SettingsOptionsUI : MonoBehaviour
 
     private void ReturnToMainMenu()
     {
-        Time.timeScale = 1f; 
-        SceneManager.LoadScene("MainMenu"); 
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void QuitGame()
