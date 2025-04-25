@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 using TMPro;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using System.Linq; 
 
 public class SettingsOptionsUI : MonoBehaviour
 {
@@ -32,15 +33,16 @@ public class SettingsOptionsUI : MonoBehaviour
 
     [Header("Buttons")]
     [SerializeField] private Button resumeButton;
-    [SerializeField] private Button controlsButton;
-    [SerializeField] private Button optionsButton;
+    [SerializeField] private Button controlsButton; 
+    [SerializeField] private Button optionsButton;  
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button quitButton;
 
-    private bool isSettingsOpen = false;
     private bool isPaused = false;
 
-    private Resolution[] resolutions;
+    private Resolution[] allResolutions;
+    private List<string> uniqueResolutionOptions;
+
     private const string MASTER_VOL_PARAM = "MasterVolume";
     private const string MUSIC_VOL_PARAM = "MusicVolume";
     private const string SFX_VOL_PARAM = "SFXVolume";
@@ -53,6 +55,7 @@ public class SettingsOptionsUI : MonoBehaviour
     private const string VSYNC_PREF = "VSync";
 
     public bool IsAnyMenuOpen => settingsPanel.activeSelf || pauseMenuPanel.activeSelf || controlsPanel.activeSelf;
+    public bool IsPaused => isPaused;
 
     private void Awake()
     {
@@ -70,23 +73,26 @@ public class SettingsOptionsUI : MonoBehaviour
         SetupAudio();
         SetupGraphics();
         SetupMouseSensitivity();
+
         pauseMenuPanel.SetActive(false);
         settingsPanel.SetActive(false);
         controlsPanel.SetActive(false);
 
-        resumeButton.onClick.AddListener(ResumeGame);
-        controlsButton.onClick.AddListener(OpenControls);
-        optionsButton.onClick.AddListener(OpenSettings);
-        mainMenuButton.onClick.AddListener(ReturnToMainMenu);
-        quitButton.onClick.AddListener(QuitGame);
+        resumeButton?.onClick.AddListener(ResumeGame);
+        controlsButton?.onClick.AddListener(OpenControls);
+        optionsButton?.onClick.AddListener(OpenSettings);
+        mainMenuButton?.onClick.AddListener(ReturnToMainMenu);
+        quitButton?.onClick.AddListener(QuitGame);
+
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (settingsPanel.activeSelf || controlsPanel.activeSelf)
             {
-                ClosePanels();
+                CloseSubPanels();
             }
             else
             {
@@ -96,10 +102,11 @@ public class SettingsOptionsUI : MonoBehaviour
     }
     private void SetupMouseSensitivity()
     {
+        if (mouseSensitivitySlider == null) return;
         float savedSensitivity = PlayerPrefs.GetFloat(MOUSE_SENSITIVITY_PREF, 100f);
         mouseSensitivitySlider.value = savedSensitivity;
         mouseSensitivitySlider.onValueChanged.AddListener(SetMouseSensitivity);
-        ApplyMouseSensitivity(savedSensitivity);
+        ApplyMouseSensitivity(savedSensitivity); 
     }
 
     private void SetMouseSensitivity(float value)
@@ -110,16 +117,22 @@ public class SettingsOptionsUI : MonoBehaviour
 
     private void ApplyMouseSensitivity(float value)
     {
-        if (Camera.main.TryGetComponent(out CameraController camCtrl))
+        CameraController camCtrl = FindObjectOfType<CameraController>();
+        if (camCtrl != null)
         {
-            camCtrl.SetMouseSensitivity(value*10);
+            camCtrl.SetMouseSensitivity(value);
+        }
+        else
+        {
         }
     }
+
     private void SetupAudio()
     {
-        float savedMasterVol = PlayerPrefs.GetFloat(MASTER_VOL_PREF, 1f);
-        float savedMusicVol = PlayerPrefs.GetFloat(MUSIC_VOL_PREF, 1f);
-        float savedSfxVol = PlayerPrefs.GetFloat(SFX_VOL_PREF, 1f);
+        if (masterSlider == null || musicSlider == null || sfxSlider == null || audioMixer == null) return;
+        float savedMasterVol = PlayerPrefs.GetFloat(MASTER_VOL_PREF, 0.8f);
+        float savedMusicVol = PlayerPrefs.GetFloat(MUSIC_VOL_PREF, 0.6f);
+        float savedSfxVol = PlayerPrefs.GetFloat(SFX_VOL_PREF, 0.8f);
 
         masterSlider.value = savedMasterVol;
         musicSlider.value = savedMusicVol;
@@ -136,29 +149,69 @@ public class SettingsOptionsUI : MonoBehaviour
 
     private void SetupGraphics()
     {
-        resolutions = Screen.resolutions;
+        if (resolutionDropdown == null || fullscreenToggle == null) return;
+
+        allResolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
 
-        List<string> options = new List<string>();
-        int currentResolutionIndex = PlayerPrefs.GetInt(RESOLUTION_PREF, 0);
+        uniqueResolutionOptions = allResolutions
+            .Select(res => res.width + "x" + res.height)
+            .Distinct()
+            .ToList();
 
-        for (int i = 0; i < resolutions.Length; i++)
+        resolutionDropdown.AddOptions(uniqueResolutionOptions);
+
+        int savedIndex = PlayerPrefs.GetInt(RESOLUTION_PREF, -1);
+        string currentScreenResString = Screen.currentResolution.width + "x" + Screen.currentResolution.height;
+        int currentScreenIndexInOptions = uniqueResolutionOptions.FindIndex(option => option == currentScreenResString);
+
+        int targetIndex = 0; 
+
+        if (savedIndex != -1 && savedIndex < uniqueResolutionOptions.Count)
         {
-            string option = resolutions[i].width + "x" + resolutions[i].height;
-            options.Add(option);
+            string savedResString = uniqueResolutionOptions[savedIndex];
+            if (savedResString == currentScreenResString)
+            {
+                targetIndex = savedIndex;
+            }
+            else if (currentScreenIndexInOptions != -1)
+            {
+                targetIndex = currentScreenIndexInOptions;
+                PlayerPrefs.SetInt(RESOLUTION_PREF, targetIndex); // Update saved pref
+            }
+            else
+            {
+                targetIndex = savedIndex;
+            }
+
+        }
+        else if (currentScreenIndexInOptions != -1)
+        {
+            targetIndex = currentScreenIndexInOptions;
+            PlayerPrefs.SetInt(RESOLUTION_PREF, targetIndex); // Save the correct index
+        }
+        else
+        {
+            Debug.LogWarning($"Current resolution {currentScreenResString} not found in available options. Defaulting.");
+            targetIndex = 0;
+            PlayerPrefs.SetInt(RESOLUTION_PREF, targetIndex); // Save fallback index
         }
 
-        resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
+
+        resolutionDropdown.value = targetIndex;
         resolutionDropdown.RefreshShownValue();
 
         resolutionDropdown.onValueChanged.AddListener(SetResolution);
+
         fullscreenToggle.isOn = PlayerPrefs.GetInt(FULLSCREEN_PREF, 1) == 1;
         fullscreenToggle.onValueChanged.AddListener(SetFullscreen);
 
+        SetFullscreen(fullscreenToggle.isOn);
     }
+
     public void SetMasterVolume(float value)
     {
+        if (audioMixer == null) return;
         float dB = (value <= 0.0001f) ? -80f : Mathf.Log10(value) * 20f;
         audioMixer.SetFloat(MASTER_VOL_PARAM, dB);
         PlayerPrefs.SetFloat(MASTER_VOL_PREF, value);
@@ -166,6 +219,7 @@ public class SettingsOptionsUI : MonoBehaviour
 
     public void SetMusicVolume(float value)
     {
+        if (audioMixer == null) return;
         float dB = (value <= 0.0001f) ? -80f : Mathf.Log10(value) * 20f;
         audioMixer.SetFloat(MUSIC_VOL_PARAM, dB);
         PlayerPrefs.SetFloat(MUSIC_VOL_PREF, value);
@@ -173,6 +227,7 @@ public class SettingsOptionsUI : MonoBehaviour
 
     public void SetSFXVolume(float value)
     {
+        if (audioMixer == null) return;
         float dB = (value <= 0.0001f) ? -80f : Mathf.Log10(value) * 20f;
         audioMixer.SetFloat(SFX_VOL_PARAM, dB);
         PlayerPrefs.SetFloat(SFX_VOL_PREF, value);
@@ -180,45 +235,69 @@ public class SettingsOptionsUI : MonoBehaviour
 
     public void SetResolution(int index)
     {
-        Resolution resolution = resolutions[index];
-        Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
-        PlayerPrefs.SetInt(RESOLUTION_PREF, index);
+        if (allResolutions == null || uniqueResolutionOptions == null || index < 0 || index >= uniqueResolutionOptions.Count)
+        {
+            Debug.LogError($"Invalid resolution index: {index}");
+            return;
+        }
+
+        string resolutionText = uniqueResolutionOptions[index];
+        string[] split = resolutionText.Split('x');
+
+        if (split.Length == 2 && int.TryParse(split[0], out int width) && int.TryParse(split[1], out int height))
+        {
+            Resolution targetResolution = allResolutions
+                                            .Where(r => r.width == width && r.height == height)
+                                            .OrderByDescending(r => r.refreshRateRatio.numerator / (double)r.refreshRateRatio.denominator)
+                                            .FirstOrDefault();
+
+            if (targetResolution.width > 0) 
+            {
+                Debug.Log($"Setting resolution to: {targetResolution.width}x{targetResolution.height} @ {targetResolution.refreshRateRatio}");
+                Screen.SetResolution(targetResolution.width, targetResolution.height, Screen.fullScreenMode, targetResolution.refreshRateRatio);
+                PlayerPrefs.SetInt(RESOLUTION_PREF, index);
+            }
+            else
+            {
+                Debug.LogError($"Could not find a matching Resolution struct for {width}x{height}. Applying without refresh rate.");
+                Screen.SetResolution(width, height, Screen.fullScreenMode);
+                PlayerPrefs.SetInt(RESOLUTION_PREF, index);
+            }
+        }
+        else
+        {
+            Debug.LogError($"Failed to parse resolution string: {resolutionText}");
+        }
     }
 
     public void SetFullscreen(bool isFullscreen)
     {
-        Screen.fullScreen = isFullscreen;
+        Screen.fullScreenMode = isFullscreen ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed; // Or ExclusiveFullScreen if preferred
         PlayerPrefs.SetInt(FULLSCREEN_PREF, isFullscreen ? 1 : 0);
     }
 
-    public void SetVSync(bool isEnabled)
-    {
-        QualitySettings.vSyncCount = isEnabled ? 1 : 0;
-        PlayerPrefs.SetInt(VSYNC_PREF, isEnabled ? 1 : 0);
-    }
-    public bool IsPaused => isPaused;
-    private void ToggleSettingsMenu()
-    {
-        isSettingsOpen = !isSettingsOpen;
-        settingsPanel.SetActive(isSettingsOpen);
-        Cursor.lockState = isSettingsOpen ? CursorLockMode.Confined : CursorLockMode.Locked;
-        Cursor.visible = isSettingsOpen;
-    }
     private void TogglePauseMenu()
     {
         isPaused = !isPaused;
         pauseMenuPanel.SetActive(isPaused);
-        Time.timeScale = isPaused ? 0 : 1;
+
+        if (isPaused)
+        {
+            settingsPanel.SetActive(false);
+            controlsPanel.SetActive(false);
+        }
+
+        Time.timeScale = isPaused ? 0f : 1f; 
         Cursor.lockState = isPaused ? CursorLockMode.Confined : CursorLockMode.Locked;
         Cursor.visible = isPaused;
     }
+
     private void ResumeGame()
     {
-        isPaused = false;
-        pauseMenuPanel.SetActive(false);
-        Time.timeScale = 1;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        if (isPaused)
+        {
+            TogglePauseMenu(); 
+        }
     }
 
     private void OpenSettings()
@@ -228,27 +307,36 @@ public class SettingsOptionsUI : MonoBehaviour
         settingsPanel.SetActive(true);
     }
 
-    public void ClosePanels()
-    {
-        settingsPanel.SetActive(false);
-        controlsPanel.SetActive(false);
-        pauseMenuPanel.SetActive(true);
-    }
     private void OpenControls()
     {
         settingsPanel.SetActive(false);
         pauseMenuPanel.SetActive(false);
         controlsPanel.SetActive(true);
     }
+
+    public void CloseSubPanels()
+    {
+        settingsPanel.SetActive(false);
+        controlsPanel.SetActive(false);
+        if (isPaused)
+        {
+            pauseMenuPanel.SetActive(true);
+        }
+    }
+
     private void ReturnToMainMenu()
     {
-        Time.timeScale = 1;
-        SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1f; 
+        SceneManager.LoadScene("MainMenu"); 
     }
 
     private void QuitGame()
     {
+        Debug.Log("Quitting Game...");
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
     }
-
 }
