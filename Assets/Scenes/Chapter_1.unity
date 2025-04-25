@@ -404688,6 +404688,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: faa11799aa6d0be48af990a0f520b9a6, type: 3}
+--- !u!114 &2027092520 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3927854783419838384, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+  m_PrefabInstance: {fileID: 4602996639003558228}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2027278422 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8925765598970821279, guid: 7d30b5e05d524c1479c9c18833411d79, type: 3}
@@ -428493,6 +428504,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1776284185}
+    - target: {fileID: 4098682148550182319, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseSubPanels
+      objectReference: {fileID: 0}
     - target: {fileID: 4162499233645981853, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -428509,6 +428524,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1776284184}
+    - target: {fileID: 5809766254471063018, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+      propertyPath: m_IsOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5809766254471063018, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+      propertyPath: graphic
+      value: 
+      objectReference: {fileID: 2027092520}
     - target: {fileID: 5876410098764063195, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -428665,6 +428688,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1776284185}
+    - target: {fileID: 8538043151379117169, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseSubPanels
+      objectReference: {fileID: 0}
     - target: {fileID: 8593288287497999817, guid: 00efd024aaa579e4a9c8609eeee0fc24, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

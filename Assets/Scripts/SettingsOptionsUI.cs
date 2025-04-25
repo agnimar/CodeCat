@@ -43,6 +43,8 @@ public class SettingsOptionsUI : MonoBehaviour
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button quitButton;
+    [SerializeField] private Button settingsBackButton; // Assign in Inspector
+    [SerializeField] private Button controlsBackButton; // Assign in Inspector
 
     private bool isPaused = false;
 
@@ -89,6 +91,8 @@ public class SettingsOptionsUI : MonoBehaviour
         optionsButton?.onClick.AddListener(OpenSettings);
         mainMenuButton?.onClick.AddListener(ReturnToMainMenu);
         quitButton?.onClick.AddListener(QuitGame);
+        settingsBackButton?.onClick.AddListener(CloseSubPanels);
+        controlsBackButton?.onClick.AddListener(CloseSubPanels);
     }
 
     private void Update()
