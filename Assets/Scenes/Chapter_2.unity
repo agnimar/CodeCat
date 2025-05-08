@@ -71085,7 +71085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2120824476258927897, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_text
-      value: What is the result of (true || false)
+      value: What is the result of if(true || false)?
       objectReference: {fileID: 0}
     - target: {fileID: 2120824476258927897, guid: fd1497cde0ae0d04ba26cdaba77db3d2, type: 3}
       propertyPath: m_VerticalAlignment

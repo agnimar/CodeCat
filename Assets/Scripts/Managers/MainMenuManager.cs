@@ -35,7 +35,7 @@ public class MainMenuManager : MonoBehaviour
     private const float MOUSE_SLIDER_MAX = 250f;
     private const float MOUSE_MULTIPLIER_MIN = 0.1f;
     private const float MOUSE_MULTIPLIER_MAX = 2.0f;
-    private const float MOUSE_SLIDER_DEFAULT = 100f;
+    private const float MOUSE_SLIDER_DEFAULT = 180f;
 
     private Resolution[] allResolutions; 
     private List<string> uniqueResolutionOptions; 

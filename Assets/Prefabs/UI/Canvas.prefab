@@ -10040,7 +10040,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Dfferent return types\nJust as potions come in many forms, methods can
-    return different types of data:\n\nstring GetHeroName()\r\n{\r\n    returin \"Arcturus
+    return different types of data:\n\nstring GetHeroName()\r\n{\r\n    return \"Arcturus
     the Bold\";\r\n}\r\n\r\nbool IsAlive(int health)\r\n{\r\n    return health >
     0;\r\n}\r\n\r\ndouble Multiply(double a, double b)\r\n{\r\n    return a * b;\r\n}\r\n\nThe
     type you declare as the return type must match the type of value your method

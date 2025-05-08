@@ -25,12 +25,11 @@ public class SettingsOptionsUI : MonoBehaviour
     [Header("Controls Settings")]
     [SerializeField] private Slider mouseSensitivitySlider;
     private const string MOUSE_SENSITIVITY_PREF = "MouseSensitivity";
-
     private const float MOUSE_SLIDER_MIN = 100f;
     private const float MOUSE_SLIDER_MAX = 250f;
     private const float MOUSE_MULTIPLIER_MIN = 0.1f;
     private const float MOUSE_MULTIPLIER_MAX = 2.0f;
-    private const float MOUSE_SLIDER_DEFAULT = 100f;
+    private const float MOUSE_SLIDER_DEFAULT = 180f;
 
     [Header("Settings Panels")]
     [SerializeField] private GameObject settingsPanel;
@@ -56,11 +55,11 @@ public class SettingsOptionsUI : MonoBehaviour
     private const string SFX_VOL_PARAM = "SFXVolume";
 
     private const string MASTER_VOL_PREF = "MasterVol";
+    private const float MASTER_VOL_DEFAULT = 0.5f;
     private const string MUSIC_VOL_PREF = "MusicVol";
     private const string SFX_VOL_PREF = "SFXVol";
     private const string RESOLUTION_PREF = "ResolutionIndex";
     private const string FULLSCREEN_PREF = "Fullscreen";
-    private const string VSYNC_PREF = "VSync";
 
     public bool IsAnyMenuOpen => settingsPanel.activeSelf || pauseMenuPanel.activeSelf || controlsPanel.activeSelf;
     public bool IsPaused => isPaused;
@@ -146,7 +145,7 @@ public class SettingsOptionsUI : MonoBehaviour
     private void SetupAudio()
     {
         if (masterSlider == null || musicSlider == null || sfxSlider == null || audioMixer == null) return;
-        float savedMasterVol = PlayerPrefs.GetFloat(MASTER_VOL_PREF, 0.8f);
+        float savedMasterVol = PlayerPrefs.GetFloat(MASTER_VOL_PREF, 0.5f);
         float savedMusicVol = PlayerPrefs.GetFloat(MUSIC_VOL_PREF, 0.6f);
         float savedSfxVol = PlayerPrefs.GetFloat(SFX_VOL_PREF, 0.8f);
 
