@@ -25992,7 +25992,7 @@ Texture2D:
     serializedVersion: 2
     Hash: d2989e6adbaf5353d77aa1a20021d673
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 3
+  serializedVersion: 4
   m_Width: 1
   m_Height: 1
   m_CompleteImageSize: 1

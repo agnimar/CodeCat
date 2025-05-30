@@ -5,7 +5,6 @@ using UnityEngine.Rendering.RenderGraphModule;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-// Empty class to be used in scenes and doesn't implement any additional overrides
 public class FullscreenEffect : FullscreenEffectBase<FullscreenPassBase<FullscreenPassDataBase>>
 {
 }
@@ -48,7 +47,6 @@ public class FullscreenEffectBase<T> : MonoBehaviour where T:FullscreenPassBase<
 
         _pass ??= new T();
 
-        // pass setup
         _pass.renderPassEvent = _injectionPoint + _injectionPointOffset;
         _pass.material = _material;
         if (_material != null)
@@ -66,14 +64,11 @@ public class FullscreenEffectBase<T> : MonoBehaviour where T:FullscreenPassBase<
 
     public virtual void OnBeginCamera( ScriptableRenderContext ctx, Camera cam )
     {
-        // Skip if pass wasn't initialized or if material is empty
         if (_pass == null || _material == null)
             return;
 
-        // Only draw for selected camera types
         if ( (cam.cameraType & _cameraType) == 0) return;
 
-        // injection pass
         cam.GetUniversalAdditionalCameraData().scriptableRenderer.EnqueuePass( _pass );
     }
 
@@ -123,7 +118,6 @@ public class FullscreenPassBase<T> : ScriptableRenderPass where T : FullscreenPa
             passData.cameraData = cameraData;
             passData.hasYFlipKeyword = hasYFlipKeyword;
 
-            // Set buffers access.
             if (inputRequirements.HasFlag(ScriptableRenderPassInput.Color))
             {
                 passData.textureHandle = resourceData.activeColorTexture;

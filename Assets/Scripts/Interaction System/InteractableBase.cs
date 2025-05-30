@@ -16,7 +16,7 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
     public string ItemName
     {
         get => itemName;
-        set => itemName = value; // Allow assignment
+        set => itemName = value;
     }
     private bool interactionEnabled = true;
 
@@ -25,7 +25,7 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
         if (string.IsNullOrEmpty(itemName))
         {
             Debug.LogWarning($"ItemName is not set for {gameObject.name}. Defaulting to prefab name.");
-            itemName = gameObject.name; // Default to the prefab name if ItemName is not set
+            itemName = gameObject.name; 
         }
     }
     public virtual bool CanInteract(GameObject interactor)
@@ -51,10 +51,10 @@ public abstract class InteractableBase : MonoBehaviour, IInteractable
         var inventory = data.Interactor.GetComponent<InventoryManager>();
         if (inventory == null) return;
 
-        var itemGameObject = gameObject; // This is the actual in-scene object
+        var itemGameObject = gameObject; 
         if (inventory.AddItem(itemGameObject))
         {
-            gameObject.SetActive(false); // Deactivate the item since it's now in the inventory.
+            gameObject.SetActive(false); 
         }
         else
         {

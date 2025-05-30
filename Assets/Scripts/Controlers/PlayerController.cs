@@ -16,22 +16,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform cameraTransform;
     [SerializeField] private Animator animator;
 
-    // Components
     private CharacterController characterController;
 
-    // Movement state
     private float currentMoveSpeed;
     private Vector3 smoothedMovement;
     private Vector3 gravityVelocity;
     private bool isGrounded;
     private Vector3 lastSafePosition;
 
-    // Animation state
     private bool isMoving;
     private bool wasMoving;
     public bool isSprinting;
 
-    // First-person mode flag
     private bool isFirstPersonMode = false;
 
     private void Start()

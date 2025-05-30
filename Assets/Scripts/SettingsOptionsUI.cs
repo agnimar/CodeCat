@@ -42,8 +42,8 @@ public class SettingsOptionsUI : MonoBehaviour
     [SerializeField] private Button optionsButton;
     [SerializeField] private Button mainMenuButton;
     [SerializeField] private Button quitButton;
-    [SerializeField] private Button settingsBackButton; // Assign in Inspector
-    [SerializeField] private Button controlsBackButton; // Assign in Inspector
+    [SerializeField] private Button settingsBackButton; 
+    [SerializeField] private Button controlsBackButton; 
 
     private bool isPaused = false;
 

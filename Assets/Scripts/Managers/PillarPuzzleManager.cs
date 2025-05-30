@@ -7,8 +7,8 @@ public class PillarPuzzleManager : MonoBehaviour
     public static PillarPuzzleManager Instance { get; private set; }
 
     [SerializeField] private List<InteractablePillar> pillars;
-    [SerializeField] private GameObject entrance; // Reference to the entrance
-    [SerializeField] private Animator entranceAnimator; // Animator for the entrance
+    [SerializeField] private GameObject entrance; 
+    [SerializeField] private Animator entranceAnimator; 
     [SerializeField] private UnityEvent onPuzzleCompleted;
 
     private bool isPuzzleSolved = false;
@@ -54,7 +54,7 @@ public class PillarPuzzleManager : MonoBehaviour
     {
         if (entranceAnimator != null)
         {
-            entranceAnimator.SetTrigger("Unlock"); // Play unlock animation
+            entranceAnimator.SetTrigger("Unlock"); 
         }
         else
         {

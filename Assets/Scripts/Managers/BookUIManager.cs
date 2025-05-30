@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; // Needed for Button
+using UnityEngine.UI;
 using TMPro;
 
 public class BookUIManager : MonoBehaviour
@@ -79,13 +79,11 @@ public class BookUIManager : MonoBehaviour
 
         if (isBookUIOpen)
         {
-            //PlayerEvents.OpenedBookAndInventory();
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
         }
         else
         {
-            //PlayerEvents.ProceedDownRoad();
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }

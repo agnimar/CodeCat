@@ -47,9 +47,6 @@ public class SoundOptionsUI : MonoBehaviour
 
     public void SetMasterVolume(float value)
     {
-        // Convert 0-1 range to decibels, -80dB at 0, 0dB at 1
-        // Use Mathf.Log10(value) * 20 as a typical conversion
-        // If value is 0, we clamp to -80 dB to avoid Log10(0).
         float dB = (value <= 0.0001f) ? -80f : Mathf.Log10(value) * 20f;
         audioMixer.SetFloat(MASTER_VOL_PARAM, dB);
 

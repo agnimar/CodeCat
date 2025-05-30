@@ -38,8 +38,6 @@ public class PlayFootsteps : MonoBehaviour
         tempSource.volume = volume;
         tempSource.pitch = randomPitch;
 
-        // Optionally, set other AudioSource properties if needed.
-        // tempSource.spatialBlend = 1.0f;
         tempSource.outputAudioMixerGroup = SoundManager.instance.GetSFXMixerGroup();
 
         tempSource.Play();
